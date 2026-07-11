@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1067" viewBox="0 0 1600 1067" role="img" aria-label="打ち込む瞬間">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(286 0.5 0.5)">
+      <stop offset="0%" stop-color="#D1452A" />
+      <stop offset="100%" stop-color="#0B1220" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1067" fill="url(#g)" />
+  <circle cx="-1440" cy="-480" r="40" fill="#ffffff" opacity="0.06" /><circle cx="-1392" cy="-235" r="-106" fill="#ffffff" opacity="0.06" /><circle cx="-976" cy="-491" r="-154" fill="#ffffff" opacity="0.06" /><circle cx="-736" cy="-704" r="-9" fill="#ffffff" opacity="0.06" /><circle cx="-496" cy="-245" r="-9" fill="#ffffff" opacity="0.06" />
+  <rect x="0" y="0" width="1600" height="1067" fill="#000000" opacity="0.12" />
+  <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="61.53846153846154" fill="#ffffff" opacity="0.9" font-weight="600">feature-strike</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="sans-serif" font-size="26.666666666666668" fill="#ffffff" opacity="0.7">PHOTO PENDING — 1600×1067</text>
+</svg>

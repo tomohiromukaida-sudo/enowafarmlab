@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125" role="img" aria-label="ドローン体験">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(258 0.5 0.5)">
+      <stop offset="0%" stop-color="#3E8FB0" />
+      <stop offset="100%" stop-color="#7C9A4C" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1125" fill="url(#g)" />
+  <circle cx="702" cy="1001" r="163" fill="#ffffff" opacity="0.06" /><circle cx="648" cy="765" r="204" fill="#ffffff" opacity="0.06" /><circle cx="306" cy="608" r="81" fill="#ffffff" opacity="0.06" /><circle cx="486" cy="878" r="204" fill="#ffffff" opacity="0.06" /><circle cx="504" cy="540" r="163" fill="#ffffff" opacity="0.06" />
+  <rect x="0" y="0" width="900" height="1125" fill="#000000" opacity="0.12" />
+  <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="34.61538461538461" fill="#ffffff" opacity="0.9" font-weight="600">experience-drone</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#ffffff" opacity="0.7">PHOTO PENDING — 900×1125</text>
+</svg>

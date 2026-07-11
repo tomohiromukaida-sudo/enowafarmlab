@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1250" viewBox="0 0 1000 1250" role="img" aria-label="乾杯する家族">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(315 0.5 0.5)">
+      <stop offset="0%" stop-color="#D1452A" />
+      <stop offset="100%" stop-color="#7C9A4C" />
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1250" fill="url(#g)" />
+  <circle cx="-410" cy="-888" r="-5" fill="#ffffff" opacity="0.06" /><circle cx="-930" cy="-613" r="-5" fill="#ffffff" opacity="0.06" /><circle cx="-750" cy="-1063" r="-51" fill="#ffffff" opacity="0.06" /><circle cx="-850" cy="-1013" r="40" fill="#ffffff" opacity="0.06" /><circle cx="-610" cy="-1088" r="-142" fill="#ffffff" opacity="0.06" />
+  <rect x="0" y="0" width="1000" height="1250" fill="#000000" opacity="0.12" />
+  <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="38.46153846153846" fill="#ffffff" opacity="0.9" font-weight="600">flow-toast</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="sans-serif" font-size="16.666666666666668" fill="#ffffff" opacity="0.7">PHOTO PENDING — 1000×1250</text>
+</svg>

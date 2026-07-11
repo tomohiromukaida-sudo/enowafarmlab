@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125" role="img" aria-label="太鼓演奏体験">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(146 0.5 0.5)">
+      <stop offset="0%" stop-color="#0B1220" />
+      <stop offset="100%" stop-color="#14140F" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1125" fill="url(#g)" />
+  <circle cx="234" cy="146" r="81" fill="#ffffff" opacity="0.06" /><circle cx="252" cy="360" r="81" fill="#ffffff" opacity="0.06" /><circle cx="594" cy="225" r="204" fill="#ffffff" opacity="0.06" /><circle cx="180" cy="709" r="81" fill="#ffffff" opacity="0.06" /><circle cx="243" cy="675" r="81" fill="#ffffff" opacity="0.06" />
+  <rect x="0" y="0" width="900" height="1125" fill="#000000" opacity="0.12" />
+  <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="34.61538461538461" fill="#ffffff" opacity="0.9" font-weight="600">experience-taiko</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#ffffff" opacity="0.7">PHOTO PENDING — 900×1125</text>
+</svg>

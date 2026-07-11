@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="金たらいの氷水に浮かぶ夏野菜">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(189 0.5 0.5)">
+      <stop offset="0%" stop-color="#D1452A" />
+      <stop offset="100%" stop-color="#E8B93A" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#g)" />
+  <circle cx="-518" cy="-151" r="-58" fill="#ffffff" opacity="0.06" /><circle cx="-1517" cy="-756" r="-58" fill="#ffffff" opacity="0.06" /><circle cx="-1632" cy="-1069" r="40" fill="#ffffff" opacity="0.06" /><circle cx="-1901" cy="-475" r="40" fill="#ffffff" opacity="0.06" /><circle cx="-1690" cy="-572" r="-58" fill="#ffffff" opacity="0.06" />
+  <rect x="0" y="0" width="1920" height="1080" fill="#000000" opacity="0.12" />
+  <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="73.84615384615384" fill="#ffffff" opacity="0.9" font-weight="600">hero-main</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#ffffff" opacity="0.7">PHOTO PENDING — 1920×1080</text>
+</svg>
