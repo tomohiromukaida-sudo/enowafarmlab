@@ -9,16 +9,7 @@
 
 ---
 
-## 1. SEO / メタ情報
-
-| 項目 | 日本語 (JA) | English (EN) | 繁體中文 (zh-TW) | 简体中文 (zh-CN) | 한국어 (KO) |
-|---|---|---|---|---|---|
-| title | ENOWA SUMMER EXPERIENCE｜夏を、好きだった頃の自分へ。｜ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE \| To the Summer You Once Loved. \| ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE｜獻給，曾經熱愛夏天的自己。｜ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE｜献给，曾经热爱夏天的自己。｜ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE｜여름을 좋아했던, 그 시절의 나에게.｜ENOWA YUFUIN |
-| description | 畑のトマトをその場でかじり、野菜シロップのかき氷に笑い、プールに飛び込み、源流太鼓が響く夜を経て、流れ星を待つ。ENOWA YUFUINで、子どもの頃の夏を取り戻す一日を。 | Bite into a sun-warmed tomato straight from the field, smile over vegetable-syrup shaved ice, dive into the pool, feel the Genryu Taiko drums echo through the night, and wait for a shooting star. Reclaim the summers of your childhood, for one day, at ENOWA YUFUIN. | 在田間當場咬下番茄，因野菜糖漿剉冰而微笑，躍入泳池，度過源流太鼓迴盪的夜晚，等待流星劃過。在ENOWA YUFUIN，找回兒時夏天的一天。 | 在田间当场咬下番茄，因野菜糖浆刨冰而微笑，跃入泳池，度过源流太鼓回荡的夜晚，等待流星划过。在ENOWA YUFUIN，找回儿时夏天的一天。 | 밭의 토마토를 그 자리에서 베어물고, 채소 시럽 빙수에 웃음짓고, 풀에 뛰어들고, 겐류다이코가 울려퍼지는 밤을 지나, 별똥별을 기다리다. ENOWA YUFUIN에서, 어린 시절의 여름을 되찾는 하루를. |
-
----
-
-## 2. Header ナビゲーション
+## 1. Header ナビゲーション
 
 | JA | EN | zh-TW | zh-CN | KO |
 |---|---|---|---|---|
@@ -30,7 +21,7 @@
 
 ---
 
-## 3. Hero
+## 2. Hero
 
 `AT ENOWA, YUFUIN — SUMMER 2026` は英語のまま全言語で使用。
 
@@ -45,7 +36,7 @@
 
 ---
 
-## 4. Manifesto（新規セクション）
+## 3. Manifesto（新規セクション）
 
 `AT ENOWA, YUFUIN` と見出し `The Summer You Remember.` は英語のまま全言語で使用。
 
@@ -57,7 +48,7 @@
 
 ---
 
-## 5. 24-Hour Timeline イントロ
+## 4. 24-Hour Timeline イントロ
 
 `24 Hours of ENOWA Summer` は英語のまま全言語で使用。
 
@@ -116,7 +107,7 @@
 
 ---
 
-## 6. Seasonal Experiences
+## 5. Seasonal Experiences
 
 `An ENOWA Summer` と見出し `Seasonal Experiences` は英語のまま全言語で使用。
 
@@ -152,7 +143,7 @@
 
 ---
 
-## 7. Closing CTA
+## 6. Closing CTA
 
 `Optional Experiences` は英語のまま全言語で使用。
 
@@ -165,7 +156,7 @@
 
 ---
 
-## 8. Footer
+## 7. Footer
 
 | 項目 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
 |---|---|---|---|---|---|
@@ -174,7 +165,7 @@
 
 ---
 
-## 9. モバイル固定CTA（StickyReserveCTA）
+## 8. モバイル固定CTA（StickyReserveCTA）
 
 | 項目 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
 |---|---|---|---|---|---|
