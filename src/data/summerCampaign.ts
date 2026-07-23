@@ -200,7 +200,7 @@ export const timeline: TimelineItem[] = [
     alt: "太鼓を打つ瞬間のクローズアップ",
   },
   {
-    time: "21:30",
+    time: "22:00",
     titleEn: "STARS",
     titleJa: "スターズ",
     description: "夜空を見上げ、流れ星を待つ。",
