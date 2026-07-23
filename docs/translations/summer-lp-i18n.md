@@ -1,11 +1,11 @@
 # ENOWA SUMMER EXPERIENCE LP — 翻訳文書 / Translation Reference
 
-FIX済み日本語版LPの全テキストを、英語（EN）・繁体字中国語（zh-TW）・簡体字中国語（zh-CN）・韓国語（KO）に翻訳したドキュメントです。
+**2026-07-23 改訂**: 実際に承認されたAdobe XDデザイン（フロー2）の内容に合わせてサイトを全面改修したため、本ドキュメントも全面的に作り直しました。旧版（8項目タイムライン・カード型Experiences等）の対訳は破棄しています。
 
 - サイト実装（多言語ページ化）は行っていません。翻訳確認・入稿・将来の実装用の参照資料です。
-- 原文（日本語）は `src/data/summerCampaign.ts` および各コンポーネントの表示テキストと一致しています（2026-07-23 FIX版、STARS を 22:00 に修正済み）。
-- `SUMMER HARVEST` / `TAIKO` / `POOL` などブランド上の英語ラベル（セクションの目のラベル: eyebrow）は全言語で **英語のまま**使用する想定のため対訳から除外しています。
-- 「TBD」の値（キャンペーン詳細の具体的な期間・料金等、シロップ名称）は未確定のため翻訳対象外です。確定後、日本語が確定次第この文書も更新してください。
+- 原文（日本語）は `src/data/summerCampaign.ts` および各コンポーネントの表示テキストと一致しています。
+- `AT ENOWA, YUFUIN — SUMMER 2026` / `The Summer You Remember.` / `at ENOWA — Farm Tour` のようなセクションの目印（eyebrow）や英語見出しは、ブランド上の演出として**全言語で英語のまま**使用する想定のため、対訳を「英語のまま使用」と記載しています。
+- 「エノファーム」「ENOWA FARM」「ENOWAガーデン」「ゆふいん源流太鼓」は固有名詞のため、原則ローマ字表記のまま各言語に残しています。
 
 ---
 
@@ -13,9 +13,8 @@ FIX済み日本語版LPの全テキストを、英語（EN）・繁体字中国�
 
 | 項目 | 日本語 (JA) | English (EN) | 繁體中文 (zh-TW) | 简体中文 (zh-CN) | 한국어 (KO) |
 |---|---|---|---|---|---|
-| title | ENOWA SUMMER EXPERIENCE｜夏こそ、ENOWA。｜ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE \| Summer Belongs at ENOWA. \| ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE｜夏天，就是ENOWA。｜ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE｜夏天，就是ENOWA。｜ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE｜여름은, ENOWA에서.｜ENOWA YUFUIN |
-| description | 収穫し、味わい、遊び、星を見上げる。ファーム、夏野菜、プール、かき氷、太鼓、星空まで。ENOWA YUFUINで、一生忘れられない夏を。 | Harvest, savor, play, and gaze at the stars. From the farm and summer vegetables to the pool, shaved ice, taiko drumming, and starry skies — spend an unforgettable summer at ENOWA YUFUIN. | 採收、品味、玩樂，抬頭仰望星空。從農場、夏季蔬菜到泳池、剉冰、太鼓與星空，在ENOWA YUFUIN度過一生難忘的夏天。 | 采摘、品味、玩耍，抬头仰望星空。从农场、夏季蔬菜到泳池、刨冰、太鼓与星空，在ENOWA YUFUIN度过一生难忘的夏天。 | 수확하고, 맛보고, 즐기고, 밤하늘의 별을 바라보다. 팜, 여름 채소, 수영장, 빙수, 태고(북) 공연, 별이 빛나는 밤하늘까지. ENOWA YUFUIN에서 평생 잊지 못할 여름을 보내세요. |
-| キャンペーン名 (brand.campaignName) | ENOWA サマーエクスペリエンス | ENOWA Summer Experience | ENOWA 夏日體驗 | ENOWA 夏日体验 | ENOWA 서머 익스피리언스 |
+| title | ENOWA SUMMER EXPERIENCE｜夏を、好きだった頃の自分へ。｜ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE \| To the Summer You Once Loved. \| ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE｜獻給，曾經熱愛夏天的自己。｜ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE｜献给，曾经热爱夏天的自己。｜ENOWA YUFUIN | ENOWA SUMMER EXPERIENCE｜여름을 좋아했던, 그 시절의 나에게.｜ENOWA YUFUIN |
+| description | 畑のトマトをその場でかじり、野菜シロップのかき氷に笑い、プールに飛び込み、源流太鼓が響く夜を経て、流れ星を待つ。ENOWA YUFUINで、子どもの頃の夏を取り戻す一日を。 | Bite into a sun-warmed tomato straight from the field, smile over vegetable-syrup shaved ice, dive into the pool, feel the Genryu Taiko drums echo through the night, and wait for a shooting star. Reclaim the summers of your childhood, for one day, at ENOWA YUFUIN. | 在田間當場咬下番茄，因野菜糖漿剉冰而微笑，躍入泳池，度過源流太鼓迴盪的夜晚，等待流星劃過。在ENOWA YUFUIN，找回兒時夏天的一天。 | 在田间当场咬下番茄，因野菜糖浆刨冰而微笑，跃入泳池，度过源流太鼓回荡的夜晚，等待流星划过。在ENOWA YUFUIN，找回儿时夏天的一天。 | 밭의 토마토를 그 자리에서 베어물고, 채소 시럽 빙수에 웃음짓고, 풀에 뛰어들고, 겐류다이코가 울려퍼지는 밤을 지나, 별똥별을 기다리다. ENOWA YUFUIN에서, 어린 시절의 여름을 되찾는 하루를. |
 
 ---
 
@@ -24,175 +23,170 @@ FIX済み日本語版LPの全テキストを、英語（EN）・繁体字中国�
 | JA | EN | zh-TW | zh-CN | KO |
 |---|---|---|---|---|
 | コンセプト | Concept | 概念 | 概念 | 컨셉 |
+| 24時間 | 24 Hours | 24小時 | 24小时 | 24시간 |
 | 体験 | Experiences | 體驗 | 体验 | 체험 |
-| 食 | Dining | 美食 | 美食 | 다이닝 |
-| 泊まる | Stay | 住宿 | 住宿 | 스테이 |
-| 夜 | Night | 夜晚 | 夜晚 | 나이트 |
-| キャンペーン詳細 | Campaign Details | 活動詳情 | 活动详情 | 캠페인 상세 |
 | メニューを開く（aria） | Open menu | 開啟選單 | 打开菜单 | 메뉴 열기 |
 | メニューを閉じる（aria） | Close menu | 關閉選單 | 关闭菜单 | 메뉴 닫기 |
 
 ---
 
-## 3. Hero（メインコピー・FIX版＝候補①）
+## 3. Hero
 
-| 行 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
+`AT ENOWA, YUFUIN — SUMMER 2026` は英語のまま全言語で使用。
+
+| 項目 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
 |---|---|---|---|---|---|
-| メインコピー1 | 夏こそ、ENOWA。 | Summer belongs at ENOWA. | 夏天，就是ENOWA。 | 夏天，就是ENOWA。 | 여름은, ENOWA에서. |
-| メインコピー2 | 収穫する。味わう。遊ぶ。星に願う。 | Harvest. Savor. Explore. Wish upon the stars. | 親手採收。細細品味。盡情玩樂。向星許願。 | 亲手采摘。细细品味。尽情玩耍。向星许愿。 | 수확하다. 맛보다. 즐기다. 별에게 소원을 빌다. |
-| メインコピー3 | 一生忘れられない夏休みが、ここから始まる。 | The summer you'll remember for a lifetime begins here. | 一生難忘的夏日，從這裡開始。 | 一生难忘的夏天，从这里开始。 | 평생 잊지 못할 여름이, 여기서 시작됩니다. |
-| CTAボタン | この夏の宿泊を予約する | Reserve Your Summer Stay | 預約這個夏天的住宿 | 预订这个夏天的住宿 | 이번 여름 숙박을 예약하다 |
+| 見出し（ハイライト語: 好きだった） | 夏を、好きだった頃の自分へ。 | To the summer you once loved. | 獻給，曾經熱愛夏天的自己。 | 献给，曾经热爱夏天的自己。 | 여름을 좋아했던, 그 시절의 나에게. |
+| サブコピー1（日本語） | 収穫する。味わう。遊ぶ。星に願う。 | *(英語版はサイト上の公式訳を使用)* Harvest. Taste. Play. Wish upon the stars. | 收穫。品味。玩樂。向星星許願。 | 采摘。品味。玩耍。向星星许愿。 | 수확하다. 맛보다. 즐기다. 별에게 소원을 빌다. |
+| サブコピー2（日本語） | 一生忘れられない夏休みが、ここから始まる。 | An unforgettable summer vacation begins at ENOWA. | 一生難忘的夏日假期，從ENOWA開始。 | 一生难忘的夏日假期，从ENOWA开始。 | 평생 잊지 못할 여름휴가가, ENOWA에서 시작됩니다. |
+| CTA①（サイト共通） | 宿泊予約をする | Book Your Stay | 立即訂房 | 立即订房 | 숙박 예약하기 |
+| CTA②（#dayへスクロール） | 夏の過ごし方を見る | See How to Spend Summer | 查看夏日玩法 | 查看夏日玩法 | 여름을 보내는 방법 보기 |
 | スクロール誘導（aria） | 次のセクションへスクロール | Scroll to next section | 捲動至下一區塊 | 滚动至下一区块 | 다음 섹션으로 스크롤 |
 
-> ※ CTAボタン文言「この夏の宿泊を予約する」はサイト全体で繰り返し使用されるため、以後の表では初出のみ記載し「(CTA共通)」と注記します。
+---
+
+## 4. Manifesto（新規セクション）
+
+`AT ENOWA, YUFUIN` と見出し `The Summer You Remember.` は英語のまま全言語で使用。
+
+| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|
+| 子どもの頃の夏を、覚えていますか。 | Do you remember the summers of your childhood? | 您還記得兒時的夏天嗎？ | 您还记得儿时的夏天吗？ | 어린 시절의 여름을 기억하시나요? |
+| 土の匂い、水しぶき、太鼓の音、空いっぱいの星。 | The scent of earth, the splash of water, the sound of taiko drums, a sky full of stars. | 泥土的氣息、水花四濺、太鼓的聲響、滿天的星斗。 | 泥土的气息、水花四溅、太鼓的声响、满天的星斗。 | 흙 내음, 물보라, 태고 소리, 가득한 밤하늘의 별. |
+| ENOWAは、あの頃の夏を取り戻す場所です。 | ENOWA is a place to reclaim that summer. | ENOWA，是找回那個夏天的地方。 | ENOWA，是找回那个夏天的地方。 | ENOWA는, 그 시절의 여름을 되찾는 곳입니다. |
 
 ---
 
-## 4. Section 02：ENOWAで過ごす、夏の24時間（A Summer Day at ENOWA）
+## 5. 24-Hour Timeline イントロ
+
+`24 Hours of ENOWA Summer` は英語のまま全言語で使用。
 
 | 項目 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
 |---|---|---|---|---|---|
-| 見出し | ENOWAで過ごす、夏の24時間。 | A Summer Day at ENOWA — 24 Hours | 在ENOWA度過的，夏日24小時。 | 在ENOWA度过的，夏日24小时。 | ENOWA에서 보내는, 여름의 24시간. |
-| リード文 | 畑で収穫し、プールで遊び、旬を味わい、星を見上げる。ENOWAの夏は、泊まるだけでは終わりません。 | Harvest in the fields, play in the pool, savor what's in season, and look up at the stars. Summer at ENOWA is more than just a stay. | 在農場採收，在泳池玩耍，品味當季美味，仰望星空。ENOWA的夏天，不只是住宿而已。 | 在农场采摘，在泳池玩耍，品味当季美味，仰望星空。ENOWA的夏天，不只是住宿而已。 | 밭에서 수확하고, 수영장에서 놀고, 제철 음식을 맛보고, 밤하늘의 별을 올려다봅니다. ENOWA의 여름은 단순한 숙박으로 끝나지 않습니다. |
-| CTA見出し | この夏の一日を、ENOWAで。 | Spend a day of summer at ENOWA. | 這個夏天的一天，在ENOWA度過。 | 这个夏天的一天，在ENOWA度过。 | 이 여름의 하루를, ENOWA에서. |
+| 見出し | ENOWAの夏は、24時間が特別になる。 | At ENOWA, every hour of summer becomes special. | 在ENOWA，夏天的24小時都變得特別。 | 在ENOWA，夏天的24小时都变得特别。 | ENOWA의 여름은, 24시간이 특별해집니다. |
+| リード1 | 朝、畑で収穫する。 | Morning, harvest in the fields. | 清晨，在農田裡採收。 | 清晨，在农田里采摘。 | 아침, 밭에서 수확하다. |
+| リード2 | 昼、風の中で遊ぶ。 | Midday, play in the breeze. | 白天，在風中玩樂。 | 白天，在风中玩耍。 | 낮, 바람 속에서 놀다. |
+| リード3 | 夕暮れ、自然の甘さを味わう。 | Dusk, savor nature's sweetness. | 黃昏，品味自然的甘甜。 | 黄昏，品味自然的甘甜。 | 저녁, 자연의 달콤함을 맛보다. |
+| リード4 | 夜、鼓動を感じる。 | Night, feel the heartbeat. | 夜晚，感受鼓動。 | 夜晚，感受鼓动。 | 밤, 고동을 느끼다. |
+| リード5 | そして最後は、星に願う。 | And finally, wish upon a star. | 最後，向星星許願。 | 最后，向星星许愿。 | 그리고 마지막은, 별에게 소원을 빌다. |
+| 結び | この夏だけの、一日をお過ごしください。 | Spend a day found only in this summer. | 請享受這個夏天限定的一天。 | 请享受这个夏天限定的一天。 | 이 여름에만 있는 하루를 보내세요. |
 
-### タイムライン（8項目・時刻は変更不可＝そのまま表示）
+### タイムライン 5項目
 
-| 時刻 | タイトル(EN固定) | タイトル(JA) | 説明(JA) | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|---|---|---|
-| 15:00 | CHECK IN | チェックイン | 由布院の緑に包まれて、夏の滞在が始まる。 | Wrapped in the greenery of Yufuin, your summer stay begins. | 沐浴在由布院的綠意中，夏日旅程就此展開。 | 沐浴在由布院的绿意中，夏日旅程就此展开。 | 유후인의 초록에 감싸여, 여름 숙박이 시작됩니다. |
-| 16:00 | HARVEST | ハーベスト | 畑に入り、旬の夏野菜に触れる。 | Step into the fields and touch summer vegetables at their peak. | 走進農田，親手觸摸當季夏季蔬菜。 | 走进农田，亲手触摸当季夏季蔬菜。 | 밭으로 들어가, 제철 여름 채소를 직접 만져봅니다. |
-| 17:00 | POOL & SAUNA | プール＆サウナ | 水と風を感じながら、思い思いに過ごす。 | Feel the water and the breeze, and spend the afternoon exactly as you like. | 感受水與風，隨心所欲地度過午後時光。 | 感受水与风，随心所欲地度过午后时光。 | 물과 바람을 느끼며, 마음 가는 대로 시간을 보냅니다. |
-| 18:30 | FARM DRIVEN DINNER | ファームドリブンディナー | その日、その畑で育った命を一皿に。 | What grew in the fields that very day becomes tonight's dinner. | 當天在農場孕育的生命，化為餐桌上的一道料理。 | 当天在农场孕育的生命，化为餐桌上的一道料理。 | 그날, 그 밭에서 자란 생명이 한 접시의 요리가 됩니다. |
-| 20:30 | SUMMER EXPERIENCE | サマーエクスペリエンス | 太鼓や季節限定の体験を楽しむ。 | Enjoy taiko drumming and other seasonal experiences. | 享受太鼓表演及季節限定體驗。 | 享受太鼓表演及季节限定体验。 | 태고(북) 공연과 계절 한정 체험을 즐깁니다. |
-| **22:00** | STARS | スターズ | 夜空を見上げ、流れ星を待つ。 | Look up at the night sky and wait for a shooting star. | 仰望夜空，等待流星劃過。 | 仰望夜空，等待流星划过。 | 밤하늘을 올려다보며, 별똥별을 기다립니다. |
-| 7:00 | MORNING FARM | モーニングファーム | 朝露の残る畑を歩く。 | Walk through fields still glistening with morning dew. | 漫步於仍留有晨露的田野間。 | 漫步于仍留有晨露的田野间。 | 아침 이슬이 남아 있는 밭을 거닙니다. |
-| 8:00 | BREAKFAST | ブレックファースト | 畑の恵みから、一日を始める。 | Start your day with the bounty of the farm. | 從農場的恩惠中，展開新的一天。 | 从农场的馈赠中，展开新的一天。 | 밭의 은혜로움으로, 하루를 시작합니다. |
+各項目の `at ENOWA — Farm Tour` 等の英語eyebrowは全言語で英語のまま使用。時刻もそのまま表示。
+
+**13:00 — Farm Tour**（ハイライト語: 熱い）
+
+| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|
+| 畑のトマトは、熱い。その場でかじってみる。 | The tomatoes in the field are warm. Take a bite, right there. | 田裡的番茄，是溫熱的。當場咬一口試試。 | 田里的番茄，是温热的。当场咬一口试试。 | 밭의 토마토는, 따뜻하다. 그 자리에서 한 입 베어물어보세요. |
+| 太陽の熱を抱えたまま実った一粒を、その場でかじる。冷蔵庫では決して出会えない、生命のみずみずしさがそこにあります。 | Bite into a tomato that ripened while still holding the sun's warmth — a freshness you'll never find in a refrigerator. | 咬下一顆仍帶著陽光熱度成熟的果實。那是冰箱裡絕對嚐不到的、生命的鮮甜。 | 咬下一颗仍带着阳光热度成熟的果实。那是冰箱里绝对尝不到的、生命的鲜甜。 | 태양의 열기를 그대로 머금은 채 익은 한 알을, 그 자리에서 베어뭅니다. 냉장고에서는 결코 만날 수 없는, 생명의 싱그러움이 그곳에 있습니다. |
+| ファームツアー／夏野菜収穫体験 | Farm Tour / Summer Vegetable Harvest Experience | 農場導覽／夏季蔬菜採收體驗 | 农场导览／夏季蔬菜采摘体验 | 팜 투어 / 여름 채소 수확 체험 |
+| 空から見るファームツアー／ドローン体験 | Aerial Farm Tour / Drone Experience | 空中農場導覽／無人機體驗 | 空中农场导览／无人机体验 | 하늘에서 보는 팜 투어 / 드론 체험 |
+
+**14:30 — Vegetable Syrup Kakigori**（ハイライト語: 甘さ）
+
+| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|
+| はじめての甘さに、笑った。 | A sweetness like no other made me smile. | 從未有過的甘甜，讓人不禁微笑。 | 从未有过的甘甜，让人不禁微笑。 | 처음 느끼는 단맛에, 웃음이 났다. |
+| エノファームのとれたて野菜で作るシロップは、フルーツより優しい甘さ。 | Syrup made from vegetables freshly picked at ENO FARM — a sweetness gentler than fruit. | 使用ENO FARM現採蔬菜製成的糖漿，甜味比水果更溫和。 | 使用ENO FARM现采蔬菜制成的糖浆，甜味比水果更温和。 | ENO FARM에서 갓 수확한 채소로 만든 시럽은, 과일보다 부드러운 단맛. |
+
+**15:30 — Private Pool**
+
+| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|
+| 由布院の風に飛び込んだ | Dove into the breeze of Yufuin. | 躍入由布院的微風之中。 | 跃入由布院的微风之中。 | 유후인의 바람 속으로 뛰어들었다. |
+| 見晴らしのいいプライベートプールで、笑い声が夏空へ溶けていく。 | In a private pool with sweeping views, laughter dissolves into the summer sky. | 在視野遼闊的私人泳池裡，笑聲融入夏日的天空。 | 在视野辽阔的私人泳池里，笑声融入夏日的天空。 | 전망이 탁 트인 프라이빗 풀에서, 웃음소리가 여름 하늘로 녹아듭니다. |
+| ※ プールのないお部屋もあります | * Some rooms do not have a pool. | ※ 部分房型無附設泳池。 | ※ 部分房型无附设泳池。 | ※ 풀이 없는 객실도 있습니다. |
+
+**20:00 — Genryu Taiko**（ハイライト語: 源流の鼓動）
+
+| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|
+| 夏の夜に、源流の鼓動がひびく。 | On a summer night, the pulse of Genryu echoes. | 夏夜裡，源流的鼓動迴盪。 | 夏夜里，源流的鼓动回荡。 | 여름밤, 겐류의 고동이 울려퍼진다. |
+| ENOWAガーデンのウッドデッキに響く太鼓の響き。由布院の夜とひとつになる。 | The sound of taiko drums resonates across ENOWA GARDEN's wooden deck, becoming one with the Yufuin night. | 太鼓的鼓聲迴盪在ENOWA GARDEN的木平台上，與由布院的夜晚融為一體。 | 太鼓的鼓声回荡在ENOWA GARDEN的木平台上，与由布院的夜晚融为一体。 | ENOWA 가든의 우드덱에 울려퍼지는 태고 소리. 유후인의 밤과 하나가 됩니다. |
+| 実施期間　7月29日（水）／8月28日（木）　19:30〜 | Dates: July 29 (Wed) / August 28 (Thu), from 19:30 | 實施期間　7月29日（三）／8月28日（四）　19:30〜 | 实施期间　7月29日（周三）／8月28日（周四）　19:30〜 | 실시 기간　7월 29일（수）／8월 28일（목）　19:30〜 |
+
+**21:30 — Night at ENOWA**
+
+| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|
+| 夜空にも、旬がある。 | Even the night sky has its season. | 夜空，也有屬於它的當令時節。 | 夜空，也有属于它的当令时节。 | 밤하늘에도, 제철이 있다. |
+| 畑に収穫の季節があるように、夜空にも一年に一度だけの見頃があります。夏は、ペルセウス座流星群。客室やENOWAガーデンから、由布院の静かな夜空をゆっくりとお楽しみください。 | Just as the fields have a harvest season, the night sky has its own once-a-year peak. In summer, it's the Perseid meteor shower. Enjoy Yufuin's quiet night sky at your leisure, from your room or ENOWA GARDEN. | 如同農田有收穫的季節，夜空也有一年僅一次的最佳觀賞期。夏天，是英仙座流星雨的季節。請從客房或ENOWA GARDEN，悠閒地欣賞由布院寧靜的夜空。 | 如同农田有收获的季节，夜空也有一年仅一次的最佳观赏期。夏天，是英仙座流星雨的季节。请从客房或ENOWA GARDEN，悠闲地欣赏由布院宁静的夜空。 | 밭에 수확의 계절이 있듯, 밤하늘에도 일 년에 단 한 번뿐인 절정이 있습니다. 여름은, 페르세우스자리 유성우. 객실이나 ENOWA 가든에서, 유후인의 고요한 밤하늘을 천천히 즐겨보세요. |
 
 ---
 
-## 5. Section 03：SUMMER EXPERIENCES（夏を、遊び尽くす。）
+## 6. Seasonal Experiences
 
-| 項目 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|---|
-| 見出し | 夏を、遊び尽くす。 | Play summer to the fullest. | 把夏天，玩到盡興。 | 把夏天，玩到尽兴。 | 여름을, 마음껏 즐기다. |
+`An ENOWA Summer` と見出し `Seasonal Experiences` は英語のまま全言語で使用。
 
-### カード（8項目）
+| タイトル(JA) | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|
+| 農園かき氷 | Farm Kakigori (Shaved Ice) | 農園剉冰 | 农园刨冰 | 농원 빙수 |
+| ペルセウス座流星群観測 | Perseid Meteor Shower Observation | 英仙座流星雨觀測 | 英仙座流星雨观测 | 페르세우스자리 유성우 관측 |
+| ドローン農場ツアー | Drone Farm Tour | 空拍農場之旅 | 空拍农场之旅 | 드론 농장 투어 |
+| 豊の国ゆふいん源流太鼓 野外演奏 | Toyo-no-Kuni Yufuin Genryu Taiko — Outdoor Performance | 豐之國由布院源流太鼓 野外演奏 | 丰之国由布院源流太鼓 野外演奏 | 토요노쿠니 유후인 겐류다이코 야외 공연 |
+| アウトドアプール | Outdoor Pool | 戶外泳池 | 户外泳池 | 아웃도어 풀 |
+| ファーム収穫体験 | Farm Harvest Experience | 農場採收體驗 | 农场采摘体验 | 팜 수확 체험 |
 
-| タイトル(EN固定) | タイトル(JA) | 説明(JA) | ラベル(JA) | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|---|---|---|
-| FARM HARVEST | ファームハーベスト | 畑に入り、その手で旬の夏野菜を収穫する。 | 要予約 | Step into the fields and harvest summer vegetables with your own hands. / *Reservation Required* | 走進農田，親手採收當季夏季蔬菜。 / *需預約* | 走进农田，亲手采摘当季夏季蔬菜。 / *需预约* | 밭에 들어가 직접 손으로 제철 여름 채소를 수확합니다. / *사전 예약 필요* |
-| VEGETABLE SHAVED ICE | ベジタブルかき氷 | 畑から生まれた野菜シロップの、夏だけのひと皿。 | — | A summer-only treat made with syrup born from the farm's vegetables. | 使用農場蔬菜製成糖漿，只在夏天限定的剉冰。 | 使用农场蔬菜制成糖浆，仅在夏天限定的刨冰。 | 밭에서 태어난 채소 시럽으로 만든, 여름에만 즐길 수 있는 한 그릇. |
-| POOL | プール | 水しぶきと笑い声に満ちた、夏だけの時間。 | — | A summer-only time filled with splashes and laughter. | 充滿水花與笑聲，只屬於夏天的時光。 | 充满水花与笑声，只属于夏天的时光。 | 물보라와 웃음소리로 가득한, 여름에만 있는 시간. |
-| DRONE EXPERIENCE | ドローン体験 | 由布院の空と緑を、上空から見渡す。 | 季節限定 | See Yufuin's sky and greenery from above. / *Seasonal* | 從空中俯瞰由布院的天空與綠意。 / *季節限定* | 从空中俯瞰由布院的天空与绿意。 / *季节限定* | 유후인의 하늘과 초록을 하늘 위에서 내려다봅니다. / *계절 한정* |
-| TAIKO PERFORMANCE | 太鼓演奏 | 体に響く音と振動を、間近で。 | — | Feel the sound and vibration in your body, up close. | 近距離感受震撼身心的鼓聲與震動。 | 近距离感受震撼身心的鼓声与震动。 | 몸에 울리는 소리와 진동을, 가까이에서. |
-| STARGAZING | スターゲイジング | 由布院の澄んだ夜空に、流れ星を待つ。 | — | Wait for a shooting star in Yufuin's clear night sky. | 在由布院澄澈的夜空下，等待流星劃過。 | 在由布院澄澈的夜空下，等待流星划过。 | 유후인의 맑은 밤하늘 아래에서, 별똥별을 기다립니다. |
-| SAUNA | サウナ | 汗と外気浴で、心と体をほどく。 | — | Sweat it out and unwind body and mind with outdoor air bathing. | 藉由流汗與外氣浴，讓身心徹底放鬆。 | 借助流汗与外气浴，让身心彻底放松。 | 땀과 외기욕으로, 몸과 마음을 풀어줍니다. |
-| FARM DRIVEN DINNER | ファームドリブンディナー | 今日の畑が、今夜の一皿になる。 | — | Today's harvest becomes tonight's dinner. | 今日的農場，化為今夜的一道料理。 | 今日的农场，化为今夜的一道料理。 | 오늘의 밭이, 오늘 밤의 한 접시가 됩니다. |
+| 説明文(JA) | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|
+| その日のファームの収穫状況によって素材が変わる、ENOWAらしい夏の一皿。 | A dish uniquely ENOWA — its ingredients change with what the farm harvests that day. | 依當日農場的採收狀況而變化食材，充滿ENOWA風格的夏日一品。 | 依当日农场的采收状况而变化食材，充满ENOWA风格的夏日一品。 | 그날 팜의 수확 상황에 따라 재료가 바뀌는, ENOWA다운 여름의 한 그릇. |
+| 光害のない由布院の夜空を見上げる。荒天時は中止。 | Look up at Yufuin's night sky, free of light pollution. Cancelled in case of bad weather. | 仰望不受光害影響的由布院夜空。天候不佳時將取消。 | 仰望不受光污染影响的由布院夜空。天气不佳时将取消。 | 빛 공해가 없는 유후인의 밤하늘을 올려다봅니다. 악천후 시 중지됩니다. |
+| 歩いた畑を、鳥の目線で見下ろす体験。 | See the fields you walked through from a bird's-eye view. | 以鳥瞰視角，俯瞰您走過的田野。 | 以鸟瞰视角，俯瞰您走过的田野。 | 걸었던 밭을, 새의 시선으로 내려다보는 체험. |
+| ゆふいん源流太鼓による演奏と、土地の鼓動を感じる時間。 | A performance by Yufuin Genryu Taiko — a time to feel the heartbeat of the land. | 由「由布院源流太鼓」帶來的演奏，感受這片土地的鼓動。 | 由“由布院源流太鼓”带来的演奏，感受这片土地的鼓动。 | 유후인 겐류다이코의 연주와 함께, 이 땅의 고동을 느끼는 시간. |
+| 由布岳を望む開放的なプール。水しぶきと笑い声が夏を作る。 | An open-air pool with views of Mt. Yufu. Splashes and laughter make the summer. | 可遠眺由布岳的開放式泳池。水花與笑聲交織成夏天。 | 可远眺由布岳的开放式泳池。水花与笑声交织成夏天。 | 유후다케를 바라보는 개방적인 풀. 물보라와 웃음소리가 여름을 만듭니다. |
+| 夏野菜が育つENOWA FARMを巡り、自然の循環に触れる体験。 | Tour ENOWA FARM, where summer vegetables grow, and experience nature's cycle firsthand. | 走訪孕育夏季蔬菜的ENOWA FARM，體驗自然的循環。 | 走访孕育夏季蔬菜的ENOWA FARM，体验自然的循环。 | 여름 채소가 자라는 ENOWA FARM을 둘러보며, 자연의 순환을 느끼는 체험. |
+
+| ラベル(JA) | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|
+| SUMMER ONLY | *(英語のまま)* | *(英語のまま)* | *(英語のまま)* | *(영어 그대로)* |
+| 8月土曜限定 | August Saturdays Only | 8月週六限定 | 8月周六限定 | 8월 토요일 한정 |
+| 日程限定 | Limited Dates | 限定日期 | 限定日期 | 일정 한정 |
+
+| 日程(JA) | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|
+| 観測期　7月下旬〜8月下旬　22:00〜夜明け前頃 | Viewing period: late July – late August, 22:00 until just before dawn | 觀測期　7月下旬〜8月下旬　22:00〜黎明前 | 观测期　7月下旬〜8月下旬　22:00〜黎明前 | 관측 기간　7월 하순〜8월 하순　22:00〜새벽 무렵까지 |
+| 8月毎週土曜日　12:00〜14:00 | Every Saturday in August, 12:00–14:00 | 8月每週六　12:00〜14:00 | 8月每周六　12:00〜14:00 | 8월 매주 토요일　12:00〜14:00 |
+| 実施期間　7月29日（水）／8月28日（木）　19:30〜 | Dates: July 29 (Wed) / August 28 (Thu), from 19:30 | 實施期間　7月29日（三）／8月28日（四）　19:30〜 | 实施期间　7月29日（周三）／8月28日（周四）　19:30〜 | 실시 기간　7월 29일（수）／8월 28일（목）　19:30〜 |
 
 ---
 
-## 6. Section 04：SUMMER HARVEST（夏のみずみずしさを、そのまま。）
+## 7. Closing CTA
 
-| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|
-| 夏のみずみずしさを、そのまま。 | The freshness of summer, just as it is. | 夏日的鮮美，原汁原味。 | 夏日的鲜美，原汁原味。 | 여름의 싱그러움을, 그대로. |
-
-## 7. Section 05：VEGETABLE SHAVED ICE（畑から生まれた、夏のひと皿。）
-
-| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|
-| 畑から生まれた、夏のひと皿。 | A taste of summer, born from the farm. | 誕生自農場，夏天限定的一品。 | 诞生自农场，夏天限定的一品。 | 밭에서 태어난, 여름의 한 그릇. |
-
-> シロップ3種（GREEN / RED / YELLOW）の正式名称・素材は `TBD` のため翻訳対象外。色名の英語表記（GREEN/RED/YELLOW）は全言語共通で使用してください。
-
-## 8. Section 06：FARM DRIVEN DINNER（今日の畑が、今夜の一皿になる。）
-
-| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|
-| 今日の畑が、今夜の一皿になる。 | Today's harvest becomes tonight's dinner. | 今日的農場，化為今夜的一道料理。 | 今日的农场，化为今夜的一道料理。 | 오늘의 밭이, 오늘 밤의 한 접시가 됩니다. |
-
-> FARM / KITCHEN / TABLE の3段階ラベルは全言語で英語のまま使用してください。
-
-## 9. Section 07：STAY IN SUMMER（水と風に、ほどけていく。）
+`Optional Experiences` は英語のまま全言語で使用。
 
 | 項目 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
 |---|---|---|---|---|---|
-| 見出し | 水と風に、ほどけていく。 | Let the water and breeze unwind you. | 在水與風中，漸漸放鬆。 | 在水与风中，渐渐放松。 | 물과 바람에, 서서히 풀어지다. |
-| グループラベル：客室 | 客室 | Room | 客房 | 客房 | 객실 |
-| 詳細リンク | 客室の詳細を見る | View Room Details | 查看客房詳情 | 查看客房详情 | 객실 상세 보기 |
+| 見出し | この夏、ENOWAで過ごす一日を。 | This summer, spend a day at ENOWA. | 這個夏天，在ENOWA度過這一天。 | 这个夏天，在ENOWA度过这一天。 | 이번 여름, ENOWA에서 보내는 하루를. |
+| 本文 | 畑から始まり、食卓、温泉、星空へとつながるENOWAの夏。由布院の夏を、ENOWAならではの滞在体験としてお楽しみください。 | ENOWA's summer begins in the fields and flows into the table, the hot spring, and the starry sky. Enjoy Yufuin's summer as only ENOWA can offer it. | 從農田開始，延伸至餐桌、溫泉、星空的ENOWA夏天。請將由布院的夏天，作為ENOWA獨有的住宿體驗盡情享受。 | 从农田开始，延伸至餐桌、温泉、星空的ENOWA夏天。请将由布院的夏天，作为ENOWA独有的住宿体验尽情享受。 | 밭에서 시작되어, 식탁, 온천, 밤하늘로 이어지는 ENOWA의 여름. 유후인의 여름을, ENOWA만의 특별한 체류 경험으로 즐겨보세요. |
+| CTA①（サイト共通） | 宿泊予約をする | Book Your Stay | 立即訂房 | 立即订房 | 숙박 예약하기 |
+| CTA② | お問い合わせ | Contact Us | 聯絡我們 | 联系我们 | 문의하기 |
 
-> グループラベルの POOL / SAUNA は全言語で英語のまま使用してください（客室のみ「Room／客房／객실」に翻訳）。
+---
 
-## 10. Section 08：SUMMER NIGHT（流れ星を待つ夜までが、ENOWAの夏です。）
-
-| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|
-| 流れ星を待つ夜までが、ENOWAの夏です。 | ENOWA's summer lasts until the night you wait for a shooting star. | 直到等待流星的夜晚，都是ENOWA的夏天。 | 直到等待流星的夜晚，都是ENOWA的夏天。 | 별똥별을 기다리는 밤까지가, ENOWA의 여름입니다. |
-
-> TAIKO / STARGAZING のサブラベルは全言語で英語のまま使用してください。
-
-## 11. Section 09：CAMPAIGN INFORMATION（キャンペーン詳細）
+## 8. Footer
 
 | 項目 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
 |---|---|---|---|---|---|
-| 見出し | キャンペーン詳細 | Campaign Details | 活動詳情 | 活动详情 | 캠페인 상세 |
-| 注記 | ※ 「TBD」の項目は現在確定作業中です。確定次第、本セクションのみ更新されます。 | * Items marked "TBD" are still being finalized. This section will be updated once details are confirmed. | ※ 標示「TBD」的項目目前正在確認中，確定後將僅更新本區塊內容。 | ※ 标示"TBD"的项目目前正在确认中，确定后将仅更新本区块内容。 | ※ 'TBD'로 표시된 항목은 현재 확정 작업 중입니다. 확정되는 대로 이 섹션만 업데이트됩니다. |
+| 免責注記 | 掲載写真にはイメージを含みます。一部の写真はENOWAで過ごす夏の世界観を表現したイメージです。 | Photos shown may include representative imagery. Some photos are illustrative, created to express the feeling of summer at ENOWA. | 刊登照片可能包含示意圖。部分照片為表現ENOWA夏日世界觀之示意影像。 | 刊登照片可能包含示意图。部分照片为表现ENOWA夏日世界观之示意影像。 | 게재된 사진에는 이미지 컷이 포함될 수 있습니다. 일부 사진은 ENOWA에서 보내는 여름의 세계관을 표현한 이미지입니다. |
+| コピーライト | © ENOWA ALL RIGHTS RESERVED. | *(英語のまま・全言語共通)* | *(英語のまま・全言語共通)* | *(英語のまま・全言語共通)* | *(영어 그대로・모든 언어 공통)* |
 
-### 項目ラベル（値は全てTBDのため翻訳対象外）
+---
 
-| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|
-| 実施期間 | Campaign Period | 活動期間 | 活动期间 | 실시 기간 |
-| 対象宿泊日 | Eligible Stay Dates | 適用住宿日期 | 适用住宿日期 | 대상 숙박일 |
-| 対象者 | Eligibility | 適用對象 | 适用对象 | 대상자 |
-| 体験内容 | Included Experiences | 體驗內容 | 体验内容 | 체험 내용 |
-| 事前予約の要否 | Advance Reservation | 是否需事先預約 | 是否需事先预约 | 사전 예약 필요 여부 |
-| 定員 | Capacity | 名額 | 名额 | 정원 |
-| 雨天・天候時の対応 | Rain / Weather Policy | 雨天・天候應對方式 | 雨天・天候应对方式 | 우천 시 대응 |
-| 宿泊料金への包含有無 | Included in Room Rate? | 是否包含於住宿費用 | 是否包含于住宿费用 | 숙박 요금 포함 여부 |
-| 注意事項 | Notes | 注意事項 | 注意事项 | 유의사항 |
-
-## 12. Section 10：ページ最下部 CTA
+## 9. モバイル固定CTA（StickyReserveCTA）
 
 | 項目 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
 |---|---|---|---|---|---|
-| 見出し | この夏の宿泊を予約する（CTA共通） | Reserve Your Summer Stay | 預約這個夏天的住宿 | 预订这个夏天的住宿 | 이번 여름 숙박을 예약하다 |
-| サブコピー | 一生忘れられない夏休みが、ここから始まる。 | The summer you'll remember for a lifetime begins here. | 一生難忘的夏日，從這裡開始。 | 一生难忘的夏天，从这里开始。 | 평생 잊지 못할 여름이, 여기서 시작됩니다. |
-
-## 13. モバイル固定CTA（StickyReserveCTA）
-
-| 項目 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|---|
-| 見出し | 夏こそ、ENOWA。 | Summer belongs at ENOWA. | 夏天，就是ENOWA。 | 夏天，就是ENOWA。 | 여름은, ENOWA에서. |
-| 本文 | この夏の宿泊を予約する（CTA共通） | Reserve Your Summer Stay | 預約這個夏天的住宿 | 预订这个夏天的住宿 | 이번 여름 숙박을 예약하다 |
 | 領域ラベル（aria） | 宿泊予約 | Reservation | 訂房 | 订房 | 숙박 예약 |
 | 閉じるボタン（aria） | この表示を閉じる | Close this banner | 關閉此提示 | 关闭此提示 | 이 배너 닫기 |
 
----
-
-## 付録：ヒーローコピー候補②③（現在未使用・参考訳）
-
-サイト上は候補①（上記 §3）で確定していますが、`src/data/summerCampaign.ts` の `copyVariants` に他2案も残っています。将来切り替える場合に備え参考訳のみ用意しました。
-
-### 候補②
-
-| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|
-| そういえば、夏ってこんなに楽しかった。 | Come to think of it, summer used to be this much fun. | 說起來，夏天原來這麼好玩。 | 说起来，夏天原来这么好玩。 | 그러고 보니, 여름이 이렇게 즐거웠었지. |
-| 風を感じて、土に触れて、旬を味わい、夜空を見上げる。 | Feel the wind, touch the earth, taste what's in season, and look up at the night sky. | 感受微風，觸摸泥土，品味當季，仰望夜空。 | 感受微风，触摸泥土，品味当季，仰望夜空。 | 바람을 느끼고, 흙을 만지고, 제철을 맛보고, 밤하늘을 올려다보다. |
-| 忘れていた夏が、ここにあります。 | The summer you forgot is right here. | 被遺忘的夏天，就在這裡。 | 被遗忘的夏天，就在这里。 | 잊고 있던 여름이, 여기 있습니다. |
-
-### 候補③
-
-| 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|
-| 夏を、好きだった頃の自分へ。 | To the self who once loved summer. | 獻給，曾經熱愛夏天的自己。 | 献给，曾经热爱夏天的自己。 | 여름을 좋아했던, 그 시절의 나에게. |
+本文・ボタンはHeroのCTA文言（§3）を再利用しています。
 
 ---
 
 ## 未翻訳・要確認事項
 
-- キャンペーン詳細9項目の値（実施期間・対象宿泊日など）：日本語が `TBD` のため、確定後に本書へ追記が必要です。
-- 野菜シロップ3種の正式名称・素材：同上、`TBD` のため未翻訳です。
-- 予約URL（現在 `#reservation` の仮リンク）：多言語ページを実装する場合、言語ごとに別の予約導線URLが必要かどうかご確認ください。
+- 予約URL（`#reservation`）・お問い合わせURL（`#contact`）は共に仮リンクです。多言語ページを実装する場合、言語ごとに別の導線URLが必要かどうかご確認ください。
+- 「エノファーム」「ENOWA FARM」「ENOWAガーデン」の英語表記揺れ（Eno Farm / ENO FARM等）は、正式なブランドガイドラインが確定次第、統一してください。
+- 「ゆふいん源流太鼓」「豊の国ゆふいん源流太鼓」の正式英語表記（Genryu Taiko / Yufuin Genryu Taiko等）も、団体様の正式名称確認をおすすめします。
