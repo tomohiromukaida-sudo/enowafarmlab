@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { brand, seo } from "@/data/summerCampaign";
+import { brand, hero, seo } from "@/data/summerCampaign";
 
 export const alt = seo.ogImageAlt;
 export const size = { width: 1200, height: 630 };
@@ -43,7 +43,7 @@ export default async function Image() {
             color: "#ffffff",
           }}
         >
-          夏こそ、ENOWA。
+          {hero.headlineLines.join("")}
         </div>
         <div
           style={{
@@ -53,7 +53,7 @@ export default async function Image() {
             color: "rgba(255,255,255,0.85)",
           }}
         >
-          {brand.tagline}
+          {hero.subEn[0]}
         </div>
       </div>
     ),

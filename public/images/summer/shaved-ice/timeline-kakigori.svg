@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="野菜シロップのかき氷">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(93 0.5 0.5)">
+      <stop offset="0%" stop-color="#CFEAE6" />
+      <stop offset="100%" stop-color="#3E8FB0" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#g)" />
+  <circle cx="636" cy="234" r="163" fill="#ffffff" opacity="0.06" /><circle cx="972" cy="855" r="163" fill="#ffffff" opacity="0.06" /><circle cx="1164" cy="333" r="40" fill="#ffffff" opacity="0.06" /><circle cx="444" cy="297" r="122" fill="#ffffff" opacity="0.06" /><circle cx="804" cy="18" r="204" fill="#ffffff" opacity="0.06" />
+  <rect x="0" y="0" width="1200" height="900" fill="#000000" opacity="0.12" />
+  <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="46.15384615384615" fill="#ffffff" opacity="0.9" font-weight="600">timeline-kakigori</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#ffffff" opacity="0.7">PHOTO PENDING — 1200×900</text>
+</svg>

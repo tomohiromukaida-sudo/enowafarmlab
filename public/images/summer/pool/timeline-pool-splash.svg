@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1280" viewBox="0 0 1920 1280" role="img" aria-label="プライベートプールで水しぶきをあげる子どもたち">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(341 0.5 0.5)">
+      <stop offset="0%" stop-color="#1F3D2B" />
+      <stop offset="100%" stop-color="#3E8FB0" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1280" fill="url(#g)" />
+  <circle cx="-1824" cy="-1254" r="40" fill="#ffffff" opacity="0.06" /><circle cx="-960" cy="-806" r="-193" fill="#ffffff" opacity="0.06" /><circle cx="-1574" cy="-1101" r="40" fill="#ffffff" opacity="0.06" /><circle cx="-1651" cy="-870" r="-76" fill="#ffffff" opacity="0.06" /><circle cx="-691" cy="-1101" r="-18" fill="#ffffff" opacity="0.06" />
+  <rect x="0" y="0" width="1920" height="1280" fill="#000000" opacity="0.12" />
+  <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="73.84615384615384" fill="#ffffff" opacity="0.9" font-weight="600">timeline-pool-splash</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#ffffff" opacity="0.7">PHOTO PENDING — 1920×1280</text>
+</svg>

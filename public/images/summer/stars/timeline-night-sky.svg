@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1280" viewBox="0 0 1920 1280" role="img" aria-label="由布院の澄んだ星空と流れ星">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(348 0.5 0.5)">
+      <stop offset="0%" stop-color="#0B1220" />
+      <stop offset="100%" stop-color="#06090F" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1280" fill="url(#g)" />
+  <circle cx="538" cy="179" r="215" fill="#ffffff" opacity="0.06" /><circle cx="538" cy="1050" r="156" fill="#ffffff" opacity="0.06" /><circle cx="787" cy="384" r="273" fill="#ffffff" opacity="0.06" /><circle cx="576" cy="333" r="98" fill="#ffffff" opacity="0.06" /><circle cx="1018" cy="256" r="40" fill="#ffffff" opacity="0.06" />
+  <rect x="0" y="0" width="1920" height="1280" fill="#000000" opacity="0.12" />
+  <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="73.84615384615384" fill="#ffffff" opacity="0.9" font-weight="600">timeline-night-sky</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#ffffff" opacity="0.7">PHOTO PENDING — 1920×1280</text>
+</svg>

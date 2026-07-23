@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1280" viewBox="0 0 1920 1280" role="img" aria-label="夕暮れに演奏される太鼓の連なり">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(137 0.5 0.5)">
+      <stop offset="0%" stop-color="#0B1220" />
+      <stop offset="100%" stop-color="#14140F" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1280" fill="url(#g)" />
+  <circle cx="-365" cy="-768" r="-193" fill="#ffffff" opacity="0.06" /><circle cx="-1248" cy="-538" r="40" fill="#ffffff" opacity="0.06" /><circle cx="-1363" cy="-602" r="-135" fill="#ffffff" opacity="0.06" /><circle cx="-902" cy="-525" r="-18" fill="#ffffff" opacity="0.06" /><circle cx="-1555" cy="-205" r="-135" fill="#ffffff" opacity="0.06" />
+  <rect x="0" y="0" width="1920" height="1280" fill="#000000" opacity="0.12" />
+  <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="73.84615384615384" fill="#ffffff" opacity="0.9" font-weight="600">timeline-taiko</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#ffffff" opacity="0.7">PHOTO PENDING — 1920×1280</text>
+</svg>

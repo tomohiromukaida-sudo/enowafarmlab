@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { RESERVATION_URL, brand, gaEvents, nav } from "@/data/summerCampaign";
+import { RESERVATION_URL, brand, gaEvents, hero, nav } from "@/data/summerCampaign";
 import { trackEvent } from "@/lib/gtag";
 
 /**
@@ -57,7 +57,7 @@ export default function Header() {
                 : "bg-enowa-cream/90 text-enowa-green hover:bg-enowa-cream"
             }`}
           >
-            RESERVE
+            {hero.ctaPrimary}
           </a>
         </nav>
 
@@ -105,7 +105,7 @@ export default function Header() {
             }}
             className="mt-3 min-h-11 rounded-full bg-enowa-green px-5 py-3 text-center text-sm font-medium tracking-wide text-enowa-cream"
           >
-            RESERVE
+            {hero.ctaPrimary}
           </a>
         </nav>
       )}

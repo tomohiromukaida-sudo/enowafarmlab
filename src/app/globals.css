@@ -13,6 +13,7 @@
   --color-summer-farm: #7c9a4c;
   --color-summer-pool: #3e8fb0;
   --color-summer-ice: #cfeae6;
+  --color-summer-highlight: #c17b2e;
 }
 
 @theme inline {
@@ -32,6 +33,7 @@
   --color-summer-farm: var(--color-summer-farm);
   --color-summer-pool: var(--color-summer-pool);
   --color-summer-ice: var(--color-summer-ice);
+  --color-summer-highlight: var(--color-summer-highlight);
 }
 
 body {

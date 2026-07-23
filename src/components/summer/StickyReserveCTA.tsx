@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { RESERVATION_URL, gaEvents } from "@/data/summerCampaign";
+import { hero, RESERVATION_URL, gaEvents } from "@/data/summerCampaign";
 import { trackEvent } from "@/lib/gtag";
 
 const DISMISS_KEY = "enowa-summer-sticky-cta-dismissed";
@@ -52,16 +52,16 @@ export default function StickyReserveCTA() {
       aria-label="宿泊予約"
     >
       <p className="flex-1 text-xs font-medium leading-snug text-enowa-black">
-        夏こそ、ENOWA。
+        {hero.headlineLines.join("")}
         <br />
-        <span className="text-enowa-black/60">この夏の宿泊を予約する</span>
+        <span className="text-enowa-black/60">{hero.ctaPrimary}</span>
       </p>
       <a
         href={RESERVATION_URL}
         onClick={() => trackEvent(gaEvents.stickyReserveClick)}
         className="inline-flex min-h-11 items-center justify-center rounded-full bg-enowa-green px-5 py-2.5 text-xs font-medium tracking-wide text-enowa-cream"
       >
-        RESERVE
+        {hero.ctaPrimary}
       </a>
       <button
         type="button"
