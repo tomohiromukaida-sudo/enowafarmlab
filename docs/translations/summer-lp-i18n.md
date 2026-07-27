@@ -1,5 +1,7 @@
 # ENOWA SUMMER EXPERIENCE LP — 翻訳文書 / Translation Reference
 
+**2026-07-27 改訂**: 「夏のENOWA特別体験LP 修正内容まとめ」レビューで確定した内容を反映（太鼓の時刻 20:00→19:30、Seasonal Experiences各項目の名称変更・並び替え・説明文修正、星空セクション英訳の修正）。変更箇所には改訂注記を付けています。
+
 **2026-07-23 改訂**: 実際に承認されたAdobe XDデザイン（フロー2）の内容に合わせてサイトを全面改修したため、本ドキュメントも全面的に作り直しました。旧版（8項目タイムライン・カード型Experiences等）の対訳は破棄しています。
 
 - サイト実装（多言語ページ化）は行っていません。翻訳確認・入稿・将来の実装用の参照資料です。
@@ -90,19 +92,21 @@
 | 見晴らしのいいプライベートプールで、笑い声が夏空へ溶けていく。 | In a private pool with sweeping views, laughter dissolves into the summer sky. | 在視野遼闊的私人泳池裡，笑聲融入夏日的天空。 | 在视野辽阔的私人泳池里，笑声融入夏日的天空。 | 전망이 탁 트인 프라이빗 풀에서, 웃음소리가 여름 하늘로 녹아듭니다. |
 | ※ プールのないお部屋もあります | * Some rooms do not have a pool. | ※ 部分房型無附設泳池。 | ※ 部分房型无附设泳池。 | ※ 풀이 없는 객실도 있습니다. |
 
-**20:00 — Genryu Taiko**（ハイライト語: 源流の鼓動）
+**19:30 — Genryu Taiko**（ハイライト語: 源流の鼓動／2026-07-27改訂: 時刻を20:00→19:30に変更）
+
+タイムライン上にJA正式名称「豊の国ゆふいん源流太鼓 野外演奏」を明示表示。対訳は §5 のSeasonal Experiences表と共通。
 
 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
 |---|---|---|---|---|
 | 夏の夜に、源流の鼓動がひびく。 | On a summer night, the pulse of Genryu echoes. | 夏夜裡，源流的鼓動迴盪。 | 夏夜里，源流的鼓动回荡。 | 여름밤, 겐류의 고동이 울려퍼진다. |
 | ENOWAガーデンのウッドデッキに響く太鼓の響き。由布院の夜とひとつになる。 | The sound of taiko drums resonates across ENOWA GARDEN's wooden deck, becoming one with the Yufuin night. | 太鼓的鼓聲迴盪在ENOWA GARDEN的木平台上，與由布院的夜晚融為一體。 | 太鼓的鼓声回荡在ENOWA GARDEN的木平台上，与由布院的夜晚融为一体。 | ENOWA 가든의 우드덱에 울려퍼지는 태고 소리. 유후인의 밤과 하나가 됩니다. |
-| 実施期間　7月29日（水）／8月28日（木）　19:30〜 | Dates: July 29 (Wed) / August 28 (Thu), from 19:30 | 實施期間　7月29日（三）／8月28日（四）　19:30〜 | 实施期间　7月29日（周三）／8月28日（周四）　19:30〜 | 실시 기간　7월 29일（수）／8월 28일（목）　19:30〜 |
+| 実施日時　7月29日（水）19:30〜／8月28日（木）19:30〜 | Dates: July 29 (Wed) 19:30– / August 28 (Thu) 19:30– | 實施日期　7月29日（三）19:30〜／8月28日（四）19:30〜 | 实施日期　7月29日（周三）19:30〜／8月28日（周四）19:30〜 | 실시 일시　7월 29일（수）19:30〜／8월 28일（목）19:30〜 |
 
 **21:30 — Night at ENOWA**
 
 | 日本語 | English | 繁體中文 | 简体中文 | 한국어 |
 |---|---|---|---|---|
-| 夜空にも、旬がある。 | Even the night sky has its season. | 夜空，也有屬於它的當令時節。 | 夜空，也有属于它的当令时节。 | 밤하늘에도, 제철이 있다. |
+| 夜空にも、旬がある。 | The Night Has Its Season. | 夜空，也有屬於它的當令時節。 | 夜空，也有属于它的当令时节。 | 밤하늘에도, 제철이 있다. |
 | 畑に収穫の季節があるように、夜空にも一年に一度だけの見頃があります。夏は、ペルセウス座流星群。客室やENOWAガーデンから、由布院の静かな夜空をゆっくりとお楽しみください。 | Just as the fields have a harvest season, the night sky has its own once-a-year peak. In summer, it's the Perseid meteor shower. Enjoy Yufuin's quiet night sky at your leisure, from your room or ENOWA GARDEN. | 如同農田有收穫的季節，夜空也有一年僅一次的最佳觀賞期。夏天，是英仙座流星雨的季節。請從客房或ENOWA GARDEN，悠閒地欣賞由布院寧靜的夜空。 | 如同农田有收获的季节，夜空也有一年仅一次的最佳观赏期。夏天，是英仙座流星雨的季节。请从客房或ENOWA GARDEN，悠闲地欣赏由布院宁静的夜空。 | 밭에 수확의 계절이 있듯, 밤하늘에도 일 년에 단 한 번뿐인 절정이 있습니다. 여름은, 페르세우스자리 유성우. 객실이나 ENOWA 가든에서, 유후인의 고요한 밤하늘을 천천히 즐겨보세요. |
 
 ---
@@ -111,23 +115,27 @@
 
 `An ENOWA Summer` と見出し `Seasonal Experiences` は英語のまま全言語で使用。
 
-| タイトル(JA) | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|
-| 農園かき氷 | Farm Kakigori (Shaved Ice) | 農園剉冰 | 农园刨冰 | 농원 빙수 |
-| ペルセウス座流星群観測 | Perseid Meteor Shower Observation | 英仙座流星雨觀測 | 英仙座流星雨观测 | 페르세우스자리 유성우 관측 |
-| ドローン農場ツアー | Drone Farm Tour | 空拍農場之旅 | 空拍农场之旅 | 드론 농장 투어 |
-| 豊の国ゆふいん源流太鼓 野外演奏 | Toyo-no-Kuni Yufuin Genryu Taiko — Outdoor Performance | 豐之國由布院源流太鼓 野外演奏 | 丰之国由布院源流太鼓 野外演奏 | 토요노쿠니 유후인 겐류다이코 야외 공연 |
-| アウトドアプール | Outdoor Pool | 戶外泳池 | 户外泳池 | 아웃도어 풀 |
-| ファーム収穫体験 | Farm Harvest Experience | 農場採收體驗 | 农场采摘体验 | 팜 수확 체험 |
+**2026-07-27改訂**: 名称変更・説明文変更・並び順を24時間タイムラインと同じ時系列順に変更（下表は変更後の並び順で記載）。
 
-| 説明文(JA) | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|
-| その日のファームの収穫状況によって素材が変わる、ENOWAらしい夏の一皿。 | A dish uniquely ENOWA — its ingredients change with what the farm harvests that day. | 依當日農場的採收狀況而變化食材，充滿ENOWA風格的夏日一品。 | 依当日农场的采收状况而变化食材，充满ENOWA风格的夏日一品。 | 그날 팜의 수확 상황에 따라 재료가 바뀌는, ENOWA다운 여름의 한 그릇. |
-| 光害のない由布院の夜空を見上げる。荒天時は中止。 | Look up at Yufuin's night sky, free of light pollution. Cancelled in case of bad weather. | 仰望不受光害影響的由布院夜空。天候不佳時將取消。 | 仰望不受光污染影响的由布院夜空。天气不佳时将取消。 | 빛 공해가 없는 유후인의 밤하늘을 올려다봅니다. 악천후 시 중지됩니다. |
-| 歩いた畑を、鳥の目線で見下ろす体験。 | See the fields you walked through from a bird's-eye view. | 以鳥瞰視角，俯瞰您走過的田野。 | 以鸟瞰视角，俯瞰您走过的田野。 | 걸었던 밭을, 새의 시선으로 내려다보는 체험. |
-| ゆふいん源流太鼓による演奏と、土地の鼓動を感じる時間。 | A performance by Yufuin Genryu Taiko — a time to feel the heartbeat of the land. | 由「由布院源流太鼓」帶來的演奏，感受這片土地的鼓動。 | 由“由布院源流太鼓”带来的演奏，感受这片土地的鼓动。 | 유후인 겐류다이코의 연주와 함께, 이 땅의 고동을 느끼는 시간. |
-| 由布岳を望む開放的なプール。水しぶきと笑い声が夏を作る。 | An open-air pool with views of Mt. Yufu. Splashes and laughter make the summer. | 可遠眺由布岳的開放式泳池。水花與笑聲交織成夏天。 | 可远眺由布岳的开放式泳池。水花与笑声交织成夏天。 | 유후다케를 바라보는 개방적인 풀. 물보라와 웃음소리가 여름을 만듭니다. |
-| 夏野菜が育つENOWA FARMを巡り、自然の循環に触れる体験。 | Tour ENOWA FARM, where summer vegetables grow, and experience nature's cycle firsthand. | 走訪孕育夏季蔬菜的ENOWA FARM，體驗自然的循環。 | 走访孕育夏季蔬菜的ENOWA FARM，体验自然的循环。 | 여름 채소가 자라는 ENOWA FARM을 둘러보며, 자연의 순환을 느끼는 체험. |
+| 順 | タイトル(JA) | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|---|
+| 1 | ファームツアー | Farm Tour | 農場之旅 | 农场之旅 | 팜 투어 |
+| 2 | 空から見るファームツアー（ドローン体験） | Aerial Farm Tour (Drone Experience) | 空中農場之旅（無人機體驗） | 空中农场之旅（无人机体验） | 하늘에서 보는 팜 투어（드론 체험） |
+| 3 | ENOWAオリジナルかき氷 | ENOWA Original Kakigori (Shaved Ice) | ENOWA原創剉冰 | ENOWA原创刨冰 | ENOWA 오리지널 빙수 |
+| 4 | プライベートプール | Private Pool | 私人泳池 | 私人泳池 | 프라이빗 풀 |
+| 5 | 豊の国ゆふいん源流太鼓 野外演奏 | Toyo-no-Kuni Yufuin Genryu Taiko — Outdoor Performance | 豐之國由布院源流太鼓 野外演奏 | 丰之国由布院源流太鼓 野外演奏 | 토요노쿠니 유후인 겐류다이코 야외 공연 |
+| 6 | ペルセウス座流星群観測 | Perseid Meteor Shower Observation | 英仙座流星雨觀測 | 英仙座流星雨观测 | 페르세우스자리 유성우 관측 |
+
+| 順 | 説明文(JA) | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|---|
+| 1 | 夏野菜が育つENOWA FARMを巡り、自然の循環に触れる体験。 | Tour ENOWA FARM, where summer vegetables grow, and experience nature's cycle firsthand. | 走訪孕育夏季蔬菜的ENOWA FARM，體驗自然的循環。 | 走访孕育夏季蔬菜的ENOWA FARM，体验自然的循环。 | 여름 채소가 자라는 ENOWA FARM을 둘러보며, 자연의 순환을 느끼는 체험. |
+| 2 | 歩いた畑を、鳥の目線で見下ろす体験。 | See the fields you walked through from a bird's-eye view. | 以鳥瞰視角，俯瞰您走過的田野。 | 以鸟瞰视角，俯瞰您走过的田野。 | 걸었던 밭을, 새의 시선으로 내려다보는 체험. |
+| 3 | その日のファームの収穫状況によって素材が変わる、ENOWAらしい夏の一皿。 | A dish uniquely ENOWA — its ingredients change with what the farm harvests that day. | 依當日農場的採收狀況而變化食材，充滿ENOWA風格的夏日一品。 | 依当日农场的采收状况而变化食材，充满ENOWA风格的夏日一品。 | 그날 팜의 수확 상황에 따라 재료가 바뀌는, ENOWA다운 여름의 한 그릇. |
+| 4 | 由布岳を望む開放的なプール。水しぶきと笑い声が夏を作る。 | An open-air pool with views of Mt. Yufu. Splashes and laughter make the summer. | 可遠眺由布岳的開放式泳池。水花與笑聲交織成夏天。 | 可远眺由布岳的开放式泳池。水花与笑声交织成夏天。 | 유후다케를 바라보는 개방적인 풀. 물보라와 웃음소리가 여름을 만듭니다. |
+| 5 | ゆふいん源流太鼓による演奏と、太鼓の演奏体験。 | A performance by Yufuin Genryu Taiko, plus a hands-on taiko playing experience. | 由「由布院源流太鼓」帶來的演奏，並可體驗親手打太鼓。 | 由“由布院源流太鼓”带来的演奏，并可体验亲手打太鼓。 | 유후인 겐류다이코의 연주와 함께, 태고를 직접 연주해보는 체험. |
+| 6 | 光害のない由布院の夜空を見上げる。 | Look up at Yufuin's night sky, free of light pollution. | 仰望不受光害影響的由布院夜空。 | 仰望不受光污染影响的由布院夜空。 | 빛 공해가 없는 유후인의 밤하늘을 올려다봅니다. |
+
+> 5(太鼓)・6(流星群観測)の説明文は2026-07-27改訂で変更されています。太鼓は「土地の鼓動を感じる時間」→演奏体験ができる旨に変更、流星群観測は「荒天時は中止。」を削除しました。
 
 | ラベル(JA) | English | 繁體中文 | 简体中文 | 한국어 |
 |---|---|---|---|---|
@@ -135,11 +143,13 @@
 | 8月土曜限定 | August Saturdays Only | 8月週六限定 | 8月周六限定 | 8월 토요일 한정 |
 | 日程限定 | Limited Dates | 限定日期 | 限定日期 | 일정 한정 |
 
-| 日程(JA) | English | 繁體中文 | 简体中文 | 한국어 |
-|---|---|---|---|---|
-| 観測期　7月下旬〜8月下旬　22:00〜夜明け前頃 | Viewing period: late July – late August, 22:00 until just before dawn | 觀測期　7月下旬〜8月下旬　22:00〜黎明前 | 观测期　7月下旬〜8月下旬　22:00〜黎明前 | 관측 기간　7월 하순〜8월 하순　22:00〜새벽 무렵까지 |
-| 8月毎週土曜日　12:00〜14:00 | Every Saturday in August, 12:00–14:00 | 8月每週六　12:00〜14:00 | 8月每周六　12:00〜14:00 | 8월 매주 토요일　12:00〜14:00 |
-| 実施期間　7月29日（水）／8月28日（木）　19:30〜 | Dates: July 29 (Wed) / August 28 (Thu), from 19:30 | 實施期間　7月29日（三）／8月28日（四）　19:30〜 | 实施期间　7月29日（周三）／8月28日（周四）　19:30〜 | 실시 기간　7월 29일（수）／8월 28일（목）　19:30〜 |
+| 順 | 日程(JA) | English | 繁體中文 | 简体中文 | 한국어 |
+|---|---|---|---|---|---|
+| 2 | 12:00〜14:00の間で実施 | Held sometime between 12:00–14:00 | 於12:00〜14:00之間實施 | 于12:00〜14:00之间实施 | 12:00〜14:00 사이에 진행 |
+| 5 | 実施日時　7月29日（水）19:30〜／8月28日（木）19:30〜 | Dates: July 29 (Wed) 19:30– / August 28 (Thu) 19:30– | 實施日期　7月29日（三）19:30〜／8月28日（四）19:30〜 | 实施日期　7月29日（周三）19:30〜／8月28日（周四）19:30〜 | 실시 일시　7월 29일（수）19:30〜／8월 28일（목）19:30〜 |
+| 6 | 観測期　7月下旬〜8月下旬　22:00〜夜明け前頃 | Viewing period: late July – late August, 22:00 until just before dawn | 觀測期　7月下旬〜8月下旬　22:00〜黎明前 | 观测期　7月下旬〜8月下旬　22:00〜黎明前 | 관측 기간　7월 하순〜8월 하순　22:00〜새벽 무렵까지 |
+
+> ドローン体験（2）の日程表記は2026-07-27改訂で「8月毎週土曜日　12:00〜14:00」から変更されています（バッジ「8月土曜限定」で曜日情報を担保）。太鼓（5）の表記も同時に変更されています。
 
 ---
 
