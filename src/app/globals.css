@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --color-enowa-cream: #faf6ee;
+  --color-enowa-black: #14140f;
+  --color-enowa-green: #1f3d2b;
+  --color-enowa-green-light: #4a6b45;
+  --color-enowa-night: #0b1220;
+  --color-enowa-night-deep: #06090f;
+
+  --color-summer-tomato: #d1452a;
+  --color-summer-citrus: #e8b93a;
+  --color-summer-farm: #7c9a4c;
+  --color-summer-pool: #3e8fb0;
+  --color-summer-ice: #cfeae6;
+  --color-summer-highlight: #c17b2e;
+}
+
+@theme inline {
+  --font-serif-ja: var(--font-shippori-mincho);
+  --font-sans-ja: var(--font-noto-sans-jp);
+  --font-display-en: var(--font-cormorant);
+
+  --color-enowa-cream: var(--color-enowa-cream);
+  --color-enowa-black: var(--color-enowa-black);
+  --color-enowa-green: var(--color-enowa-green);
+  --color-enowa-green-light: var(--color-enowa-green-light);
+  --color-enowa-night: var(--color-enowa-night);
+  --color-enowa-night-deep: var(--color-enowa-night-deep);
+
+  --color-summer-tomato: var(--color-summer-tomato);
+  --color-summer-citrus: var(--color-summer-citrus);
+  --color-summer-farm: var(--color-summer-farm);
+  --color-summer-pool: var(--color-summer-pool);
+  --color-summer-ice: var(--color-summer-ice);
+  --color-summer-highlight: var(--color-summer-highlight);
+}
+
+body {
+  background: var(--color-enowa-cream);
+  color: var(--color-enowa-black);
+  font-family: var(--font-sans-ja), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display-en), var(--font-serif-ja), serif;
+}
+
+.font-heading {
+  font-family: var(--font-serif-ja), serif;
+}
+
+/* Scroll-reveal primitive used by RevealSection. Elements start hidden only
+   after JS confirms IntersectionObserver support (see useReveal hook), so
+   content never disappears for no-JS / crawler contexts. */
+[data-reveal].reveal-armed {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal].reveal-armed.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal] .reveal-image {
+  transform: scale(1.06);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal].is-visible .reveal-image {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal].reveal-armed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  [data-reveal] .reveal-image {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

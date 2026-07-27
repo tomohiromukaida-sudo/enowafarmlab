@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="グリーンの野菜シロップ">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(11 0.5 0.5)">
+      <stop offset="0%" stop-color="#E8B93A" />
+      <stop offset="100%" stop-color="#7C9A4C" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#g)" />
+  <circle cx="-680" cy="-430" r="40" fill="#ffffff" opacity="0.06" /><circle cx="-88" cy="-530" r="-33" fill="#ffffff" opacity="0.06" /><circle cx="-216" cy="-540" r="4" fill="#ffffff" opacity="0.06" /><circle cx="-432" cy="-350" r="-33" fill="#ffffff" opacity="0.06" /><circle cx="-560" cy="-840" r="-33" fill="#ffffff" opacity="0.06" />
+  <rect x="0" y="0" width="800" height="1000" fill="#000000" opacity="0.12" />
+  <text x="50%" y="46%" text-anchor="middle" font-family="sans-serif" font-size="30.76923076923077" fill="#ffffff" opacity="0.9" font-weight="600">syrup-green</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="sans-serif" font-size="13.333333333333334" fill="#ffffff" opacity="0.7">PHOTO PENDING — 800×1000</text>
+</svg>
