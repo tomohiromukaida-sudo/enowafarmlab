@@ -85,6 +85,7 @@ function ImmersiveMoment({ item }: { item: (typeof timeline)[number] }) {
       <div className={`relative z-10 flex w-full max-w-xl flex-col gap-4 px-5 py-16 sm:px-8 ${alignClass}`}>
         <p className="font-display text-2xl font-semibold tracking-wide text-enowa-cream sm:text-3xl">{item.time}</p>
         <p className="font-display text-[11px] tracking-[0.2em] text-enowa-cream/70">{item.eyebrow}</p>
+        {item.titleJa && <p className="font-heading text-sm text-enowa-cream/90">{item.titleJa}</p>}
         <Headline item={item} />
         <p className="max-w-md text-sm leading-relaxed text-enowa-cream/85 sm:text-base">{item.body}</p>
         {item.note && <p className="text-xs text-enowa-cream/60">{item.note}</p>}

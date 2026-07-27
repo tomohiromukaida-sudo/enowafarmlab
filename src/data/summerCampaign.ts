@@ -86,6 +86,8 @@ export const timelineIntro = {
 export type TimelineMoment = {
   time: string;
   eyebrow: string;
+  /** Optional Japanese proper-name label shown above the headline (e.g. an event's official JA name). */
+  titleJa?: string;
   /** Lines as displayed in the design (2 lines each). */
   headline: string[];
   /** Substring within `headline` styled in the accent color, if any. */
@@ -147,14 +149,15 @@ export const timeline: TimelineMoment[] = [
     },
   },
   {
-    time: "20:00",
+    time: "19:30",
     eyebrow: "at ENOWA — Genryu Taiko",
+    titleJa: "豊の国ゆふいん源流太鼓 野外演奏",
     headline: ["夏の夜に、", "源流の鼓動がひびく。"],
     highlightWord: "源流の鼓動",
     body: "ENOWAガーデンのウッドデッキに響く太鼓の響き。由布院の夜とひとつになる。",
     variant: "immersive",
     align: "right",
-    schedule: "実施期間　7月29日（水）／8月28日（木）　19:30〜",
+    schedule: "実施日時　7月29日（水）19:30〜／8月28日（木）19:30〜",
     image: {
       src: "/images/summer/taiko/timeline-taiko.svg",
       alt: "夕暮れに演奏される太鼓の連なり",
@@ -191,38 +194,42 @@ export const seasonalExperiencesIntro = {
   heading: "Seasonal Experiences",
 };
 
+/**
+ * Order matches the 24-hour timeline (ファームツアー → ドローン → かき氷 → プール →
+ * 太鼓 → 星空), confirmed 2026-07-27.
+ */
 export const seasonalExperiences: SeasonalExperience[] = [
   {
-    title: "農園かき氷",
+    title: "ファームツアー",
+    description: "夏野菜が育つENOWA FARMを巡り、自然の循環に触れる体験。",
+  },
+  {
+    title: "空から見るファームツアー（ドローン体験）",
+    description: "歩いた畑を、鳥の目線で見下ろす体験。",
+    badge: "8月土曜限定",
+    schedule: "12:00〜14:00の間で実施",
+  },
+  {
+    title: "ENOWAオリジナルかき氷",
     description: "その日のファームの収穫状況によって素材が変わる、ENOWAらしい夏の一皿。",
     badge: "SUMMER ONLY",
   },
   {
-    title: "ペルセウス座流星群観測",
-    description: "光害のない由布院の夜空を見上げる。荒天時は中止。",
-    badge: "SUMMER ONLY",
-    schedule: "観測期　7月下旬〜8月下旬　22:00〜夜明け前頃",
-  },
-  {
-    title: "ドローン農場ツアー",
-    description: "歩いた畑を、鳥の目線で見下ろす体験。",
-    badge: "8月土曜限定",
-    schedule: "8月毎週土曜日　12:00〜14:00",
-  },
-  {
-    title: "豊の国ゆふいん源流太鼓 野外演奏",
-    description: "ゆふいん源流太鼓による演奏と、土地の鼓動を感じる時間。",
-    badge: "日程限定",
-    schedule: "実施期間　7月29日（水）／8月28日（木）　19:30〜",
-  },
-  {
-    title: "アウトドアプール",
+    title: "プライベートプール",
     description: "由布岳を望む開放的なプール。水しぶきと笑い声が夏を作る。",
     note: "※ プールのないお部屋もあります。",
   },
   {
-    title: "ファーム収穫体験",
-    description: "夏野菜が育つENOWA FARMを巡り、自然の循環に触れる体験。",
+    title: "豊の国ゆふいん源流太鼓 野外演奏",
+    description: "ゆふいん源流太鼓による演奏と、太鼓の演奏体験。",
+    badge: "日程限定",
+    schedule: "実施日時　7月29日（水）19:30〜／8月28日（木）19:30〜",
+  },
+  {
+    title: "ペルセウス座流星群観測",
+    description: "光害のない由布院の夜空を見上げる。",
+    badge: "SUMMER ONLY",
+    schedule: "観測期　7月下旬〜8月下旬　22:00〜夜明け前頃",
   },
 ];
 
