@@ -48,7 +48,9 @@ function bad(res, code, msg) {
 }
 
 function sanitizeItem(body, existing) {
-  const rowKey = existing ? existing.row : String(body.row || "");
+  // 編集時もbody.rowを尊重する（分類＝カテゴリー間の移動を許可）
+  let rowKey = String(body.row || "");
+  if (!ROWS.some((r) => r.key === rowKey)) rowKey = existing ? existing.row : "";
   if (!ROWS.some((r) => r.key === rowKey)) return { err: "行の指定が不正です" };
   const text = String(body.text || "").trim().slice(0, 80);
   if (!text) return { err: "企画名を入力してください" };
@@ -122,7 +124,8 @@ export default async function handler(req, res) {
       it.id = before.id;
       if (before.sub && it.sub === undefined) it.sub = before.sub;
       doc.items[idx] = it;
-      detail = `${rowName(it.row)}：「${it.text}」（${periodLabel(it)}）（変更前：「${before.text}」（${periodLabel(before)}））`;
+      const moved = before.row !== it.row ? `【分類変更 ${rowName(before.row)}→${rowName(it.row)}】` : "";
+      detail = `${rowName(it.row)}：${moved}「${it.text}」（${periodLabel(it)}）（変更前：「${before.text}」（${periodLabel(before)}））`;
     }
   }
 

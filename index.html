@@ -302,6 +302,8 @@
   <h2 id="dlgTitle">企画を編集</h2>
   <label for="fText">企画名</label>
   <input type="text" id="fText" maxlength="80">
+  <label for="fRow">分類（カテゴリー）</label>
+  <select id="fRow"></select>
   <div class="grid2">
     <div>
       <label for="fStart">開始月</label>
@@ -558,6 +560,12 @@ function openDialog(target){
   const rname = (ROWS.find(r=>r.key===target.row)||{}).name || target.row;
   $("dlgTitle").textContent = (isNew ? "企画を追加 — " : "企画を編集 — ") + rname;
   $("fText").value = target.text || "";
+  const rowSel = $("fRow");
+  rowSel.innerHTML = ROWS.map(r=>{
+    const label = (r.group ? "Optional Tour：" : "") + r.name;
+    return `<option value="${r.key}">${label}</option>`;
+  }).join("");
+  rowSel.value = target.row;
   const startSel = $("fStart");
   startSel.innerHTML = Array.from({length:12},(_,i)=>`<option value="${i}">${monthLabel(i,true)}</option>`).join("");
   startSel.value = target.m ?? 0;
@@ -569,6 +577,10 @@ function openDialog(target){
   };
   rebuildSpan();
   startSel.onchange = rebuildSpan;
+  rowSel.onchange = ()=>{
+    // 定常型に移すときは通年を既定に（変更は可能）
+    if(rowSel.value === "tourFixed"){ startSel.value = 0; rebuildSpan(); spanSel.value = 12; }
+  };
   $("fSeason").value = (!isNew && target.season && target.season!=="fixed") ? target.season : "auto";
   $("fKari").checked = !!target.kari;
   $("dlgDelete").style.display = isNew ? "none" : "inline-block";
@@ -580,12 +592,13 @@ async function submit(action){
   if(saving) return;
   const {name, code} = creds();
   const m = +$("fStart").value, span = +$("fSpan").value;
+  const rowKey = $("fRow").value || dlgTarget.row;
   let season = $("fSeason").value;
-  if(season==="auto") season = (dlgTarget.row==="tourFixed" && span>=12) ? "fixed" : seasonOfPos(m);
+  if(season==="auto") season = (rowKey==="tourFixed" && span>=12) ? "fixed" : seasonOfPos(m);
   const payload = {
     editCode: code, editor: name, action,
     id: dlgTarget.id,
-    row: dlgTarget.row,
+    row: rowKey,
     text: $("fText").value.trim(),
     m, span, season,
     kari: $("fKari").checked,
