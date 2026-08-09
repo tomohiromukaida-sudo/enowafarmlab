@@ -267,6 +267,24 @@
 </div>
 
 <div class="panel">
+  <h2>ネタ提案フォーマット<span class="en">Idea format</span></h2>
+  <div class="howto" style="margin-bottom:10px;">
+    新しい企画ネタは下のフォーマットでチャット（Slack等）に貼って共有してください。
+    このまま<b>Claudeに貼り付ければ一括でカレンダーに反映</b>されます。もちろんこのページで直接追加してもOK。
+    分類に迷ったら「仮」でそのまま出してください（整理して配置します）。
+  </div>
+  <pre id="ideaTpl" style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:12px 14px; font-size:12px; line-height:1.7; overflow-x:auto; white-space:pre-wrap;">【カレンダー追加ネタ】
+・企画名：
+・分類：宿泊者向け特別体験（旧レイヤー1）／季節限定ツアー（旧レイヤー2）／定常ツアー（通年）／Chef Event／Farm Feature／MD商品
+・時期：例）2026年10月〜12月、2027年5月、通年、未定（想定季節だけでも可）
+・ひとこと内容：何をする体験・商品か1行で
+・連携先・URL：外部事業者名やサイト（あれば）
+・状態：仮（アイデア段階）／確定
+・提案者：</pre>
+  <button id="copyTplBtn" type="button" style="margin-top:10px;">フォーマットをコピー</button>
+</div>
+
+<div class="panel">
   <h2>更新履歴<span class="en">History</span></h2>
   <ul class="hist" id="histList"></ul>
 </div>
@@ -628,6 +646,10 @@ $("modeBtn").addEventListener("click", ()=>{
   toggleMode();
 });
 $("reloadBtn").addEventListener("click", ()=>fetchDoc(false));
+$("copyTplBtn").addEventListener("click", async ()=>{
+  try{ await navigator.clipboard.writeText($("ideaTpl").textContent); toast("フォーマットをコピーしました"); }
+  catch(e){ toast("コピーに失敗しました"); }
+});
 $("viewBtn").addEventListener("click", ()=>{ forceTimeline = !forceTimeline; applyViewMode(); });
 mqMobile.addEventListener("change", applyViewMode);
 
