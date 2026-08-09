@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ENOWA 年間カレンダー — 共同編集</title>
+<style>
+  :root{
+    --paper:#F6F4EC; --panel:#FCFBF6; --ink:#26291F; --muted:#6B6E5E;
+    --line:#DEDCCC; --grid:#EAE8DA; --label-bg:#F1EFE3;
+    --fixed:#47663F; --fixed-ink:#F6F4EC;
+    --spring:#6F8F45; --summer:#2E7A66; --autumn:#AC6D2A; --winter:#5C7590;
+    --accent:#47663F;
+    --label-w:190px; --colw:86px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#191B14; --panel:#20231A; --ink:#EAE8DC; --muted:#9C9F8D;
+      --line:#3A3D30; --grid:#2B2E23; --label-bg:#23261C;
+      --fixed:#5E8253; --fixed-ink:#14170F;
+      --spring:#8FAE63; --summer:#4E9A85; --autumn:#C68A45; --winter:#7E96AF;
+      --accent:#8FAE63;
+    }
+  }
+  html,body{background:var(--paper); color:var(--ink); margin:0;}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+    line-height:1.6; padding:40px 28px 64px; max-width:1440px; margin:0 auto; box-sizing:border-box;
+  }
+  header{margin-bottom:20px;}
+  .eyebrow{font-size:11px; letter-spacing:.22em; color:var(--muted); text-transform:uppercase; margin-bottom:10px;}
+  h1{
+    font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+    font-size:clamp(24px,3.2vw,34px); font-weight:600; letter-spacing:.04em;
+    margin:0 0 8px; text-wrap:balance;
+  }
+  .sub{color:var(--muted); font-size:13px; max-width:70ch;}
+
+  .toolbar{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:18px 0 12px;}
+  .toolbar .spacer{flex:1;}
+  button{
+    font:inherit; font-size:12.5px; font-weight:600; cursor:pointer;
+    border:1.5px solid var(--line); background:var(--panel); color:var(--ink);
+    padding:7px 14px; border-radius:8px;
+  }
+  button:hover{border-color:var(--accent);}
+  button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  button.primary{background:var(--fixed); color:var(--fixed-ink); border-color:var(--fixed);}
+  button.ghost{background:transparent;}
+  .tb-input{
+    font:inherit; font-size:12.5px; border:1.5px solid var(--line); border-radius:8px;
+    padding:7px 10px; background:var(--panel); color:var(--ink); width:130px; box-sizing:border-box;
+  }
+  .mode-note{font-size:12px; color:var(--muted);}
+  body.editing .mode-note{color:var(--autumn); font-weight:600;}
+  .live{font-size:11.5px; color:var(--muted); font-variant-numeric:tabular-nums;}
+  .live .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--spring); margin-right:5px; vertical-align:1px;}
+
+  .legend{display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin:0 0 14px; font-size:12px; color:var(--muted);}
+  .legend .key{display:flex; align-items:center; gap:7px;}
+  .swatch-bar{width:34px; height:14px; border-radius:7px; background:var(--fixed);}
+  .swatch-chip{width:34px; height:14px; border-radius:7px; border:1.5px solid var(--autumn); background:color-mix(in oklab, var(--autumn) 14%, transparent);}
+  .swatch-kari{font-size:10px; border:1px solid var(--muted); border-radius:4px; padding:0 4px; line-height:1.5;}
+
+  .scroller{overflow-x:auto; border:1px solid var(--line); border-radius:10px; background:var(--panel);}
+  .cal{min-width:1240px;}
+  .loading{padding:60px; text-align:center; color:var(--muted); font-size:13px;}
+
+  .row{
+    display:grid;
+    grid-template-columns:var(--label-w) repeat(12, minmax(var(--colw),1fr));
+    border-top:1px solid var(--line);
+    position:relative;
+    padding:4px 0 6px;
+  }
+  .row:first-child{border-top:0; padding:0;}
+  .colbg{grid-row:1 / -1; border-left:1px solid var(--grid); pointer-events:none; min-height:0;}
+
+  .months .m{
+    padding:10px 6px 8px; text-align:center; font-size:12px; font-weight:600;
+    letter-spacing:.08em; font-variant-numeric:tabular-nums;
+  }
+  .months .season-tick{display:block; margin:4px auto 0; width:22px; height:3px; border-radius:2px;}
+  .months .corner{padding:10px 12px 8px; font-size:10px; letter-spacing:.18em; color:var(--muted); align-self:end;}
+
+  .label{
+    grid-column:1; grid-row:1 / -1;
+    padding:14px 14px; background:var(--label-bg);
+    font-size:12.5px; font-weight:600; letter-spacing:.02em;
+    display:flex; flex-direction:column; justify-content:center; gap:2px;
+    border-right:1px solid var(--line);
+  }
+  .label .en{font-size:10px; font-weight:500; letter-spacing:.14em; color:var(--muted); text-transform:uppercase;}
+  .label .group{font-size:10px; font-weight:500; letter-spacing:.14em; color:var(--muted);}
+  .label .addbtn{
+    display:none; margin-top:6px; font-size:11px; padding:3px 8px; border-radius:6px;
+    border:1.5px dashed var(--muted); background:transparent; color:var(--muted); align-self:flex-start;
+  }
+  body.editing .label .addbtn{display:inline-block;}
+  .label .addbtn:hover{border-color:var(--accent); color:var(--accent);}
+
+  .bar, .chip{
+    margin:4px 5px; padding:5px 10px; font-size:11.5px; line-height:1.45;
+    border-radius:8px; align-self:center; position:relative; z-index:1;
+    border:none; text-align:left; font-family:inherit;
+  }
+  .bar{background:var(--fixed); color:var(--fixed-ink); font-weight:600;}
+  .chip{
+    border:1.5px solid var(--season, var(--autumn));
+    background:color-mix(in oklab, var(--season, var(--autumn)) 13%, var(--panel));
+    color:var(--ink); font-weight:600;
+  }
+  .season-bar{
+    margin:5px 5px; padding:6px 10px; font-size:12px; font-weight:700; letter-spacing:.03em;
+    border-radius:8px; align-self:center; z-index:1;
+    background:color-mix(in oklab, var(--season) 20%, var(--panel));
+    border:none; border-left:4px solid var(--season); color:var(--ink);
+    text-align:left; font-family:inherit; line-height:1.45;
+  }
+  .season-bar small{display:block; font-weight:500; font-size:10.5px; color:var(--muted); letter-spacing:0;}
+  body.editing .bar, body.editing .chip, body.editing .season-bar{cursor:pointer;}
+  body.editing .bar:hover, body.editing .chip:hover, body.editing .season-bar:hover{outline:2px dashed var(--accent); outline-offset:2px;}
+  .bar:focus-visible,.chip:focus-visible,.season-bar:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  .kari::after{
+    content:"仮"; font-size:9px; font-weight:500; margin-left:6px;
+    border:1px solid currentColor; border-radius:4px; padding:0 3px; opacity:.75; vertical-align:1px;
+  }
+  .spring{--season:var(--spring);} .summer{--season:var(--summer);}
+  .autumn{--season:var(--autumn);} .winter{--season:var(--winter);}
+
+  dialog{
+    border:1px solid var(--line); border-radius:12px; background:var(--panel); color:var(--ink);
+    padding:22px; width:min(420px, 92vw); box-shadow:0 12px 40px rgba(0,0,0,.25);
+  }
+  dialog::backdrop{background:rgba(20,22,15,.45);}
+  dialog h2{margin:0 0 14px; font-size:15px;}
+  dialog label{display:block; font-size:12px; font-weight:600; margin:10px 0 4px;}
+  dialog input[type=text], dialog select{
+    width:100%; box-sizing:border-box; font:inherit; font-size:13px;
+    border:1.5px solid var(--line); border-radius:8px; padding:7px 10px;
+    background:var(--paper); color:var(--ink);
+  }
+  dialog .check{display:flex; align-items:center; gap:8px; margin-top:12px; font-size:12.5px;}
+  dialog .check label{margin:0; font-weight:500;}
+  dialog .btns{display:flex; gap:10px; margin-top:18px;}
+  dialog .btns .spacer{flex:1;}
+  button.danger{color:#A33B2E; border-color:#A33B2E; background:transparent;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+
+  .panel{border:1px solid var(--line); border-radius:10px; background:var(--panel); padding:18px 20px; margin-top:20px;}
+  .panel h2{margin:0 0 10px; font-size:14px; letter-spacing:.04em;}
+  .panel h2 .en{font-size:10px; color:var(--muted); letter-spacing:.14em; margin-left:8px; text-transform:uppercase;}
+  .hist{font-size:12.5px; margin:0; padding-left:0; list-style:none; max-height:320px; overflow-y:auto;}
+  .hist li{margin:4px 0;}
+  .hist .who{color:var(--muted);}
+  .hist .tag{display:inline-block; font-size:10px; font-weight:600; border-radius:4px; padding:0 6px; margin-right:6px; line-height:1.7;}
+  .tag.add{background:color-mix(in oklab, var(--spring) 20%, var(--panel));}
+  .tag.edit{background:color-mix(in oklab, var(--winter) 20%, var(--panel));}
+  .tag.del{background:color-mix(in oklab, #A33B2E 18%, var(--panel));}
+  .tag.pub{background:color-mix(in oklab, var(--fixed) 20%, var(--panel));}
+  .howto{font-size:12.5px; color:var(--muted); max-width:80ch;}
+  .howto b{color:var(--ink);}
+  .note{margin-top:18px; font-size:12px; color:var(--muted); max-width:78ch;}
+  .note strong{color:var(--ink); font-weight:600;}
+  .note ul{margin:6px 0 0; padding-left:1.3em;}
+  .note li{margin:2px 0;}
+  .toast{
+    position:fixed; left:50%; bottom:28px; transform:translateX(-50%);
+    background:var(--ink); color:var(--paper); font-size:12.5px; font-weight:600;
+    padding:9px 18px; border-radius:8px; opacity:0; transition:opacity .25s; pointer-events:none; z-index:50;
+    max-width:80vw; text-align:center;
+  }
+  .toast.show{opacity:1;}
+  @media (prefers-reduced-motion: reduce){ .toast{transition:none;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">ENOWA · Farm Driven Hospitality</div>
+  <h1>年間カレンダー — 季節体験の全体設計（3月〜翌2月）</h1>
+  <div class="sub">ファーム・料理・体験・商品を季節テーマのもとで連動させる年間構成。<b>編集内容はその場で保存され、全員に共有されます。</b></div>
+</header>
+
+<div class="toolbar">
+  <button id="modeBtn" class="primary">✎ 編集モードにする</button>
+  <input id="editorName" class="tb-input" type="text" placeholder="あなたの名前" aria-label="編集者名">
+  <input id="editCode" class="tb-input" type="password" placeholder="編集コード" aria-label="編集コード" autocomplete="off">
+  <span class="mode-note" id="modeNote">閲覧モード</span>
+  <span class="spacer"></span>
+  <span class="live" id="liveInfo"></span>
+  <button id="reloadBtn" class="ghost">↻ 最新を取得</button>
+</div>
+
+<div class="legend">
+  <span class="key"><span class="swatch-bar"></span>Optional Tour 定常型（通年実施可・横断バー）</span>
+  <span class="key"><span class="swatch-chip"></span>季節限定・月別企画（実施期間のみ表示）</span>
+  <span class="key"><span class="swatch-kari">仮</span>内容仮置き・要確認</span>
+</div>
+
+<div class="scroller"><div class="cal" id="cal"><div class="loading">読み込み中…</div></div></div>
+
+<div class="panel">
+  <h2>使い方<span class="en">How to use</span></h2>
+  <div class="howto">
+    名前と編集コードを入れて「編集モード」に切替 → 企画をクリックで修正・削除、行ラベルの「＋追加」で新規企画。
+    <b>保存した瞬間にデータベースへ書き込まれ、このページを開いている全員に反映されます</b>（他の人の変更も自動で取り込まれます）。
+    編集コードはチーム内で共有してください。
+  </div>
+</div>
+
+<div class="panel">
+  <h2>更新履歴<span class="en">History</span></h2>
+  <ul class="hist" id="histList"></ul>
+</div>
+
+<div class="note">
+  <strong>制作メモ</strong>
+  <ul>
+    <li>Optional Tourは「定常型（通年バー）」と「季節限定（月・期間チップ）」の上下2段構成。外部事業者・地域・生産者・ホンダ太陽・大学等との連携企画も、宿泊者が参加する体験はすべてOptional Tourに整理。</li>
+    <li>階層用語（Layer等）は本カレンダーでは不使用。</li>
+    <li>「仮」マークの内容は仮置き。確定情報に合わせて差し替え。</li>
+  </ul>
+</div>
+
+<dialog id="dlg">
+  <h2 id="dlgTitle">企画を編集</h2>
+  <label for="fText">企画名</label>
+  <input type="text" id="fText" maxlength="80">
+  <div class="grid2">
+    <div>
+      <label for="fStart">開始月</label>
+      <select id="fStart"></select>
+    </div>
+    <div>
+      <label for="fSpan">期間（か月）</label>
+      <select id="fSpan"></select>
+    </div>
+  </div>
+  <label for="fSeason">色（季節）</label>
+  <select id="fSeason">
+    <option value="auto">開始月に合わせて自動</option>
+    <option value="spring">春（緑）</option>
+    <option value="summer">夏（深緑）</option>
+    <option value="autumn">秋（琥珀）</option>
+    <option value="winter">冬（青灰）</option>
+  </select>
+  <div class="check"><input type="checkbox" id="fKari"><label for="fKari">仮（要確認）マークを付ける</label></div>
+  <div class="btns">
+    <button id="dlgDelete" class="danger" type="button">削除</button>
+    <span class="spacer"></span>
+    <button id="dlgCancel" class="ghost" type="button">キャンセル</button>
+    <button id="dlgSave" class="primary" type="button">保存</button>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+"use strict";
+const MONTH_NAMES = ["3月","4月","5月","6月","7月","8月","9月","10月","11月","12月","1月","2月"];
+const SEASON_OF_MONTH = m => m<3 ? "spring" : m<6 ? "summer" : m<9 ? "autumn" : "winter";
+const ROWS = [
+  {key:"theme",      name:"Season Theme",             en:"季節テーマ",       kind:"season"},
+  {key:"guest",      name:"宿泊者向け特別体験",         en:"Guest Exclusive", kind:"chip"},
+  {key:"tourFixed",  name:"定常型",                    en:"通年実施可",       group:"OPTIONAL TOUR", kind:"bar"},
+  {key:"tourSeason", name:"季節限定",                  en:"期間限定実施",     group:"OPTIONAL TOUR", kind:"chip"},
+  {key:"chef",       name:"Chef Event / Friends Dish", en:"シェフ企画",       kind:"chip"},
+  {key:"farm",       name:"Farm Feature",              en:"畑の主役",         kind:"chip"},
+  {key:"md",         name:"MD / Seasonal Product",     en:"商品・物販",       kind:"chip"},
+];
+const POLL_MS = 15000;
+
+let doc = null;        // server document {rev, updatedAt, items, history}
+let editing = false;
+let saving = false;
+
+const $ = id => document.getElementById(id);
+$("editorName").value = localStorage.getItem("enowaCal.name") || "";
+$("editCode").value = localStorage.getItem("enowaCal.code") || "";
+
+function toast(msg){
+  const t = $("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toast._h); toast._h = setTimeout(()=>t.classList.remove("show"), 2600);
+}
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function fmtTime(iso){
+  try{
+    return new Date(iso).toLocaleString("ja-JP",{timeZone:"Asia/Tokyo",month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
+  }catch(e){ return iso; }
+}
+
+/* ---------- data ---------- */
+async function fetchDoc(silent){
+  try{
+    const res = await fetch("/api/calendar", {cache:"no-store"});
+    if(!res.ok) throw new Error(res.status);
+    const d = await res.json();
+    const changed = !doc || d.rev !== doc.rev;
+    const isRemote = doc && d.rev !== doc.rev;
+    doc = d;
+    if(changed){ render(); }
+    if(isRemote){
+      const last = d.history[d.history.length-1];
+      toast("更新を取り込みました" + (last ? `（${last.editor}さんが${last.action}）` : ""));
+    }
+  }catch(e){
+    if(!doc) $("cal").innerHTML = '<div class="loading">読み込みに失敗しました。再読み込みしてください。</div>';
+    if(!silent) toast("最新データの取得に失敗しました");
+  }
+}
+
+async function post(payload){
+  const res = await fetch("/api/calendar", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify(payload),
+  });
+  const data = await res.json().catch(()=>({}));
+  if(!res.ok) throw new Error(data.error || ("エラー（" + res.status + "）"));
+  doc = data;
+  render();
+}
+
+/* ---------- render ---------- */
+function assignLanes(list){
+  const lanes = [];
+  const sorted = [...list].sort((a,b)=> a.m - b.m || b.span - a.span || String(a.id).localeCompare(String(b.id)));
+  sorted.forEach(it=>{
+    let l = 0;
+    while(true){
+      if(!lanes[l]) lanes[l] = [];
+      const clash = lanes[l].some(o => it.m < o.m + o.span && o.m < it.m + it.span);
+      if(!clash){ lanes[l].push(it); it._lane = l; return; }
+      l++;
+    }
+  });
+  return Math.max(1, lanes.length);
+}
+
+function render(){
+  if(!doc) return;
+  let html = '<div class="row months"><div class="corner">MONTH</div>';
+  for(let m=0;m<12;m++){
+    html += `<div class="m">${MONTH_NAMES[m]}<span class="season-tick" style="background:var(--${SEASON_OF_MONTH(m)})"></span></div>`;
+  }
+  html += '</div>';
+
+  ROWS.forEach(row=>{
+    const list = doc.items.filter(i=>i.row===row.key);
+    const laneCount = assignLanes(list);
+    html += `<div class="row" style="grid-template-rows:repeat(${laneCount}, auto)">`;
+    html += `<div class="label">` +
+      (row.group?`<span class="group">${row.group}</span>`:"") +
+      row.name + `<span class="en">${row.en}</span>` +
+      `<button class="addbtn" data-add="${row.key}" type="button">＋追加</button></div>`;
+    for(let m=0;m<12;m++) html += `<i class="colbg" style="grid-column:${m+2}"></i>`;
+    list.forEach(it=>{
+      const pos = `grid-column:${it.m+2} / span ${Math.min(it.span, 12-it.m)}; grid-row:${(it._lane||0)+1}`;
+      const kari = it.kari ? " kari" : "";
+      if(row.kind==="season"){
+        html += `<button type="button" class="season-bar ${it.season}${kari}" style="${pos}" data-id="${esc(it.id)}">${esc(it.text)}${it.sub?`<small>${esc(it.sub)}</small>`:""}</button>`;
+      }else if(row.kind==="bar" && it.span>=12){
+        html += `<button type="button" class="bar${kari}" style="${pos}" data-id="${esc(it.id)}">${esc(it.text)}</button>`;
+      }else{
+        html += `<button type="button" class="chip ${it.season}${kari}" style="${pos}" data-id="${esc(it.id)}">${esc(it.text)}</button>`;
+      }
+    });
+    html += `</div>`;
+  });
+  $("cal").innerHTML = html;
+
+  const ul = $("histList"); ul.innerHTML = "";
+  doc.history.slice().reverse().slice(0, 100).forEach(h=>{
+    const li = document.createElement("li");
+    const cls = h.action==="追加"?"add":h.action==="削除"?"del":h.action==="修正"?"edit":"pub";
+    li.innerHTML = `<span class="tag ${cls}">${esc(h.action)}</span>${esc(h.detail)} <span class="who">— ${esc(h.editor)}・${fmtTime(h.ts)}</span>`;
+    ul.appendChild(li);
+  });
+
+  const last = doc.history[doc.history.length-1];
+  $("liveInfo").innerHTML = `<span class="dot"></span>rev ${doc.rev}・最終更新 ${fmtTime(doc.updatedAt)}` + (last?`（${esc(last.editor)}）`:"");
+}
+
+/* ---------- edit ---------- */
+const dlg = $("dlg");
+let dlgTarget = null;
+
+function creds(){
+  const name = $("editorName").value.trim();
+  const code = $("editCode").value;
+  if(name) localStorage.setItem("enowaCal.name", name);
+  if(code) localStorage.setItem("enowaCal.code", code);
+  return {name, code};
+}
+
+function openDialog(target){
+  dlgTarget = target;
+  const isNew = !target.id;
+  const rname = (ROWS.find(r=>r.key===target.row)||{}).name || target.row;
+  $("dlgTitle").textContent = (isNew ? "企画を追加 — " : "企画を編集 — ") + rname;
+  $("fText").value = target.text || "";
+  const startSel = $("fStart"); startSel.innerHTML = MONTH_NAMES.map((n,i)=>`<option value="${i}">${n}</option>`).join("");
+  startSel.value = target.m ?? 0;
+  const spanSel = $("fSpan");
+  const rebuildSpan = ()=>{
+    const start = +startSel.value, max = 12-start;
+    spanSel.innerHTML = Array.from({length:max},(_,i)=>`<option value="${i+1}">${i+1===12?"12（通年）":i+1}</option>`).join("");
+    spanSel.value = Math.min(target.span || (target.row==="tourFixed"?12:1), max);
+  };
+  rebuildSpan();
+  startSel.onchange = rebuildSpan;
+  $("fSeason").value = (!isNew && target.season && target.season!=="fixed") ? target.season : "auto";
+  $("fKari").checked = !!target.kari;
+  $("dlgDelete").style.display = isNew ? "none" : "inline-block";
+  dlg.showModal();
+  $("fText").focus();
+}
+
+async function submit(action){
+  if(saving) return;
+  const {name, code} = creds();
+  const m = +$("fStart").value, span = +$("fSpan").value;
+  let season = $("fSeason").value;
+  if(season==="auto") season = (dlgTarget.row==="tourFixed" && span>=12) ? "fixed" : SEASON_OF_MONTH(m);
+  const payload = {
+    editCode: code, editor: name, action,
+    id: dlgTarget.id,
+    row: dlgTarget.row,
+    text: $("fText").value.trim(),
+    m, span, season,
+    kari: $("fKari").checked,
+  };
+  if(action!=="delete" && !payload.text){ $("fText").focus(); return; }
+  saving = true;
+  try{
+    await post(payload);
+    dlg.close();
+    toast(action==="add" ? "追加しました（全員に反映されます）" : action==="delete" ? "削除しました" : "保存しました（全員に反映されます）");
+  }catch(e){
+    toast(e.message || "保存に失敗しました");
+  }finally{ saving = false; }
+}
+
+$("dlgSave").addEventListener("click", ()=>submit(dlgTarget.id ? "edit" : "add"));
+$("dlgDelete").addEventListener("click", ()=>{
+  if(dlgTarget && dlgTarget.id && confirm("この企画を削除します。よろしいですか？")) submit("delete");
+});
+$("dlgCancel").addEventListener("click", ()=>dlg.close());
+
+$("cal").addEventListener("click", e=>{
+  const add = e.target.closest("[data-add]");
+  if(add){
+    if(!requireCreds()) return;
+    if(!editing) toggleMode(true);
+    openDialog({row: add.dataset.add});
+    return;
+  }
+  const el = e.target.closest("[data-id]");
+  if(el && editing){
+    const it = doc.items.find(i=>String(i.id)===el.dataset.id);
+    if(it) openDialog({...it});
+  }
+});
+
+function requireCreds(){
+  const {name, code} = creds();
+  if(!name){ $("editorName").focus(); toast("先にお名前を入れてください"); return false; }
+  if(!code){ $("editCode").focus(); toast("編集コードを入れてください（チーム内で共有）"); return false; }
+  return true;
+}
+function toggleMode(on){
+  editing = on ?? !editing;
+  document.body.classList.toggle("editing", editing);
+  $("modeBtn").textContent = editing ? "✔ 編集を終了" : "✎ 編集モードにする";
+  $("modeNote").textContent = editing ? "編集モード：企画をクリックで修正／行の「＋追加」で新規" : "閲覧モード";
+}
+$("modeBtn").addEventListener("click", ()=>{
+  if(!editing && !requireCreds()) return;
+  toggleMode();
+});
+$("reloadBtn").addEventListener("click", ()=>fetchDoc(false));
+
+/* ---------- live ---------- */
+fetchDoc(true);
+setInterval(()=>{ if(!dlg.open && !saving) fetchDoc(true); }, POLL_MS);
+document.addEventListener("visibilitychange", ()=>{ if(!document.hidden && !dlg.open) fetchDoc(true); });
+</script>
+</body>
+</html>
