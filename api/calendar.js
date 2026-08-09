@@ -1,5 +1,5 @@
 import { put, list, del } from "@vercel/blob";
-import { DEFAULT_DOC, ROWS, SEASONS, rowName, periodLabel } from "./_data.js";
+import { DEFAULT_DOC, ROWS, SEASONS, rowName, periodLabel, seasonOfPos, migrateDoc } from "./_data.js";
 
 // 同一パス上書きはCDNキャッシュで古い内容が返るため、リビジョンごとに
 // 不変のBlobを作成し、最新リビジョンを選んで読む（read-after-write整合のため）
@@ -58,7 +58,7 @@ function sanitizeItem(body, existing) {
   if (!Number.isInteger(span) || span < 1) return { err: "期間が不正です" };
   span = Math.min(span, 12 - m);
   let season = String(body.season || "");
-  if (!SEASONS.includes(season)) season = m < 3 ? "spring" : m < 6 ? "summer" : m < 9 ? "autumn" : "winter";
+  if (!SEASONS.includes(season)) season = seasonOfPos(m);
   const kari = !!body.kari;
   const sub = body.sub != null ? String(body.sub).trim().slice(0, 80) : undefined;
   const it = { row: rowKey, text, m, span, season, kari };
@@ -74,6 +74,12 @@ export default async function handler(req, res) {
     if (!doc) {
       doc = DEFAULT_DOC;
       try { await writeDoc(doc); } catch (e) { /* 初回シードの失敗は無視（次回リトライ） */ }
+    } else if (!doc.start) {
+      // 旧形式（3月起点）→ 2026年8月起点へ一回限りの自動移行
+      doc = migrateDoc(doc);
+      doc.rev = (doc.rev || 0) + 1;
+      doc.updatedAt = new Date().toISOString();
+      try { await writeDoc(doc); } catch (e) { /* 失敗時は次回GETで再試行 */ }
     }
     res.status(200).json(doc);
     return;
@@ -93,6 +99,7 @@ export default async function handler(req, res) {
   if (!["add", "edit", "delete"].includes(action)) { bad(res, 400, "actionが不正です"); return; }
 
   let doc = (await readDoc()) || JSON.parse(JSON.stringify(DEFAULT_DOC));
+  if (!doc.start) doc = migrateDoc(doc);
   const now = new Date().toISOString();
   let detail = "";
 

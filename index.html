@@ -32,7 +32,7 @@
   .eyebrow{font-size:11px; letter-spacing:.22em; color:var(--muted); text-transform:uppercase; margin-bottom:10px;}
   h1{
     font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
-    font-size:clamp(24px,3.2vw,34px); font-weight:600; letter-spacing:.04em;
+    font-size:clamp(22px,3.2vw,34px); font-weight:600; letter-spacing:.04em;
     margin:0 0 8px; text-wrap:balance;
   }
   .sub{color:var(--muted); font-size:13px; max-width:70ch;}
@@ -56,8 +56,9 @@
   body.editing .mode-note{color:var(--autumn); font-weight:600;}
   .live{font-size:11.5px; color:var(--muted); font-variant-numeric:tabular-nums;}
   .live .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--spring); margin-right:5px; vertical-align:1px;}
+  #viewBtn{display:none;}
 
-  .legend{display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin:0 0 14px; font-size:12px; color:var(--muted);}
+  .legend{display:flex; flex-wrap:wrap; gap:14px 18px; align-items:center; margin:0 0 14px; font-size:12px; color:var(--muted);}
   .legend .key{display:flex; align-items:center; gap:7px;}
   .swatch-bar{width:34px; height:14px; border-radius:7px; background:var(--fixed);}
   .swatch-chip{width:34px; height:14px; border-radius:7px; border:1.5px solid var(--autumn); background:color-mix(in oklab, var(--autumn) 14%, transparent);}
@@ -78,12 +79,18 @@
   .colbg{grid-row:1 / -1; border-left:1px solid var(--grid); pointer-events:none; min-height:0;}
 
   .months .m{
-    padding:10px 6px 8px; text-align:center; font-size:12px; font-weight:600;
-    letter-spacing:.08em; font-variant-numeric:tabular-nums;
+    padding:8px 6px 8px; text-align:center; font-size:12px; font-weight:600;
+    letter-spacing:.04em; font-variant-numeric:tabular-nums;
   }
+  .months .m .yr{display:block; font-size:9.5px; font-weight:600; letter-spacing:.12em; color:var(--muted);}
+  .months .m .yr.blank{visibility:hidden;}
   .months .season-tick{display:block; margin:4px auto 0; width:22px; height:3px; border-radius:2px;}
   .months .corner{padding:10px 12px 8px; font-size:10px; letter-spacing:.18em; color:var(--muted); align-self:end;}
 
+  .label, .months .corner{
+    position:sticky; left:0; z-index:2;
+  }
+  .months .corner{background:var(--panel);}
   .label{
     grid-column:1; grid-row:1 / -1;
     padding:14px 14px; background:var(--label-bg);
@@ -93,12 +100,12 @@
   }
   .label .en{font-size:10px; font-weight:500; letter-spacing:.14em; color:var(--muted); text-transform:uppercase;}
   .label .group{font-size:10px; font-weight:500; letter-spacing:.14em; color:var(--muted);}
-  .label .addbtn{
+  .addbtn{
     display:none; margin-top:6px; font-size:11px; padding:3px 8px; border-radius:6px;
     border:1.5px dashed var(--muted); background:transparent; color:var(--muted); align-self:flex-start;
   }
-  body.editing .label .addbtn{display:inline-block;}
-  .label .addbtn:hover{border-color:var(--accent); color:var(--accent);}
+  body.editing .addbtn{display:inline-block;}
+  .addbtn:hover{border-color:var(--accent); color:var(--accent);}
 
   .bar, .chip{
     margin:4px 5px; padding:5px 10px; font-size:11.5px; line-height:1.45;
@@ -130,9 +137,46 @@
   .spring{--season:var(--spring);} .summer{--season:var(--summer);}
   .autumn{--season:var(--autumn);} .winter{--season:var(--winter);}
 
+  /* ---------- 月別ビュー（スマホ既定） ---------- */
+  .mv{display:none;}
+  .mv-pager{
+    display:flex; align-items:center; gap:8px; justify-content:center;
+    padding:14px 10px 10px;
+  }
+  .mv-pager button{padding:6px 14px; font-size:15px; line-height:1;}
+  .mv-title{
+    font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+    font-size:20px; font-weight:600; letter-spacing:.05em; min-width:9em; text-align:center;
+    font-variant-numeric:tabular-nums;
+  }
+  .mv-title .season-dot{display:inline-block; width:9px; height:9px; border-radius:50%; margin-left:8px; vertical-align:1px;}
+  .mv-strip{
+    display:flex; gap:6px; overflow-x:auto; padding:0 12px 12px; scrollbar-width:none;
+  }
+  .mv-strip::-webkit-scrollbar{display:none;}
+  .mv-strip button{
+    flex:0 0 auto; font-size:11px; padding:4px 9px; border-radius:999px;
+    font-variant-numeric:tabular-nums;
+  }
+  .mv-strip button.cur{background:var(--fixed); color:var(--fixed-ink); border-color:var(--fixed);}
+  .mv-sec{border-top:1px solid var(--line); padding:10px 14px 12px;}
+  .mv-sec h3{margin:0 0 2px; font-size:12.5px; letter-spacing:.02em;}
+  .mv-sec h3 .group{font-size:9.5px; font-weight:500; letter-spacing:.14em; color:var(--muted); display:block;}
+  .mv-items{display:flex; flex-direction:column; gap:6px; margin-top:6px;}
+  .mv-items .bar, .mv-items .chip, .mv-items .season-bar{margin:0; width:100%; box-sizing:border-box;}
+  .mv-items .period{display:block; font-size:10px; font-weight:500; color:var(--muted); margin-top:2px;}
+  .mv-items .bar .period{color:color-mix(in oklab, var(--fixed-ink) 75%, transparent);}
+  .mv-empty{font-size:11.5px; color:var(--muted);}
+  .mv .addbtn{margin-top:8px;}
+
+  body.mobileView .cal{display:none;}
+  body.mobileView .mv{display:block;}
+  body.mobileView .scroller{overflow-x:hidden;}
+  body.mobileView #viewBtn{display:inline-block;}
+
   dialog{
     border:1px solid var(--line); border-radius:12px; background:var(--panel); color:var(--ink);
-    padding:22px; width:min(420px, 92vw); box-shadow:0 12px 40px rgba(0,0,0,.25);
+    padding:22px; width:min(420px, 92vw); box-sizing:border-box; box-shadow:0 12px 40px rgba(0,0,0,.25);
   }
   dialog::backdrop{background:rgba(20,22,15,.45);}
   dialog h2{margin:0 0 14px; font-size:15px;}
@@ -170,17 +214,24 @@
     position:fixed; left:50%; bottom:28px; transform:translateX(-50%);
     background:var(--ink); color:var(--paper); font-size:12.5px; font-weight:600;
     padding:9px 18px; border-radius:8px; opacity:0; transition:opacity .25s; pointer-events:none; z-index:50;
-    max-width:80vw; text-align:center;
+    max-width:80vw; text-align:center; box-sizing:border-box;
   }
   .toast.show{opacity:1;}
   @media (prefers-reduced-motion: reduce){ .toast{transition:none;} }
+
+  @media (max-width: 719px){
+    body{padding:20px 12px 48px;}
+    .toolbar{gap:8px;}
+    .tb-input{width:104px;}
+    .live{width:100%; order:9;}
+  }
 </style>
 </head>
 <body>
 
 <header>
   <div class="eyebrow">ENOWA · Farm Driven Hospitality</div>
-  <h1>年間カレンダー — 季節体験の全体設計（3月〜翌2月）</h1>
+  <h1>年間カレンダー — 季節体験の全体設計<span id="rangeLabel"></span></h1>
   <div class="sub">ファーム・料理・体験・商品を季節テーマのもとで連動させる年間構成。<b>編集内容はその場で保存され、全員に共有されます。</b></div>
 </header>
 
@@ -190,24 +241,28 @@
   <input id="editCode" class="tb-input" type="password" placeholder="編集コード" aria-label="編集コード" autocomplete="off">
   <span class="mode-note" id="modeNote">閲覧モード</span>
   <span class="spacer"></span>
-  <span class="live" id="liveInfo"></span>
+  <button id="viewBtn" class="ghost">📅 年間ビュー</button>
   <button id="reloadBtn" class="ghost">↻ 最新を取得</button>
+  <span class="live" id="liveInfo"></span>
 </div>
 
 <div class="legend">
-  <span class="key"><span class="swatch-bar"></span>Optional Tour 定常型（通年実施可・横断バー）</span>
-  <span class="key"><span class="swatch-chip"></span>季節限定・月別企画（実施期間のみ表示）</span>
+  <span class="key"><span class="swatch-bar"></span>Optional Tour 定常型（通年実施可）</span>
+  <span class="key"><span class="swatch-chip"></span>季節限定・月別企画</span>
   <span class="key"><span class="swatch-kari">仮</span>内容仮置き・要確認</span>
 </div>
 
-<div class="scroller"><div class="cal" id="cal"><div class="loading">読み込み中…</div></div></div>
+<div class="scroller">
+  <div class="cal" id="cal"><div class="loading">読み込み中…</div></div>
+  <div class="mv" id="mv"></div>
+</div>
 
 <div class="panel">
   <h2>使い方<span class="en">How to use</span></h2>
   <div class="howto">
-    名前と編集コードを入れて「編集モード」に切替 → 企画をクリックで修正・削除、行ラベルの「＋追加」で新規企画。
+    名前と編集コードを入れて「編集モード」に切替 → 企画をタップ／クリックで修正・削除、「＋追加」で新規企画。
     <b>保存した瞬間にデータベースへ書き込まれ、このページを開いている全員に反映されます</b>（他の人の変更も自動で取り込まれます）。
-    編集コードはチーム内で共有してください。
+    スマホでは月別ビュー（月送り）、PCでは年間ビューが表示されます。編集コードはチーム内で共有してください。
   </div>
 </div>
 
@@ -260,8 +315,6 @@
 
 <script>
 "use strict";
-const MONTH_NAMES = ["3月","4月","5月","6月","7月","8月","9月","10月","11月","12月","1月","2月"];
-const SEASON_OF_MONTH = m => m<3 ? "spring" : m<6 ? "summer" : m<9 ? "autumn" : "winter";
 const ROWS = [
   {key:"theme",      name:"Season Theme",             en:"季節テーマ",       kind:"season"},
   {key:"guest",      name:"宿泊者向け特別体験",         en:"Guest Exclusive", kind:"chip"},
@@ -273,13 +326,43 @@ const ROWS = [
 ];
 const POLL_MS = 15000;
 
-let doc = null;        // server document {rev, updatedAt, items, history}
+let doc = null;
 let editing = false;
 let saving = false;
+let start = {y:2026, mo:8};      // GETのdoc.startで上書き
+let mvPos = null;                // 月別ビューの選択位置 0..11
+let forceTimeline = false;       // スマホで年間ビューに切替中
 
 const $ = id => document.getElementById(id);
+const mqMobile = window.matchMedia("(max-width: 719px)");
 $("editorName").value = localStorage.getItem("enowaCal.name") || "";
 $("editCode").value = localStorage.getItem("enowaCal.code") || "";
+
+/* ---------- month helpers ---------- */
+function monthAt(pos){
+  const t = start.mo - 1 + pos;
+  return { y: start.y + Math.floor(t/12), mo: (t % 12) + 1 };
+}
+function monthLabel(pos, withYear){
+  const {y, mo} = monthAt(pos);
+  return withYear ? `${y}年${mo}月` : `${mo}月`;
+}
+function seasonOfPos(pos){
+  const mo = monthAt(pos).mo;
+  return mo>=3&&mo<=5 ? "spring" : mo>=6&&mo<=8 ? "summer" : mo>=9&&mo<=11 ? "autumn" : "winter";
+}
+function periodLabel(it){
+  if(it.span >= 12) return "通年";
+  const a = monthAt(it.m);
+  if(it.span === 1) return `${a.y}年${a.mo}月`;
+  const b = monthAt(it.m + it.span - 1);
+  return a.y === b.y ? `${a.y}年${a.mo}月〜${b.mo}月` : `${a.y}年${a.mo}月〜${b.y}年${b.mo}月`;
+}
+function currentPos(){
+  const now = new Date();
+  const p = (now.getFullYear() - start.y) * 12 + (now.getMonth() + 1 - start.mo);
+  return Math.min(11, Math.max(0, p));
+}
 
 function toast(msg){
   const t = $("toast"); t.textContent = msg; t.classList.add("show");
@@ -288,7 +371,7 @@ function toast(msg){
 function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 function fmtTime(iso){
   try{
-    return new Date(iso).toLocaleString("ja-JP",{timeZone:"Asia/Tokyo",month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
+    return new Date(iso).toLocaleString("ja-JP",{timeZone:"Asia/Tokyo",year:"numeric",month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
   }catch(e){ return iso; }
 }
 
@@ -298,13 +381,18 @@ async function fetchDoc(silent){
     const res = await fetch("/api/calendar", {cache:"no-store"});
     if(!res.ok) throw new Error(res.status);
     const d = await res.json();
-    const changed = !doc || d.rev !== doc.rev;
+    if(d.start){
+      const [y, mo] = d.start.split("-").map(Number);
+      start = {y, mo};
+    }
     const isRemote = doc && d.rev !== doc.rev;
+    const changed = !doc || d.rev !== doc.rev;
     doc = d;
-    if(changed){ render(); }
+    if(mvPos === null) mvPos = currentPos();
+    if(changed) render();
     if(isRemote){
       const last = d.history[d.history.length-1];
-      toast("更新を取り込みました" + (last ? `（${last.editor}さんが${last.action}）` : ""));
+      toast("更新を取り込みました" + (last ? `（${last.editor}）` : ""));
     }
   }catch(e){
     if(!doc) $("cal").innerHTML = '<div class="loading">読み込みに失敗しました。再読み込みしてください。</div>';
@@ -324,7 +412,22 @@ async function post(payload){
   render();
 }
 
-/* ---------- render ---------- */
+/* ---------- shared item element ---------- */
+function itemButtonHTML(row, it, opts){
+  const mobile = opts && opts.mobile;
+  const period = mobile ? `<span class="period">${esc(periodLabel(it))}</span>` : "";
+  const pos = mobile ? "" : ` style="grid-column:${it.m+2} / span ${Math.min(it.span, 12-it.m)}; grid-row:${(it._lane||0)+1}"`;
+  const kari = it.kari ? " kari" : "";
+  if(row.kind==="season"){
+    return `<button type="button" class="season-bar ${it.season}${kari}"${pos} data-id="${esc(it.id)}">${esc(it.text)}${it.sub?`<small>${esc(it.sub)}</small>`:""}${period}</button>`;
+  }
+  if(row.kind==="bar" && it.span>=12){
+    return `<button type="button" class="bar${kari}"${pos} data-id="${esc(it.id)}">${esc(it.text)}${period}</button>`;
+  }
+  return `<button type="button" class="chip ${it.season}${kari}"${pos} data-id="${esc(it.id)}">${esc(it.text)}${period}</button>`;
+}
+
+/* ---------- timeline (PC) ---------- */
 function assignLanes(list){
   const lanes = [];
   const sorted = [...list].sort((a,b)=> a.m - b.m || b.span - a.span || String(a.id).localeCompare(String(b.id)));
@@ -340,14 +443,14 @@ function assignLanes(list){
   return Math.max(1, lanes.length);
 }
 
-function render(){
-  if(!doc) return;
+function renderTimeline(){
   let html = '<div class="row months"><div class="corner">MONTH</div>';
-  for(let m=0;m<12;m++){
-    html += `<div class="m">${MONTH_NAMES[m]}<span class="season-tick" style="background:var(--${SEASON_OF_MONTH(m)})"></span></div>`;
+  for(let p=0;p<12;p++){
+    const {y, mo} = monthAt(p);
+    const showYr = p===0 || mo===1;
+    html += `<div class="m"><span class="yr${showYr?"":" blank"}">${y}</span>${mo}月<span class="season-tick" style="background:var(--${seasonOfPos(p)})"></span></div>`;
   }
   html += '</div>';
-
   ROWS.forEach(row=>{
     const list = doc.items.filter(i=>i.row===row.key);
     const laneCount = assignLanes(list);
@@ -356,21 +459,57 @@ function render(){
       (row.group?`<span class="group">${row.group}</span>`:"") +
       row.name + `<span class="en">${row.en}</span>` +
       `<button class="addbtn" data-add="${row.key}" type="button">＋追加</button></div>`;
-    for(let m=0;m<12;m++) html += `<i class="colbg" style="grid-column:${m+2}"></i>`;
-    list.forEach(it=>{
-      const pos = `grid-column:${it.m+2} / span ${Math.min(it.span, 12-it.m)}; grid-row:${(it._lane||0)+1}`;
-      const kari = it.kari ? " kari" : "";
-      if(row.kind==="season"){
-        html += `<button type="button" class="season-bar ${it.season}${kari}" style="${pos}" data-id="${esc(it.id)}">${esc(it.text)}${it.sub?`<small>${esc(it.sub)}</small>`:""}</button>`;
-      }else if(row.kind==="bar" && it.span>=12){
-        html += `<button type="button" class="bar${kari}" style="${pos}" data-id="${esc(it.id)}">${esc(it.text)}</button>`;
-      }else{
-        html += `<button type="button" class="chip ${it.season}${kari}" style="${pos}" data-id="${esc(it.id)}">${esc(it.text)}</button>`;
-      }
-    });
+    for(let p=0;p<12;p++) html += `<i class="colbg" style="grid-column:${p+2}"></i>`;
+    list.forEach(it=>{ html += itemButtonHTML(row, it); });
     html += `</div>`;
   });
   $("cal").innerHTML = html;
+}
+
+/* ---------- month view (mobile) ---------- */
+function renderMonthView(){
+  const p = mvPos;
+  let html = `
+    <div class="mv-pager">
+      <button type="button" data-mv="-1" aria-label="前の月" ${p<=0?"disabled":""}>‹</button>
+      <span class="mv-title">${monthLabel(p, true)}<span class="season-dot" style="background:var(--${seasonOfPos(p)})"></span></span>
+      <button type="button" data-mv="1" aria-label="次の月" ${p>=11?"disabled":""}>›</button>
+    </div>
+    <div class="mv-strip">` +
+    Array.from({length:12},(_,i)=>{
+      const {y, mo} = monthAt(i);
+      const lbl = (i===0 || mo===1) ? `${String(y).slice(2)}/${mo}月` : `${mo}月`;
+      return `<button type="button" data-mvp="${i}" class="${i===p?"cur":""}">${lbl}</button>`;
+    }).join("") + `</div>`;
+  ROWS.forEach(row=>{
+    const list = doc.items
+      .filter(i=>i.row===row.key && i.m <= p && p < i.m + i.span)
+      .sort((a,b)=> a.m - b.m || String(a.id).localeCompare(String(b.id)));
+    html += `<div class="mv-sec"><h3>${row.group?`<span class="group">${row.group}</span>`:""}${row.name}<span class="en"></span></h3>`;
+    html += `<div class="mv-items">`;
+    if(list.length){
+      list.forEach(it=>{ html += itemButtonHTML(row, it, {mobile:true}); });
+    }else{
+      html += `<div class="mv-empty">この月の企画はまだありません</div>`;
+    }
+    html += `</div><button class="addbtn" data-add="${row.key}" type="button">＋追加</button></div>`;
+  });
+  $("mv").innerHTML = html;
+}
+
+function applyViewMode(){
+  const mobileView = mqMobile.matches && !forceTimeline;
+  document.body.classList.toggle("mobileView", mobileView);
+  $("viewBtn").style.display = mqMobile.matches ? "inline-block" : "none";
+  $("viewBtn").textContent = forceTimeline ? "🗓 月別ビュー" : "📅 年間ビュー";
+}
+
+function render(){
+  if(!doc) return;
+  $("rangeLabel").textContent = `（${monthLabel(0,true)}〜${monthLabel(11,true)}）`;
+  renderTimeline();
+  renderMonthView();
+  applyViewMode();
 
   const ul = $("histList"); ul.innerHTML = "";
   doc.history.slice().reverse().slice(0, 100).forEach(h=>{
@@ -379,7 +518,6 @@ function render(){
     li.innerHTML = `<span class="tag ${cls}">${esc(h.action)}</span>${esc(h.detail)} <span class="who">— ${esc(h.editor)}・${fmtTime(h.ts)}</span>`;
     ul.appendChild(li);
   });
-
   const last = doc.history[doc.history.length-1];
   $("liveInfo").innerHTML = `<span class="dot"></span>rev ${doc.rev}・最終更新 ${fmtTime(doc.updatedAt)}` + (last?`（${esc(last.editor)}）`:"");
 }
@@ -402,11 +540,12 @@ function openDialog(target){
   const rname = (ROWS.find(r=>r.key===target.row)||{}).name || target.row;
   $("dlgTitle").textContent = (isNew ? "企画を追加 — " : "企画を編集 — ") + rname;
   $("fText").value = target.text || "";
-  const startSel = $("fStart"); startSel.innerHTML = MONTH_NAMES.map((n,i)=>`<option value="${i}">${n}</option>`).join("");
+  const startSel = $("fStart");
+  startSel.innerHTML = Array.from({length:12},(_,i)=>`<option value="${i}">${monthLabel(i,true)}</option>`).join("");
   startSel.value = target.m ?? 0;
   const spanSel = $("fSpan");
   const rebuildSpan = ()=>{
-    const start = +startSel.value, max = 12-start;
+    const s = +startSel.value, max = 12-s;
     spanSel.innerHTML = Array.from({length:max},(_,i)=>`<option value="${i+1}">${i+1===12?"12（通年）":i+1}</option>`).join("");
     spanSel.value = Math.min(target.span || (target.row==="tourFixed"?12:1), max);
   };
@@ -424,7 +563,7 @@ async function submit(action){
   const {name, code} = creds();
   const m = +$("fStart").value, span = +$("fSpan").value;
   let season = $("fSeason").value;
-  if(season==="auto") season = (dlgTarget.row==="tourFixed" && span>=12) ? "fixed" : SEASON_OF_MONTH(m);
+  if(season==="auto") season = (dlgTarget.row==="tourFixed" && span>=12) ? "fixed" : seasonOfPos(m);
   const payload = {
     editCode: code, editor: name, action,
     id: dlgTarget.id,
@@ -450,12 +589,17 @@ $("dlgDelete").addEventListener("click", ()=>{
 });
 $("dlgCancel").addEventListener("click", ()=>dlg.close());
 
-$("cal").addEventListener("click", e=>{
+function onCalClick(e){
+  const mv = e.target.closest("[data-mv]");
+  if(mv){ mvPos = Math.min(11, Math.max(0, mvPos + (+mv.dataset.mv))); renderMonthView(); return; }
+  const mvp = e.target.closest("[data-mvp]");
+  if(mvp){ mvPos = +mvp.dataset.mvp; renderMonthView(); return; }
   const add = e.target.closest("[data-add]");
   if(add){
     if(!requireCreds()) return;
     if(!editing) toggleMode(true);
-    openDialog({row: add.dataset.add});
+    const defM = document.body.classList.contains("mobileView") ? mvPos : 0;
+    openDialog({row: add.dataset.add, m: defM});
     return;
   }
   const el = e.target.closest("[data-id]");
@@ -463,7 +607,9 @@ $("cal").addEventListener("click", e=>{
     const it = doc.items.find(i=>String(i.id)===el.dataset.id);
     if(it) openDialog({...it});
   }
-});
+}
+$("cal").addEventListener("click", onCalClick);
+$("mv").addEventListener("click", onCalClick);
 
 function requireCreds(){
   const {name, code} = creds();
@@ -475,13 +621,15 @@ function toggleMode(on){
   editing = on ?? !editing;
   document.body.classList.toggle("editing", editing);
   $("modeBtn").textContent = editing ? "✔ 編集を終了" : "✎ 編集モードにする";
-  $("modeNote").textContent = editing ? "編集モード：企画をクリックで修正／行の「＋追加」で新規" : "閲覧モード";
+  $("modeNote").textContent = editing ? "編集モード：企画をタップで修正／「＋追加」で新規" : "閲覧モード";
 }
 $("modeBtn").addEventListener("click", ()=>{
   if(!editing && !requireCreds()) return;
   toggleMode();
 });
 $("reloadBtn").addEventListener("click", ()=>fetchDoc(false));
+$("viewBtn").addEventListener("click", ()=>{ forceTimeline = !forceTimeline; applyViewMode(); });
+mqMobile.addEventListener("change", applyViewMode);
 
 /* ---------- live ---------- */
 fetchDoc(true);
