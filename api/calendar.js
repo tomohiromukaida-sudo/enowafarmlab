@@ -1,9 +1,14 @@
-import { put, list, del } from "@vercel/blob";
+import { put, list, del, head } from "@vercel/blob";
 import { DEFAULT_DOC, ROWS, SEASONS, rowName, periodLabel, seasonOfPos, migrateDoc } from "./_data.js";
 
-// 同一パス上書きはCDNキャッシュで古い内容が返るため、リビジョンごとに
-// 不変のBlobを作成し、最新リビジョンを選んで読む（read-after-write整合のため）
+// ===== ストレージ設計（Advanced Operations 削減版） =====
+// - リビジョンは決定的パス calendar/rNNNNNNNN.json（サフィックスなし・上書き禁止）
+// - 最新リビジョンの所在は calendar/latest.json（ポインタ、上書き可・cache 60s）
+// - GET: ポインタ→リビジョンを公開URLで直接fetch（advanced ops = 0）
+// - POST: head()プローブで真の最新を特定（simple ops）→ put×2（リビジョン＋ポインタ）
+// - list() はポインタ未整備時の一回限りのブートストラップのみ
 const PREFIX = "calendar/r";
+const PTR_PATH = "calendar/latest.json";
 const HISTORY_LIMIT = 300;
 const KEEP_REVISIONS = 20;
 
@@ -11,36 +16,94 @@ function revPath(rev) {
   return PREFIX + String(rev).padStart(8, "0") + ".json";
 }
 
-async function listRevisions() {
-  const { blobs } = await list({ prefix: PREFIX, limit: 1000 });
-  return blobs.sort((a, b) =>
-    a.pathname === b.pathname
-      ? new Date(a.uploadedAt) - new Date(b.uploadedAt)
-      : a.pathname < b.pathname ? -1 : 1
-  );
+function baseUrl() {
+  if (process.env.BLOB_BASE_URL) return process.env.BLOB_BASE_URL.replace(/\/$/, "");
+  const m = (process.env.BLOB_READ_WRITE_TOKEN || "").match(/^vercel_blob_rw_([A-Za-z0-9]+)_/);
+  if (!m) throw new Error("BLOB_BASE_URL unresolved");
+  return `https://${m[1].toLowerCase()}.public.blob.vercel-storage.com`;
 }
 
-async function readDoc() {
-  const blobs = await listRevisions();
-  if (!blobs.length) return null;
-  const latest = blobs[blobs.length - 1];
-  const res = await fetch(latest.url, { cache: "no-store" });
-  if (!res.ok) throw new Error("blob fetch failed: " + res.status);
-  return await res.json();
-}
-
-async function writeDoc(doc) {
-  await put(revPath(doc.rev), JSON.stringify(doc), {
-    access: "public",
-    addRandomSuffix: true, // 同時書き込みでも衝突しない
-    contentType: "application/json",
-  });
-  // 古いリビジョンの掃除（失敗しても本処理には影響させない）
+async function fetchJsonSafe(url) {
   try {
-    const blobs = await listRevisions();
-    const stale = blobs.slice(0, Math.max(0, blobs.length - KEEP_REVISIONS));
-    if (stale.length) await del(stale.map((b) => b.url));
-  } catch (e) { /* noop */ }
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) { return null; }
+}
+
+async function exists(url) {
+  try { await head(url); return true; } catch (e) { return false; }
+}
+
+// ポインタが無い／壊れている場合のみの一回限りのフォールバック（list = advanced op）
+async function bootstrapPointer() {
+  const { blobs } = await list({ prefix: PREFIX, limit: 1000 });
+  if (!blobs.length) return null;
+  let best = null, bestRev = -1;
+  for (const b of blobs) {
+    const m = b.pathname.match(/\/r(\d{8})/);
+    if (!m) continue;
+    const rev = Number(m[1]);
+    if (rev > bestRev || (rev === bestRev && new Date(b.uploadedAt) > new Date(best.uploadedAt))) {
+      best = b; bestRev = rev;
+    }
+  }
+  if (!best) return null;
+  const ptr = { rev: bestRev, url: best.url };
+  try { await writePointer(ptr); } catch (e) { /* 次回に再試行 */ }
+  return ptr;
+}
+
+async function writePointer(ptr) {
+  await put(PTR_PATH, JSON.stringify(ptr), {
+    access: "public",
+    addRandomSuffix: false,
+    allowOverwrite: true,
+    contentType: "application/json",
+    cacheControlMaxAge: 60,
+  });
+}
+
+// authoritative=true（POST時）は headプローブでポインタの60秒キャッシュ遅れを補正する
+async function readLatestDoc(authoritative) {
+  const base = baseUrl();
+  let ptr = await fetchJsonSafe(`${base}/${PTR_PATH}`);
+  if (!ptr || !Number.isInteger(ptr.rev)) ptr = await bootstrapPointer();
+  if (!ptr) return null;
+  if (authoritative) {
+    while (await exists(`${base}/${revPath(ptr.rev + 1)}`)) {
+      ptr = { rev: ptr.rev + 1, url: `${base}/${revPath(ptr.rev + 1)}` };
+    }
+  }
+  let doc = await fetchJsonSafe(ptr.url);
+  if (!doc) {
+    const fresh = await bootstrapPointer();
+    if (fresh) doc = await fetchJsonSafe(fresh.url);
+  }
+  return doc;
+}
+
+// リビジョンを書き込む。同時編集で同じrevを書こうとした側は失敗する（呼び出し側でリトライ）
+async function writeDoc(doc) {
+  const path = revPath(doc.rev);
+  await put(path, JSON.stringify(doc), {
+    access: "public",
+    addRandomSuffix: false,
+    allowOverwrite: false,
+    contentType: "application/json",
+    cacheControlMaxAge: 31536000, // 不変ファイルなので長期キャッシュでよい
+  });
+  const url = `${baseUrl()}/${path}`;
+  await writePointer({ rev: doc.rev, url });
+  // 古いリビジョンの掃除（決定的パスなのでlist不要。存在しなければ無害）
+  const old = doc.rev - KEEP_REVISIONS;
+  if (old > 0) { try { await del(`${baseUrl()}/${revPath(old)}`); } catch (e) { /* noop */ } }
+  return url;
+}
+
+function isConflict(e) {
+  const msg = String((e && e.message) || e).toLowerCase();
+  return msg.includes("exist") || msg.includes("overwrite");
 }
 
 function bad(res, code, msg) {
@@ -68,16 +131,40 @@ function sanitizeItem(body, existing) {
   return { it };
 }
 
+// docに1操作を適用する（リトライ時に新しいdocへ再適用できるよう純関数的に）
+function applyAction(doc, body, action) {
+  if (action === "add") {
+    const { it, err } = sanitizeItem(body, null);
+    if (err) return { err, code: 400 };
+    it.id = "u" + Date.now().toString(36) + Math.floor(Math.random() * 1e6).toString(36);
+    doc.items.push(it);
+    return { detail: `${rowName(it.row)}：「${it.text}」（${periodLabel(it)}）` };
+  }
+  const idx = doc.items.findIndex((i) => i.id === String(body.id || ""));
+  if (idx < 0) return { err: "対象の企画が見つかりません（他の人が削除した可能性）。再読み込みしてください", code: 409 };
+  const before = doc.items[idx];
+  if (action === "delete") {
+    doc.items.splice(idx, 1);
+    return { detail: `${rowName(before.row)}：「${before.text}」（${periodLabel(before)}）` };
+  }
+  const { it, err } = sanitizeItem(body, before);
+  if (err) return { err, code: 400 };
+  it.id = before.id;
+  if (before.sub && it.sub === undefined) it.sub = before.sub;
+  doc.items[idx] = it;
+  const moved = before.row !== it.row ? `【分類変更 ${rowName(before.row)}→${rowName(it.row)}】` : "";
+  return { detail: `${rowName(it.row)}：${moved}「${it.text}」（${periodLabel(it)}）（変更前：「${before.text}」（${periodLabel(before)}））` };
+}
+
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
 
   if (req.method === "GET") {
-    let doc = await readDoc();
+    let doc = await readLatestDoc(false);
     if (!doc) {
       doc = DEFAULT_DOC;
       try { await writeDoc(doc); } catch (e) { /* 初回シードの失敗は無視（次回リトライ） */ }
     } else if (!doc.start) {
-      // 旧形式（3月起点）→ 2026年8月起点へ一回限りの自動移行
       doc = migrateDoc(doc);
       doc.rev = (doc.rev || 0) + 1;
       doc.updatedAt = new Date().toISOString();
@@ -100,41 +187,33 @@ export default async function handler(req, res) {
   const action = String(body.action || "");
   if (!["add", "edit", "delete"].includes(action)) { bad(res, 400, "actionが不正です"); return; }
 
-  let doc = (await readDoc()) || JSON.parse(JSON.stringify(DEFAULT_DOC));
-  if (!doc.start) doc = migrateDoc(doc);
-  const now = new Date().toISOString();
-  let detail = "";
+  // 楽観的並行制御：同じrevへの同時書き込みは片方が失敗→最新を読み直して再適用
+  let lastErr = null;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    let doc = (await readLatestDoc(true)) || JSON.parse(JSON.stringify(DEFAULT_DOC));
+    if (!doc.start) doc = migrateDoc(doc);
 
-  if (action === "add") {
-    const { it, err } = sanitizeItem(body, null);
-    if (err) { bad(res, 400, err); return; }
-    it.id = "u" + Date.now().toString(36) + Math.floor(Math.random() * 1e6).toString(36);
-    doc.items.push(it);
-    detail = `${rowName(it.row)}：「${it.text}」（${periodLabel(it)}）`;
-  } else {
-    const idx = doc.items.findIndex((i) => i.id === String(body.id || ""));
-    if (idx < 0) { bad(res, 409, "対象の企画が見つかりません（他の人が削除した可能性）。再読み込みしてください"); return; }
-    const before = doc.items[idx];
-    if (action === "delete") {
-      doc.items.splice(idx, 1);
-      detail = `${rowName(before.row)}：「${before.text}」（${periodLabel(before)}）`;
-    } else {
-      const { it, err } = sanitizeItem(body, before);
-      if (err) { bad(res, 400, err); return; }
-      it.id = before.id;
-      if (before.sub && it.sub === undefined) it.sub = before.sub;
-      doc.items[idx] = it;
-      const moved = before.row !== it.row ? `【分類変更 ${rowName(before.row)}→${rowName(it.row)}】` : "";
-      detail = `${rowName(it.row)}：${moved}「${it.text}」（${periodLabel(it)}）（変更前：「${before.text}」（${periodLabel(before)}））`;
+    const r = applyAction(doc, body, action);
+    if (r.err) { bad(res, r.code || 400, r.err); return; }
+
+    const now = new Date().toISOString();
+    const actionJa = action === "add" ? "追加" : action === "delete" ? "削除" : "修正";
+    doc.history.push({ ts: now, editor, action: actionJa, detail: r.detail });
+    if (doc.history.length > HISTORY_LIMIT) doc.history = doc.history.slice(-HISTORY_LIMIT);
+    doc.rev = (doc.rev || 0) + 1;
+    doc.updatedAt = now;
+
+    try {
+      await writeDoc(doc);
+      res.status(200).json(doc);
+      return;
+    } catch (e) {
+      lastErr = e;
+      if (!isConflict(e)) break;
+      // 競合：少し待って最新から再適用
+      await new Promise((ok) => setTimeout(ok, 150 * (attempt + 1)));
     }
   }
-
-  const actionJa = action === "add" ? "追加" : action === "delete" ? "削除" : "修正";
-  doc.history.push({ ts: now, editor, action: actionJa, detail });
-  if (doc.history.length > HISTORY_LIMIT) doc.history = doc.history.slice(-HISTORY_LIMIT);
-  doc.rev = (doc.rev || 0) + 1;
-  doc.updatedAt = now;
-
-  await writeDoc(doc);
-  res.status(200).json(doc);
+  bad(res, 503, "保存が混み合っています。もう一度お試しください");
+  if (lastErr) console.error("writeDoc failed:", lastErr);
 }

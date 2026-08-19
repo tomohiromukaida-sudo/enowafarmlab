@@ -344,7 +344,7 @@ const ROWS = [
   {key:"farm",       name:"Farm Feature",              en:"畑の主役",         kind:"chip"},
   {key:"md",         name:"MD / Seasonal Product",     en:"商品・物販",       kind:"chip"},
 ];
-const POLL_MS = 15000;
+const POLL_MS = 60000; // 自動同期は60秒間隔（タブ非表示中は停止）。急ぐときは「↻ 最新を取得」
 
 let doc = null;
 let editing = false;
@@ -668,7 +668,7 @@ mqMobile.addEventListener("change", applyViewMode);
 
 /* ---------- live ---------- */
 fetchDoc(true);
-setInterval(()=>{ if(!dlg.open && !saving) fetchDoc(true); }, POLL_MS);
+setInterval(()=>{ if(!document.hidden && !dlg.open && !saving) fetchDoc(true); }, POLL_MS);
 document.addEventListener("visibilitychange", ()=>{ if(!document.hidden && !dlg.open) fetchDoc(true); });
 </script>
 </body>
