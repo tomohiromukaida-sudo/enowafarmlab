@@ -1,0 +1,449 @@
+<title>徳之島 Pre-Meeting Pack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Old+Mincho:wght@400;600;900&display=swap">
+
+<style>
+:root{
+  --ground:#EEF2F0; --sheet:#FFFFFF; --ink:#151E1B; --muted:#5B6B65;
+  --rule:#C7D2CD; --hair:#DDE5E1; --accent:#0F5049; --accent-soft:#DCEAE4;
+  --flag:#7E6120; --shadow:0 1px 2px rgba(21,30,27,.06), 0 12px 32px -18px rgba(21,30,27,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C1211; --sheet:#131C19; --ink:#E3EBE7; --muted:#95A6A0;
+    --rule:#2C3B36; --hair:#22302C; --accent:#77C7B3; --accent-soft:#1B322C;
+    --flag:#C4A263; --shadow:0 1px 2px rgba(0,0,0,.4), 0 16px 40px -20px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C1211; --sheet:#131C19; --ink:#E3EBE7; --muted:#95A6A0;
+  --rule:#2C3B36; --hair:#22302C; --accent:#77C7B3; --accent-soft:#1B322C;
+  --flag:#C4A263; --shadow:0 1px 2px rgba(0,0,0,.4), 0 16px 40px -20px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  font-size:15px; line-height:1.85; letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.mincho{font-family:"Zen Old Mincho","Hiragino Mincho ProN",serif}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--ground) 88%, transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--hair);
+}
+.bar-in{
+  max-width:1000px; margin:0 auto; padding:10px 24px;
+  display:flex; flex-wrap:wrap; gap:8px 22px; align-items:baseline;
+}
+.bar-title{font-family:"Zen Old Mincho",serif; font-size:14px; font-weight:600; letter-spacing:.06em}
+.bar nav{display:flex; gap:16px; margin-left:auto}
+.bar a{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.09em;
+  color:var(--muted); text-decoration:none; padding:2px 0; border-bottom:1px solid transparent;
+}
+.bar a:hover,.bar a:focus-visible{color:var(--accent); border-bottom-color:var(--accent); outline:none}
+
+/* ---------- masthead ---------- */
+main{max-width:1000px; margin:0 auto; padding:0 24px 96px; display:flex; flex-direction:column; gap:40px}
+.masthead{padding:64px 0 8px; display:flex; flex-direction:column; gap:20px}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.18em;
+  color:var(--accent); text-transform:uppercase;
+}
+.masthead h1{
+  font-family:"Zen Old Mincho",serif; font-weight:600; font-size:clamp(28px,4.4vw,44px);
+  line-height:1.45; margin:0; text-wrap:balance; letter-spacing:.02em;
+}
+.masthead p{margin:0; max-width:62ch; color:var(--muted); font-size:14.5px}
+.masthead .team{
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.06em;
+  color:var(--ink); border-top:1px solid var(--rule); padding-top:14px; max-width:62ch;
+}
+
+/* ---------- sheet ---------- */
+.sheet{
+  background:var(--sheet); border:1px solid var(--rule); border-radius:2px;
+  box-shadow:var(--shadow); scroll-margin-top:64px; overflow:hidden;
+}
+.chart{
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+  border-bottom:1px solid var(--rule); background:var(--accent-soft);
+}
+.chart div{padding:10px 16px; border-right:1px solid var(--rule)}
+.chart div:last-child{border-right:none}
+.chart dt{
+  font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.14em;
+  color:var(--accent); margin:0 0 2px;
+}
+.chart dd{margin:0; font-size:12.5px; font-weight:500; line-height:1.5}
+.body{padding:38px clamp(20px,4.5vw,56px) 46px; display:flex; flex-direction:column; gap:30px}
+
+.sheet h2{
+  font-family:"Zen Old Mincho",serif; font-weight:600; font-size:clamp(21px,2.9vw,29px);
+  line-height:1.55; margin:0; text-wrap:balance;
+}
+.sheet h2 .sub{display:block; font-size:14px; color:var(--muted); font-family:"Noto Sans JP",sans-serif; font-weight:400; margin-top:10px}
+.sheet h3{
+  font-size:15px; font-weight:700; margin:0 0 10px; letter-spacing:.02em;
+  display:flex; align-items:baseline; gap:10px;
+}
+.sheet h3 .n{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--accent);
+  letter-spacing:.1em; flex:none;
+}
+.sheet p{margin:0 0 12px; max-width:66ch}
+.sheet p:last-child{margin-bottom:0}
+section.blk{border-top:1px solid var(--hair); padding-top:22px}
+section.blk:first-of-type{border-top:none; padding-top:0}
+strong{font-weight:700}
+em{font-style:normal; background:linear-gradient(transparent 62%, var(--accent-soft) 62%); font-weight:500}
+.flag{color:var(--flag); font-family:"IBM Plex Mono",monospace; font-size:11px; white-space:nowrap}
+
+blockquote{
+  margin:0; padding:16px 22px; border-left:2px solid var(--accent); background:var(--accent-soft);
+  font-family:"Zen Old Mincho",serif; font-size:clamp(16px,2.1vw,19px); line-height:1.8;
+}
+blockquote p{margin:0; max-width:none}
+blockquote p + p{margin-top:8px}
+
+ul.plain{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px}
+ul.plain li{position:relative; padding-left:20px; max-width:66ch}
+ul.plain li::before{
+  content:""; position:absolute; left:2px; top:.72em; width:7px; height:1px; background:var(--accent);
+}
+
+.tbl-wrap{overflow-x:auto; border:1px solid var(--hair); border-radius:2px}
+table{border-collapse:collapse; width:100%; min-width:600px; font-size:13.5px; line-height:1.7}
+th,td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--hair); vertical-align:top}
+thead th{
+  font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.12em; color:var(--accent);
+  background:var(--accent-soft); border-bottom:1px solid var(--rule); white-space:nowrap; font-weight:500;
+}
+tbody tr:last-child td{border-bottom:none}
+td.k{font-weight:700; white-space:nowrap}
+td.k span{display:block; font-family:"IBM Plex Mono",monospace; font-size:9.5px; color:var(--muted); font-weight:400; letter-spacing:.06em}
+
+.cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1px; background:var(--hair); border:1px solid var(--hair)}
+.cols > div{background:var(--sheet); padding:16px 18px}
+.cols h4{margin:0 0 6px; font-size:13.5px; font-weight:700}
+.cols .lab{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.13em; color:var(--accent); display:block; margin-bottom:8px}
+.cols p{font-size:13px; line-height:1.75; color:var(--muted); margin:0}
+
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hair); border:1px solid var(--hair)}
+.vs > div{background:var(--sheet); padding:16px 18px}
+.vs .no{color:var(--muted)}
+.vs .lab{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.12em; display:block; margin-bottom:10px}
+.vs .no .lab{color:var(--muted)}
+.vs .yes .lab{color:var(--accent)}
+.vs ul{margin:0; padding-left:1.1em; display:flex; flex-direction:column; gap:7px; font-size:13.5px}
+
+/* ---------- figure ---------- */
+figure{margin:0; display:flex; flex-direction:column; gap:12px}
+.fig-scroll{overflow-x:auto; padding:6px 0}
+figure svg{display:block; min-width:720px; width:100%; height:auto; color:var(--ink)}
+figcaption{font-size:12.5px; color:var(--muted); max-width:66ch}
+.d-node{fill:var(--sheet); stroke:var(--rule); stroke-width:1}
+.d-core{fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.5}
+.d-hub{fill:var(--accent); stroke:none}
+.d-line{stroke:var(--rule); stroke-width:1; fill:none}
+.d-flow{stroke:var(--accent); stroke-width:1.4; fill:none}
+.d-dash{stroke:var(--accent); stroke-width:1.2; fill:none; stroke-dasharray:5 4}
+.d-t{fill:currentColor; font-family:"Noto Sans JP",sans-serif; font-size:13px}
+.d-t.jp-sm{font-size:12px}
+.d-en{fill:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.06em}
+.d-edge{fill:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.04em}
+.d-grp{fill:var(--accent); font-family:"Zen Old Mincho",serif; font-size:15px; font-weight:600}
+.d-core-t{fill:var(--ink); font-family:"Zen Old Mincho",serif; font-size:16px; font-weight:600}
+.d-hub-t{fill:var(--sheet); font-family:"Zen Old Mincho",serif; font-size:17px; font-weight:600}
+.d-arrow{fill:var(--accent)}
+
+footer{
+  border-top:1px solid var(--rule); padding-top:20px; color:var(--muted); font-size:12px;
+  display:flex; flex-wrap:wrap; gap:6px 20px;
+}
+@media (max-width:640px){
+  .chart{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chart div:nth-child(2){border-right:none}
+  .vs{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">徳之島 Pre-Meeting Pack</span>
+    <nav>
+      <a href="#p01">01 OPPORTUNITY</a>
+      <a href="#p02">02 TEAM</a>
+      <a href="#p03">03 POTENTIAL MAP</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+  <header class="masthead">
+    <span class="eyebrow">Pre-Meeting Documents ／ 初回面談用</span>
+    <h1>旧徳之島徳洲会病院を、<br>「泊まるために島へ行く」ホテルへ。</h1>
+    <p>本資料は結論ではありません。理事長が、なぜ旧病院を壊さずホテルにしようとしておられるのか。その思想をまずうかがい、世界に通用するホテルブランドへ翻訳するための、3枚の紙です。</p>
+    <p class="team mono">HOSPITALITY BRAND &amp; DESTINATION DEVELOPMENT TEAM<br>町田・向田（ブランド開発／ENOWA YUFUIN）＋ RATA（Regenerative Art Tourism・環境再生・地域連携）</p>
+  </header>
+
+  <!-- ============ SHEET 01 ============ -->
+  <article class="sheet" id="p01">
+    <dl class="chart">
+      <div><dt class="mono">SHEET</dt><dd>Pre-Meeting 01</dd></div>
+      <div><dt class="mono">TITLE</dt><dd>Opportunity Memo</dd></div>
+      <div><dt class="mono">READING TIME</dt><dd>5分</dd></div>
+      <div><dt class="mono">STATUS</dt><dd>仮説／結論ではない</dd></div>
+    </dl>
+    <div class="body">
+      <h2>旧病院を残すという判断が、このホテル最大のブランド資産になりうる。
+        <span class="sub">Why keeping the hospital is the strongest brand asset this hotel can have.</span></h2>
+
+      <section class="blk">
+        <h3><span class="n">01</span>いま世界のホテルで最も希少なものは「後から作れない過去」</h3>
+        <p>この20年、高価格帯ホテルで最も強い差別化を生んできたのは、豪華さでも新しさでもなく、<strong>その建物にしかない履歴</strong>でした。修道院、刑務所、発電所、駅舎、倉庫。用途を終えた建築がその記憶ごと宿になったとき、旅行者はそこを「泊まる場所」ではなく「行く理由」として扱いはじめます。</p>
+        <p>新築のリゾートは、いつか必ず比較されます。設備も意匠も、後から上位互換が現れる。<em>履歴を持つ建築だけが、比較の外に出られます。</em>それは資金では買えず、コピーもできず、後から作ることもできません。</p>
+        <p>旧徳之島徳洲会病院は、40年間この島の医療を担った建物です<span class="flag">［要確認：稼働年数・開設年］</span>。島の多くの人が、そこで生まれ、そこで家族を看取った。日本のどのホテルも持っていない資産です。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">02</span>病院とホテルは、もともと同じ言葉から生まれている</h3>
+        <p>ラテン語の <strong>hospes（客人をもてなす者）</strong>から、hospital（病院）、hospitality（もてなし）、hotel（ホテル）、hospice はすべて分かれました。中世の hospitale は、旅人を迎え、病んだ者を休ませる、同じ一つの場所を指していました。</p>
+        <blockquote><p>病院をホテルにすることは、用途の転用ではない。<br>原点への回帰である。</p></blockquote>
+        <p>「人を迎え、癒す場所」という機能は、40年前から一度も変わっていません。変わるのは、迎える相手が島の患者から世界の旅人になること、それだけです。この一行は翻訳を必要としません。世界のどの国のメディアにも、どの国の旅行者にも、そのまま通じます。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">03</span>徳之島でしか成立しない、三つの一致</h3>
+        <div class="cols">
+          <div><span class="lab mono">THE ISLAND</span><h4>長寿の島、子宝の島</h4><p>世界的な長寿記録を持ち、出生率は全国最高水準<span class="flag">［要確認］</span>。人が生まれ、長く生きる島。</p></div>
+          <div><span class="lab mono">THE PRINCIPLE</span><h4>生命だけは平等だ</h4><p>徳洲会の原点は、この島で医療にかかれなかった、一つの死にある。</p></div>
+          <div><span class="lab mono">THE LAND</span><h4>世界自然遺産</h4><p>2021年登録。生命の多様性そのものが、国際的に認められた土地。</p></div>
+        </div>
+        <p style="margin-top:18px">長寿・子宝・世界自然遺産・医療の歴史。この島のすべての固有性は、<em>「生命（いのち）」</em>という一語に集まります。そして旧病院は、その中心に建っています。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">04</span>だから、問いはこう変わる</h3>
+        <div class="vs">
+          <div class="no"><span class="lab mono">問うべきでないこと</span>
+            <ul><li>旧病院をどう活用するか</li><li>どんなホテルを作るか</li><li>何を新しく足すか</li></ul></div>
+          <div class="yes"><span class="lab mono">問うべきこと</span>
+            <ul><li>この建物の意味を、世界の旅行者に通じる言葉へどう翻訳するか</li><li>世界中の旅行者が、わざわざ徳之島まで泊まりに来る理由を何にするか</li><li>何を残すことが、最も価値になるか</li></ul></div>
+        </div>
+        <blockquote style="margin-top:18px"><p>「徳之島へ行ったから、このホテルに泊まる」のではなく、<br>「このホテルに泊まるために、徳之島へ行く」。</p></blockquote>
+        <p style="margin-top:14px">30億円の投資<span class="flag">［要確認］</span>は、施設をつくる費用ではなく、<strong>この島に来る理由をつくる費用</strong>として設計されるべきものだと考えています。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">05</span>本日、うかがいたいこと</h3>
+        <ul class="plain">
+          <li>なぜ、壊さずに残したいとお考えになったのか</li>
+          <li>なぜ、ホテルなのか</li>
+          <li>徳洲会として、この場所にどんな意味を持たせたいのか</li>
+          <li>そして、どこまでの高さを目指しておられるのか（島／奄美／日本／世界）</li>
+        </ul>
+        <p style="margin-top:16px"><strong>ここをうかがう前に、我々からコンセプトを申し上げることはしません。</strong></p>
+      </section>
+    </div>
+  </article>
+
+  <!-- ============ SHEET 02 ============ -->
+  <article class="sheet" id="p02">
+    <dl class="chart">
+      <div><dt class="mono">SHEET</dt><dd>Pre-Meeting 02</dd></div>
+      <div><dt class="mono">TITLE</dt><dd>ENOWA YUFUIN から徳之島へ</dd></div>
+      <div><dt class="mono">READING TIME</dt><dd>5分</dd></div>
+      <div><dt class="mono">STATUS</dt><dd>実績資料ではない</dd></div>
+    </dl>
+    <div class="body">
+      <h2>宿は、建ててから考えると「良い施設」で止まる。<br>訪れる理由は、図面より前にしか作れない。
+        <span class="sub">我々の仕事は、その最上流にあります。</span></h2>
+
+      <section class="blk">
+        <h3><span class="n">01</span>我々が何をしてきたか</h3>
+        <p>町田・向田は、<strong>ENOWA YUFUIN の再生とブランド化</strong>に携わってきました。そこで取り組んだのは、客室をつくることでも、内装を整えることでもありません。</p>
+        <blockquote><p>一つの宿泊施設を、その土地を訪れる目的となるブランドへ変えること。</p></blockquote>
+        <p style="margin-top:14px"><span class="flag">［ENOWA YUFUIN 概要 ─ 開業年／規模／ADR／稼働／海外比率／受賞・掲載 を記入］</span></p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">02</span>このチームが担える範囲</h3>
+        <p>ホテル開発は通常、ブランド・設計・食・運営・PRがそれぞれ別の会社に分断されます。別々の思想で動けば、建物は完成しても、ブランドは生まれません。我々は<em>一つの思想を最後まで通す役割</em>を担います。</p>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>領域</th><th>担うこと</th></tr></thead>
+            <tbody>
+              <tr><td class="k">ブランド構想<span>BRAND</span></td><td>なぜこの場所なのか、を定義する。すべての判断の基準となる一行をつくる</td></tr>
+              <tr><td class="k">事業コンセプト<span>CONCEPT</span></td><td>ターゲット、価格帯、客室構成、体験の骨格。高価格帯が成立する理由の設計</td></tr>
+              <tr><td class="k">設計ディレクション<span>ARCHITECTURE</span></td><td>建築・ランドスケープ・インテリアの設計者選定と、思想を通すためのディレクション</td></tr>
+              <tr><td class="k">食とウェルネス<span>FOOD &amp; WELLNESS</span></td><td>その土地でしか成立しない食の設計。滞在の時間軸に沿った体験設計</td></tr>
+              <tr><td class="k">サービス／運営思想<span>OPERATION</span></td><td>オペレーター選定の支援と、サービス思想・スタッフ育成の起点づくり</td></tr>
+              <tr><td class="k">PR・国際発信<span>COMMUNICATION</span></td><td>開業前からの物語設計、国内外メディア、アワード戦略</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">03</span>RATA が加えるもの</h3>
+        <p>町田・向田のホテル・ブランド開発能力を核に、以下を組み合わせます。</p>
+        <ul class="plain">
+          <li><strong>Regenerative Art Tourism</strong> ─ 環境再生と観光を同じ設計の中に置く方法論</li>
+          <li><strong>アート／アーティストネットワーク</strong> ─ 国内外のアーティストとの制作・滞在の実装力</li>
+          <li><strong>環境再生</strong> ─ 土地・海・生態系に対する具体的な再生プログラム</li>
+          <li><strong>徳之島での地域ネットワーク</strong> ─ 現地の人・事業者・行政との既存の関係</li>
+          <li><strong>Ocean Gaia 等の既存プロジェクト</strong> ─ 海洋・環境領域で稼働中の実績</li>
+          <li><strong>観光・教育・地域連携</strong> ─ 島の人の仕事と誇りにつながる仕組み</li>
+        </ul>
+        <p style="margin-top:14px">ただしこれらは、<strong>本日ご提案するものではありません。</strong>ブランドの方向が定まったあとに、必要な分だけ接続します。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">04</span>なぜ、この案件と相性が良いのか</h3>
+        <div class="cols">
+          <div><span class="lab mono">TIMING</span><h4>上流から入れる</h4><p>設計が固まりきる前の段階<span class="flag">［要確認］</span>。ブランドを図面より先に立てられる、稀なタイミングです。</p></div>
+          <div><span class="lab mono">SUBJECT</span><h4>固有性が桁違いに強い</h4><p>由布院で行ったのは、土地にあるものを世界に通じる言葉へ翻訳する仕事。徳之島は、翻訳すべき固有性の強さが違います。</p></div>
+          <div><span class="lab mono">OWNER</span><h4>ホテル事業者でないこと</h4><p>だからこそ通常のホテル開発の定石に縛られず、理念から立ち上げるブランドをつくれる。既存チェーンには構造的に不可能なことです。</p></div>
+        </div>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">05</span>我々の立ち位置</h3>
+        <p>我々は、完成したアイデアを売りに来たのではありません。まず、理事長のお考えをうかがう。そのうえで、<em>その構想を、世界の旅行者に通じるブランドに翻訳できるかどうか</em>を、一緒に検証させていただきたいと考えています。</p>
+      </section>
+    </div>
+  </article>
+
+  <!-- ============ SHEET 03 ============ -->
+  <article class="sheet" id="p03">
+    <dl class="chart">
+      <div><dt class="mono">SHEET</dt><dd>Pre-Meeting 03</dd></div>
+      <div><dt class="mono">TITLE</dt><dd>Potential Map</dd></div>
+      <div><dt class="mono">READING TIME</dt><dd>対話用</dd></div>
+      <div><dt class="mono">STATUS</dt><dd>結論ではない／可能性の地図</dd></div>
+    </dl>
+    <div class="body">
+      <h2>旧病院から広がり得る、ブランド資産の地図。
+        <span class="sub">どれを選ぶかは、お考えをうかがったあとに決めます。本日この地図を埋めに来たのではありません。</span></h2>
+
+      <section class="blk">
+        <figure>
+          <div class="fig-scroll">
+            <svg viewBox="0 0 960 510" role="img" aria-label="旧徳之島徳洲会病院を中心に、生命という一語を経由して、島の記憶・生命の土地・生命の体験の三系統へ、計九つのブランド資産が広がる地図">
+              <defs>
+                <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" class="d-arrow"/>
+                </marker>
+              </defs>
+
+              <!-- core -->
+              <rect x="330" y="20" width="300" height="66" rx="2" class="d-core"/>
+              <text x="480" y="48" text-anchor="middle" class="d-core-t">旧徳之島徳洲会病院</text>
+              <text x="480" y="70" text-anchor="middle" class="d-en">HOSPITAL LEGACY ／ 40年の記憶</text>
+
+              <!-- core to hub -->
+              <line x1="480" y1="86" x2="480" y2="108" class="d-flow" marker-end="url(#ar)"/>
+
+              <!-- hub -->
+              <circle cx="480" cy="146" r="36" class="d-hub"/>
+              <text x="480" y="145" text-anchor="middle" class="d-hub-t">生命</text>
+              <text x="480" y="162" text-anchor="middle" class="d-hub-t" style="font-size:10px">い の ち</text>
+
+              <!-- fan -->
+              <line x1="480" y1="182" x2="480" y2="206" class="d-flow"/>
+              <line x1="165" y1="206" x2="795" y2="206" class="d-flow"/>
+              <line x1="165" y1="206" x2="165" y2="250" class="d-flow" marker-end="url(#ar)"/>
+              <line x1="480" y1="206" x2="480" y2="250" class="d-flow" marker-end="url(#ar)"/>
+              <line x1="795" y1="206" x2="795" y2="250" class="d-flow" marker-end="url(#ar)"/>
+              <text x="174" y="232" class="d-edge">記憶として</text>
+              <text x="489" y="232" class="d-edge">土地として</text>
+              <text x="804" y="232" class="d-edge">体験として</text>
+
+              <!-- group headers -->
+              <line x1="45" y1="262" x2="285" y2="262" class="d-line"/>
+              <line x1="360" y1="262" x2="600" y2="262" class="d-line"/>
+              <line x1="675" y1="262" x2="915" y2="262" class="d-line"/>
+              <text x="165" y="284" text-anchor="middle" class="d-grp">島の記憶</text>
+              <text x="480" y="284" text-anchor="middle" class="d-grp">生命の土地</text>
+              <text x="795" y="284" text-anchor="middle" class="d-grp">生命の体験</text>
+
+              <!-- row 1 -->
+              <rect x="45" y="300" width="240" height="44" rx="2" class="d-node"/>
+              <text x="60" y="320" class="d-t">島の共同体</text><text x="60" y="335" class="d-en">COMMUNITY</text>
+              <rect x="360" y="300" width="240" height="44" rx="2" class="d-node"/>
+              <text x="375" y="320" class="d-t">世界自然遺産</text><text x="375" y="335" class="d-en">WORLD NATURAL HERITAGE</text>
+              <rect x="675" y="300" width="240" height="44" rx="2" class="d-node"/>
+              <text x="690" y="320" class="d-t">療養・ウェルネス</text><text x="690" y="335" class="d-en">WELLNESS</text>
+
+              <!-- row 2 -->
+              <rect x="45" y="352" width="240" height="44" rx="2" class="d-node"/>
+              <text x="60" y="372" class="d-t">長寿と子宝</text><text x="60" y="387" class="d-en">LONGEVITY</text>
+              <rect x="360" y="352" width="240" height="44" rx="2" class="d-node"/>
+              <text x="375" y="372" class="d-t">森・生態系</text><text x="375" y="387" class="d-en">NATURE</text>
+              <rect x="675" y="352" width="240" height="44" rx="2" class="d-node"/>
+              <text x="690" y="372" class="d-t">島の食</text><text x="690" y="387" class="d-en">FOOD</text>
+
+              <!-- row 3 -->
+              <rect x="360" y="404" width="240" height="44" rx="2" class="d-node"/>
+              <text x="375" y="424" class="d-t">海</text><text x="375" y="439" class="d-en">OCEAN</text>
+              <rect x="675" y="404" width="240" height="44" rx="2" class="d-node"/>
+              <text x="690" y="424" class="d-t">芸術</text><text x="690" y="439" class="d-en">ART</text>
+
+              <!-- to bottom band -->
+              <line x1="165" y1="396" x2="165" y2="466" class="d-line"/>
+              <line x1="480" y1="448" x2="480" y2="466" class="d-line"/>
+              <line x1="795" y1="448" x2="795" y2="466" class="d-line"/>
+              <rect x="45" y="466" width="870" height="34" rx="2" class="d-dash"/>
+              <text x="480" y="488" text-anchor="middle" class="d-t jp-sm">Regenerative Tourism ── 訪れることが、島の環境・経済・文化の再生になる構造</text>
+            </svg>
+          </div>
+          <figcaption>すべての資産は、中心の一語「生命（いのち）」を経由して旧病院につながる。つながらない要素は、この地図に載せない。Art・Wellness・Regenerative Tourism は現段階では<strong>手段</strong>の位置に置いており、目的に格上げするかどうかはヒアリング後に判断する。</figcaption>
+        </figure>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">01</span>各資産の現在地と、検証すべき問い</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>資産</th><th>いま何があるか</th><th>資産化の方向（仮説）</th><th>検証すべき問い</th></tr></thead>
+            <tbody>
+              <tr><td class="k">病院の記憶<span>HOSPITAL LEGACY</span></td><td>40年間島の医療を担った躯体・空間・記録・記憶</td><td>残す部分の選定そのものがブランドの核になる</td><td>何を残したいのか。どこまで見せ、どこから語らないか</td></tr>
+              <tr><td class="k">島の共同体<span>COMMUNITY</span></td><td>島民にとっての「自分たちの病院」という記憶。3町の地域社会</td><td>島民が入れる場をつくる。雇用・食材・技術の島内循環</td><td>地域住民にどう使ってほしいか。島民が誇れる場になるか</td></tr>
+              <tr><td class="k">長寿と子宝<span>LONGEVITY</span></td><td>世界的長寿記録の島。全国最高水準の出生率<span class="flag">［要確認］</span></td><td>「長く生きる」「生まれる」島の生活様式を体験の中心に置く</td><td>統計・医学的にどこまで語れるか。効能訴求にしない設計</td></tr>
+              <tr><td class="k">世界自然遺産<span>HERITAGE</span></td><td>2021年登録（奄美大島、徳之島、沖縄島北部及び西表島）</td><td>国際的な信用の裏付け。海外顧客への入口</td><td>保全要件は何か。観光圧をどう抑えるか</td></tr>
+              <tr><td class="k">森・生態系<span>NATURE</span></td><td>固有種の森、アマミノクロウサギをはじめとする生態系</td><td>夜の森、研究者との滞在プログラム。保全への直接の還元</td><td>誰が案内できるか。受け入れ可能な人数の上限は</td></tr>
+              <tr><td class="k">海<span>OCEAN</span></td><td>サンゴ礁、ザトウクジラの回遊、漁の文化</td><td>海洋再生プログラムとの接続。「見る」から「関わる」へ</td><td>海洋環境の現状は。再生活動を滞在に組める形は</td></tr>
+              <tr><td class="k">療養<span>WELLNESS</span></td><td>病院という原点。島の食と生活が持つ健康の実態</td><td>医療の理念を、治療ではなく「整える」体験へ翻訳</td><td>医療法・広告規制の範囲。医療資源をどこまで関与させるか</td></tr>
+              <tr><td class="k">島の食<span>FOOD</span></td><td>黒糖、サトウキビ、島の野菜・魚・畜産</td><td>一次産業と直結した食。長寿の島の食を現代の料理として</td><td>島内調達の実力値は。担い手は誰か</td></tr>
+              <tr><td class="k">芸術<span>ART</span></td><td>―</td><td>旧病院の空間を活かした作品。滞在制作。記憶を作品として残す</td><td>核になるのか、手段に留めるのか</td></tr>
+              <tr><td class="k">再生型観光<span>REGENERATIVE</span></td><td>―</td><td>訪れることが島の再生になる構造。国際的な評価軸</td><td>「再生」を測る指標を持てるか。言葉だけにしない設計は可能か</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">02</span>この地図の使い方</h3>
+        <ul class="plain">
+          <li>本日は、この地図を<strong>埋めに</strong>来たのではありません。どこにご関心があるかをうかがうために持ってきました。</li>
+          <li>すべてを実装しません。<em>核を一つ選び、残りは核に従属させます。</em>全部乗せは、必ずブランドを弱くします。</li>
+          <li>次に決めること（本日は決めません）── 中心に置く一語は「生命」でよいか／何を残し、何を壊すか／島民に開く範囲／目指す高さ。</li>
+        </ul>
+      </section>
+    </div>
+  </article>
+
+  <footer>
+    <span class="mono">HOSPITALITY BRAND &amp; DESTINATION DEVELOPMENT TEAM</span>
+    <span class="mono">町田・向田 ＋ RATA</span>
+    <span><span class="flag">［要確認］</span>は初回面談および現地調査で一次情報として確認する項目です。</span>
+  </footer>
+</main>

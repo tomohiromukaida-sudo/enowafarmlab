@@ -28,6 +28,11 @@
 
 初回面談に持ち込むのは Pre-Meeting 01 / 02 / 03 の3点のみ。
 
+### 提示用（1枚もの3点を1つの資料にまとめたもの）
+
+- [`pre-meeting-pack.html`](pre-meeting-pack.html) — Pre-Meeting 01／02／03 の提示用ページ（Potential Map の図版を含む）
+- 公開URL（限定・共有するまで非公開）：https://claude.ai/code/artifact/0c414431-0da0-44f2-a10c-5f50bd010582
+
 ---
 
 ## 進め方の原則
