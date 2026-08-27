@@ -25,6 +25,9 @@
 | [`pre-meeting-02_team-capability.md`](pre-meeting-02_team-capability.md) | ENOWA YUFUINから徳之島へ。チームの能力（1ページ） | 対外 |
 | [`pre-meeting-03_potential-map.md`](pre-meeting-03_potential-map.md) | 旧病院ホテルの Potential Map（1枚） | 対外 |
 | [`10_first-meeting-hearing-sheet.md`](10_first-meeting-hearing-sheet.md) | 初回理事長面談ヒアリングシート・進行台本 | 社内 |
+| [`20_who-is-this-for.md`](20_who-is-this-for.md) | 誰のための宿か。「時間」で切るターゲット定義とSTAY／GATHERの二層構造 | 社内 |
+| [`21_design-doctrine.md`](21_design-doctrine.md) | 設計ドクトリン。病院病院させない／オバケ／貧乏くささへの対処、減築、建築家選定基準 | 社内 |
+| [`22_tokuda-doctrine.md`](22_tokuda-doctrine.md) | 徳田流の翻訳。価格・時間・立場で旅の常識を壊す | 社内 |
 
 初回面談に持ち込むのは Pre-Meeting 01 / 02 / 03 の3点のみ。
 
@@ -32,6 +35,11 @@
 
 - [`pre-meeting-pack.html`](pre-meeting-pack.html) — Pre-Meeting 01／02／03 の提示用ページ（Potential Map の図版を含む）
 - 公開URL（限定・共有するまで非公開）：https://claude.ai/code/artifact/0c414431-0da0-44f2-a10c-5f50bd010582
+
+### 社内検討用（20〜22を1つにまとめたもの）
+
+- [`direction-notes.html`](direction-notes.html) — Direction Notes（ターゲット／設計ドクトリン／徳田流）
+- 公開URL：https://claude.ai/code/artifact/1f04ef62-4419-4a4e-8daf-4a5604213cec
 
 ---
 
@@ -52,3 +60,5 @@
 - 旧病院の稼働年数・開設年・躯体状態・残したい範囲
 - 目指す高さ（島／奄美／日本／世界）
 - 徳田虎雄氏のレガシーとの関係についての理事長のお考え
+- **この病院での開設以来の総分娩数**（最優先。→ `21_design-doctrine.md`）
+- **この30億円に何を期待しているのか**（収益／医療人材／理念／地域。→ `20_who-is-this-for.md`）

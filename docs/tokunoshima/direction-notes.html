@@ -1,0 +1,542 @@
+<title>徳之島 Direction Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Old+Mincho:wght@400;600;900&display=swap">
+
+<style>
+:root{
+  --ground:#EEF2F0; --sheet:#FFFFFF; --ink:#151E1B; --muted:#5B6B65;
+  --rule:#C7D2CD; --hair:#DDE5E1; --accent:#0F5049; --accent-soft:#DCEAE4;
+  --flag:#7E6120; --shadow:0 1px 2px rgba(21,30,27,.06), 0 12px 32px -18px rgba(21,30,27,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C1211; --sheet:#131C19; --ink:#E3EBE7; --muted:#95A6A0;
+    --rule:#2C3B36; --hair:#22302C; --accent:#77C7B3; --accent-soft:#1B322C;
+    --flag:#C4A263; --shadow:0 1px 2px rgba(0,0,0,.4), 0 16px 40px -20px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C1211; --sheet:#131C19; --ink:#E3EBE7; --muted:#95A6A0;
+  --rule:#2C3B36; --hair:#22302C; --accent:#77C7B3; --accent-soft:#1B322C;
+  --flag:#C4A263; --shadow:0 1px 2px rgba(0,0,0,.4), 0 16px 40px -20px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  font-size:15px; line-height:1.85; letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.mincho{font-family:"Zen Old Mincho","Hiragino Mincho ProN",serif}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--ground) 88%, transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--hair);
+}
+.bar-in{
+  max-width:1000px; margin:0 auto; padding:10px 24px;
+  display:flex; flex-wrap:wrap; gap:8px 22px; align-items:baseline;
+}
+.bar-title{font-family:"Zen Old Mincho",serif; font-size:14px; font-weight:600; letter-spacing:.06em}
+.bar nav{display:flex; gap:16px; margin-left:auto}
+.bar a{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.09em;
+  color:var(--muted); text-decoration:none; padding:2px 0; border-bottom:1px solid transparent;
+}
+.bar a:hover,.bar a:focus-visible{color:var(--accent); border-bottom-color:var(--accent); outline:none}
+
+/* ---------- masthead ---------- */
+main{max-width:1000px; margin:0 auto; padding:0 24px 96px; display:flex; flex-direction:column; gap:40px}
+.masthead{padding:64px 0 8px; display:flex; flex-direction:column; gap:20px}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.18em;
+  color:var(--accent); text-transform:uppercase;
+}
+.masthead h1{
+  font-family:"Zen Old Mincho",serif; font-weight:600; font-size:clamp(28px,4.4vw,44px);
+  line-height:1.45; margin:0; text-wrap:balance; letter-spacing:.02em;
+}
+.masthead p{margin:0; max-width:62ch; color:var(--muted); font-size:14.5px}
+.masthead .team{
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.06em;
+  color:var(--ink); border-top:1px solid var(--rule); padding-top:14px; max-width:62ch;
+}
+
+/* ---------- sheet ---------- */
+.sheet{
+  background:var(--sheet); border:1px solid var(--rule); border-radius:2px;
+  box-shadow:var(--shadow); scroll-margin-top:64px; overflow:hidden;
+}
+.chart{
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+  border-bottom:1px solid var(--rule); background:var(--accent-soft);
+}
+.chart div{padding:10px 16px; border-right:1px solid var(--rule)}
+.chart div:last-child{border-right:none}
+.chart dt{
+  font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.14em;
+  color:var(--accent); margin:0 0 2px;
+}
+.chart dd{margin:0; font-size:12.5px; font-weight:500; line-height:1.5}
+.body{padding:38px clamp(20px,4.5vw,56px) 46px; display:flex; flex-direction:column; gap:30px}
+
+.sheet h2{
+  font-family:"Zen Old Mincho",serif; font-weight:600; font-size:clamp(21px,2.9vw,29px);
+  line-height:1.55; margin:0; text-wrap:balance;
+}
+.sheet h2 .sub{display:block; font-size:14px; color:var(--muted); font-family:"Noto Sans JP",sans-serif; font-weight:400; margin-top:10px}
+.sheet h3{
+  font-size:15px; font-weight:700; margin:0 0 10px; letter-spacing:.02em;
+  display:flex; align-items:baseline; gap:10px;
+}
+.sheet h3 .n{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--accent);
+  letter-spacing:.1em; flex:none;
+}
+.sheet p{margin:0 0 12px; max-width:66ch}
+.sheet p:last-child{margin-bottom:0}
+section.blk{border-top:1px solid var(--hair); padding-top:22px}
+section.blk:first-of-type{border-top:none; padding-top:0}
+strong{font-weight:700}
+em{font-style:normal; background:linear-gradient(transparent 62%, var(--accent-soft) 62%); font-weight:500}
+.flag{color:var(--flag); font-family:"IBM Plex Mono",monospace; font-size:11px; white-space:nowrap}
+
+blockquote{
+  margin:0; padding:16px 22px; border-left:2px solid var(--accent); background:var(--accent-soft);
+  font-family:"Zen Old Mincho",serif; font-size:clamp(16px,2.1vw,19px); line-height:1.8;
+}
+blockquote p{margin:0; max-width:none}
+blockquote p + p{margin-top:8px}
+
+ul.plain{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px}
+ul.plain li{position:relative; padding-left:20px; max-width:66ch}
+ul.plain li::before{
+  content:""; position:absolute; left:2px; top:.72em; width:7px; height:1px; background:var(--accent);
+}
+
+.tbl-wrap{overflow-x:auto; border:1px solid var(--hair); border-radius:2px}
+table{border-collapse:collapse; width:100%; min-width:600px; font-size:13.5px; line-height:1.7}
+th,td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--hair); vertical-align:top}
+thead th{
+  font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.12em; color:var(--accent);
+  background:var(--accent-soft); border-bottom:1px solid var(--rule); white-space:nowrap; font-weight:500;
+}
+tbody tr:last-child td{border-bottom:none}
+td.k{font-weight:700; white-space:nowrap}
+td.k span{display:block; font-family:"IBM Plex Mono",monospace; font-size:9.5px; color:var(--muted); font-weight:400; letter-spacing:.06em}
+
+.cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1px; background:var(--hair); border:1px solid var(--hair)}
+.cols > div{background:var(--sheet); padding:16px 18px}
+.cols h4{margin:0 0 6px; font-size:13.5px; font-weight:700}
+.cols .lab{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.13em; color:var(--accent); display:block; margin-bottom:8px}
+.cols p{font-size:13px; line-height:1.75; color:var(--muted); margin:0}
+
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hair); border:1px solid var(--hair)}
+.vs > div{background:var(--sheet); padding:16px 18px}
+.vs .no{color:var(--muted)}
+.vs .lab{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.12em; display:block; margin-bottom:10px}
+.vs .no .lab{color:var(--muted)}
+.vs .yes .lab{color:var(--accent)}
+.vs ul{margin:0; padding-left:1.1em; display:flex; flex-direction:column; gap:7px; font-size:13.5px}
+
+/* ---------- figure ---------- */
+figure{margin:0; display:flex; flex-direction:column; gap:12px}
+.fig-scroll{overflow-x:auto; padding:6px 0}
+figure svg{display:block; min-width:720px; width:100%; height:auto; color:var(--ink)}
+figcaption{font-size:12.5px; color:var(--muted); max-width:66ch}
+.d-node{fill:var(--sheet); stroke:var(--rule); stroke-width:1}
+.d-core{fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.5}
+.d-hub{fill:var(--accent); stroke:none}
+.d-line{stroke:var(--rule); stroke-width:1; fill:none}
+.d-flow{stroke:var(--accent); stroke-width:1.4; fill:none}
+.d-dash{stroke:var(--accent); stroke-width:1.2; fill:none; stroke-dasharray:5 4}
+.d-t{fill:currentColor; font-family:"Noto Sans JP",sans-serif; font-size:13px}
+.d-t.jp-sm{font-size:12px}
+.d-en{fill:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.06em}
+.d-edge{fill:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.04em}
+.d-grp{fill:var(--accent); font-family:"Zen Old Mincho",serif; font-size:15px; font-weight:600}
+.d-core-t{fill:var(--ink); font-family:"Zen Old Mincho",serif; font-size:16px; font-weight:600}
+.d-hub-t{fill:var(--sheet); font-family:"Zen Old Mincho",serif; font-size:17px; font-weight:600}
+.d-arrow{fill:var(--accent)}
+
+footer{
+  border-top:1px solid var(--rule); padding-top:20px; color:var(--muted); font-size:12px;
+  display:flex; flex-wrap:wrap; gap:6px 20px;
+}
+@media (max-width:640px){
+  .chart{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chart div:nth-child(2){border-right:none}
+  .vs{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+<style>
+.stamp{
+  display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.14em;
+  color:var(--flag); border:1px solid var(--flag); border-radius:2px; padding:4px 10px;
+}
+.trap{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1px; background:var(--hair); border:1px solid var(--hair)}
+.trap > div{background:var(--sheet); padding:16px 18px}
+.trap .num{font-family:"IBM Plex Mono",monospace; font-size:22px; color:var(--flag); line-height:1; display:block; margin-bottom:10px}
+.trap h4{margin:0 0 6px; font-size:14px}
+.trap p{font-size:12.5px; color:var(--muted); margin:0; line-height:1.7}
+.callout{
+  border:1px solid var(--accent); border-radius:2px; padding:18px 22px;
+  display:flex; flex-direction:column; gap:8px;
+}
+.callout .lab{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.14em; color:var(--accent)}
+.callout .big{font-family:"Zen Old Mincho",serif; font-size:clamp(17px,2.3vw,21px); line-height:1.7; margin:0}
+td.cost{color:var(--flag); font-size:12.5px}
+.d-alt{fill:none; stroke:var(--muted); stroke-width:1; stroke-dasharray:4 3}
+.d-fill{fill:var(--accent-soft); stroke:var(--accent); stroke-width:1}
+.d-thin{fill:var(--sheet); stroke:var(--rule); stroke-width:1}
+</style>
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">徳之島 Direction Notes</span>
+    <nav>
+      <a href="#d1">WHO</a>
+      <a href="#d2">DESIGN</a>
+      <a href="#d3">TOKUDA</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+  <header class="masthead">
+    <span class="stamp mono">社内検討／仮説段階／面談には持ち込まない</span>
+    <span class="eyebrow">Direction Notes ─ 論点への回答</span>
+    <h1>誰のための宿か。<br>どう設計するか。<br>徳田さんなら、どうしたか。</h1>
+    <p>チームから出た三つの論点 ── ターゲット、病院という建物の扱い、旅の常識の壊し方 ── に対する現時点の仮説です。結論ではなく、面談とヒアリングで検証するための叩き台として置きます。</p>
+  </header>
+
+  <!-- ===== 1 ===== -->
+  <article class="sheet" id="d1">
+    <dl class="chart">
+      <div><dt class="mono">NOTE</dt><dd>01 ／ WHO IS THIS FOR</dd></div>
+      <div><dt class="mono">論点</dt><dd>富裕層か、若者・アクティビストか</dd></div>
+      <div><dt class="mono">結論</dt><dd>「時間」で切る</dd></div>
+      <div><dt class="mono">STATUS</dt><dd>仮説</dd></div>
+    </dl>
+    <div class="body">
+      <h2>年齢でも所得でもなく、「時間」で切る。
+        <span class="sub">島のハンデが、そのままターゲットの定義になる。</span></h2>
+
+      <section class="blk">
+        <p>「富裕層か、若者か」の二択にした瞬間、既存ホテルとの比較競争に入ります。徳之島は到達コストが高い。<strong>短く来る人には構造的に不利で、長くいる人には構造的に有利</strong>です。ならば、そこで切る。</p>
+        <div class="callout">
+          <span class="lab">TARGET</span>
+          <p class="big">時間を持っている人／時間を取り戻したい人<br><span class="mono" style="font-size:12px; letter-spacing:.08em">TIME-RICH TRAVELERS</span></p>
+        </div>
+        <p style="margin-top:16px">研究者・生態学者／アーティスト／環境と海の実践者、アクティビスト／リモートワーカー、起業家、サバティカル中の人／療養・回復期の人／多世代の家族／リタイア層。</p>
+        <p>この層は富裕層と排他ではありません。<em>世界で最も時間と金を同時に持っているのは、若者ではなく「自分で時間を決められる人」</em>です。若さではなく、自由度で切る。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">01</span>活気は、客室を安くしても生まれない</h3>
+        <p>合宿所のような活気は、単価を下げて作れるものではありません。安い宿には安い理由で人が集まるだけで、混ざらない。活気が生まれるのは、<strong>普段出会わない人が同じ場所に居るとき</strong>です。研究者と島の高校生、アーティストと漁師、起業家と医師。それを作るのは価格ではなく、場の構造です。</p>
+        <p>そして旧病院は、その構造を最初から持っています。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">02</span>病院という建築の、ホテルにない構造</h3>
+        <figure>
+          <div class="fig-scroll">
+            <svg viewBox="0 0 900 400" role="img" aria-label="普通のホテルは客室が積層し共用部は通過するだけの薄い層であるのに対し、病院は個室群と厚い大空間を併せ持ち、その大空間が客室の単価の根拠になるという比較図">
+              <defs>
+                <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" class="d-arrow"/>
+                </marker>
+              </defs>
+
+              <text x="40" y="26" class="d-en">A ── 普通のホテル</text>
+              <text x="480" y="26" class="d-en">B ── 旧病院の躯体</text>
+
+              <!-- A: hotel -->
+              <rect x="40" y="44" width="340" height="34" class="d-thin"/>
+              <rect x="40" y="82" width="340" height="34" class="d-thin"/>
+              <rect x="40" y="120" width="340" height="34" class="d-thin"/>
+              <rect x="40" y="158" width="340" height="34" class="d-thin"/>
+              <text x="210" y="126" text-anchor="middle" class="d-t">客 室</text>
+              <rect x="40" y="196" width="340" height="26" class="d-alt"/>
+              <text x="210" y="213" text-anchor="middle" class="d-en">ロビー ── 通過するだけ</text>
+              <text x="210" y="252" text-anchor="middle" class="d-edge">共用部が薄い。人は混ざらない</text>
+
+              <!-- B: hospital -->
+              <rect x="480" y="44" width="340" height="34" class="d-thin"/>
+              <rect x="480" y="82" width="340" height="34" class="d-thin"/>
+              <rect x="480" y="120" width="340" height="34" class="d-thin"/>
+              <line x1="565" y1="44" x2="565" y2="154" class="d-line"/>
+              <line x1="650" y1="44" x2="650" y2="154" class="d-line"/>
+              <line x1="735" y1="44" x2="735" y2="154" class="d-line"/>
+              <text x="650" y="172" text-anchor="middle" class="d-en">個室群（病室）── STAY ／ 数を絞り、単価を守る</text>
+
+              <rect x="480" y="186" width="340" height="76" class="d-fill"/>
+              <text x="650" y="216" text-anchor="middle" class="d-t">外来待合・食堂・講堂・リハビリ室</text>
+              <text x="650" y="238" text-anchor="middle" class="d-en">GATHER ── 島民・研究者・学生・起業家が混ざる</text>
+
+              <line x1="860" y1="186" x2="860" y2="150" class="d-flow" marker-end="url(#ar2)"/>
+              <path d="M 820 224 L 860 224 L 860 186" class="d-flow"/>
+              <text x="856" y="286" text-anchor="end" class="d-edge">ここでしか会えない人に会える ＝ 単価の根拠</text>
+
+              <!-- bottom summary -->
+              <line x1="40" y1="322" x2="860" y2="322" class="d-line"/>
+              <text x="40" y="348" class="d-t jp-sm">収益は STAY。価値は GATHER。</text>
+              <text x="40" y="372" class="d-en">GATHER があるから、STAY が高くても選ばれる。上勝町的なスタートアップ支援・シェアハウス・ラウンジは、すべて GATHER 層の話であって、客室を安くする話ではない。</text>
+            </svg>
+          </div>
+          <figcaption>普通のホテルの共用部は「通過するための場所」でしかない。病院は個室群と厚い大空間を併せ持ち、その大空間は島民が何時間も座っていた場所である。この構造は、ホテルとして新築しても手に入らない。</figcaption>
+        </figure>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">03</span>30億円との整合 ── 正直に置いておく論点</h3>
+        <p>若者・アクティビスト向けの低単価だけに振れば、30億円は回収できません<span class="flag">［要確認：回収の前提があるのか］</span>。ただし<strong>徳洲会にとってのリターンは、宿泊収益だけとは限らない</strong>可能性があります。</p>
+        <div class="cols">
+          <div><span class="lab mono">RETURN 01</span><h4>医療人材の獲得</h4><p>徳洲会の構造的課題は、離島・へき地に人を送り続けること。「島に来る理由」をつくることは、そのまま「島で働く理由」をつくることです。</p></div>
+          <div><span class="lab mono">RETURN 02</span><h4>島の経済圏</h4><p>雇用、一次産業の出口、若い世代が島に残る理由。</p></div>
+          <div><span class="lab mono">RETURN 03</span><h4>理念の可視化</h4><p>「生命だけは平等だ」が、病院の外で目に見える形になる。グループ全体のブランドに返る。</p></div>
+        </div>
+        <p style="margin-top:18px"><strong>面談で必ず確認する ──「この30億円に、何を期待しておられるのか」。</strong>収益なのか、人材なのか、理念なのか、地域なのか。ここで答えが変われば、ターゲットも価格も客室数も全部変わります。</p>
+      </section>
+    </div>
+  </article>
+
+  <!-- ===== 2 ===== -->
+  <article class="sheet" id="d2">
+    <dl class="chart">
+      <div><dt class="mono">NOTE</dt><dd>02 ／ DESIGN DOCTRINE</dd></div>
+      <div><dt class="mono">論点</dt><dd>病院病院させない／オバケ／貧乏くささ</dd></div>
+      <div><dt class="mono">結論</dt><dd>躯体は残し、五感を入れ替える</dd></div>
+      <div><dt class="mono">STATUS</dt><dd>建築家選定の前に合意する</dd></div>
+    </dl>
+    <div class="body">
+      <h2>オバケの正体は「病院」ではなく、「無人」である。
+        <span class="sub">意匠では消えない。運用でしか消えない。</span></h2>
+
+      <section class="blk">
+        <h3><span class="n">01</span>三つの罠</h3>
+        <div class="trap">
+          <div><span class="num mono">01</span><h4>病院病院しすぎる</h4><p>医療施設のまま。重く、暗い。滞在したいと思えない。</p></div>
+          <div><span class="num mono">02</span><h4>オバケが出そう</h4><p>廃墟的、心霊的な連想。特に夜。写真では良くても、現地で気持ち悪い。</p></div>
+          <div><span class="num mono">03</span><h4>貧乏くさい</h4><p>廃校再利用にありがちな安さ。「活用しました」感。</p></div>
+        </div>
+        <p style="margin-top:16px">学校ならノスタルジーで済みますが、病院はそうはいきません。この三つは<strong>設計の前提条件</strong>として明文化し、建築家に最初に渡します。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">02</span>罠2 ── 怖いのは用途ではなく、人が消えたこと</h3>
+        <p>廃校が怖いのも、廃工場が怖いのも同じ理由です。そして病院は、その中でも落差が最大の建築です。なぜなら病院は、<em>24時間、人がいて、灯りがついていて、音がしていた建物</em>だから。それが無人になるから、他のどの用途より不気味に感じる。</p>
+        <p>したがって解決は「病院らしさを消す」ことではなく、<strong>人の気配を戻すこと</strong>です。夜も灯りがついている。誰かが起きている。台所の音と匂いがする。廊下に人が座っている。それだけでオバケは消えます。</p>
+        <p>そして<strong>24時間開いている場所に戻すことが、この建物にとって最も自然な再生でもある</strong> ── ここで、後述の時間設計と一本につながります。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">03</span>そして、反転がある</h3>
+        <div class="callout">
+          <span class="lab">THE REVERSAL</span>
+          <p class="big">旧徳之島徳洲会病院は、この島で<br>最も多くの人が生まれた建物である。</p>
+        </div>
+        <p style="margin-top:16px">出生率が全国最高水準の島で、40年間、島の医療を担った建物です。病院という言葉から人はまず病と死を連想しますが、この建物の事実はその逆かもしれません。数字で裏付けられれば、<strong>オバケ問題は設計ではなく事実で解決します。</strong></p>
+        <p><span class="flag">［最優先で確認］</span> この病院での、開設以来の総分娩数。「この建物で ◯◯人 が生まれた」の一行が取れれば、それがホテルの中心になりえます。<br><sub>※ 島には他の医療機関もあるため「島の全員がここで生まれた」とは言えない。数字を確認せずに断定しない。</sub></p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">04</span>罠1 ── 記憶は残し、感覚は入れ替える</h3>
+        <p>病院の負の記憶は、意匠ではなく<strong>五感</strong>に宿っています。だから壁を塗り替えても消えない。</p>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>感覚</th><th>病院の記憶</th><th>入れ替える</th></tr></thead>
+            <tbody>
+              <tr><td class="k">床<span>FLOOR</span></td><td>リノリウム。ストレッチャーのキャスター音</td><td>木、土間、石。足音そのものを変える</td></tr>
+              <tr><td class="k">光<span>LIGHT</span></td><td>蛍光灯の均質な白。影がない</td><td>点光源、自然光、影。<strong>暗がりを恐れずに作る</strong>（均質な明るさこそ病院的）</td></tr>
+              <tr><td class="k">匂い<span>SMELL</span></td><td>消毒</td><td>食、木、草、潮</td></tr>
+              <tr><td class="k">音<span>SOUND</span></td><td>無音と、ナースコール</td><td>水、風、厨房、人の声</td></tr>
+              <tr><td class="k">動線<span>CIRCULATION</span></td><td>長い直線廊下、同じドアの反復</td><td>回遊、滞留、行き止まりのない道</td></tr>
+              <tr><td class="k">空気<span>AIR</span></td><td>均一空調、閉じた窓</td><td>外気、風、島の湿度</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:16px"><em>躯体は残す。五感は全部入れ替える。</em>「残す／変える」を、部位ではなく感覚で切り分けます。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">05</span>残す記憶は「点」で。3〜5箇所に絞る</h3>
+        <p>全部残せば博物館か廃墟になり、1つだけでは言い訳に見える。<strong>3〜5点に絞って、そこは本気で残す。</strong>候補は、分娩室・新生児室／外来待合（島民が最も長く座った場所）／階段室／屋上／銘板・院名／カルテ棚。</p>
+        <p><strong>最も気持ち悪いのは、中途半端な「病院らしさ」です。</strong>残すなら本気で残し、変えるなら跡形もなく変える。その中間を作らない。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">06</span>罠3 ── 貧乏くささの正体は「言い訳」</h3>
+        <p>リノベーションが安っぽく見えるのは、既存を活かしたからではありません。<strong>「既存を活かした」を口実に、仕上げ・什器・職人を安く済ませるから</strong>です。</p>
+        <div class="callout">
+          <span class="lab">PRINCIPLE</span>
+          <p class="big">躯体で浮いた予算は、素材・什器・職人に全額振る。<br>新築より安く作るためのリノベではない。同じ予算で、新築では買えない質を買うためのリノベである。</p>
+        </div>
+        <p style="margin-top:16px">優先順位は「見る場所」より<strong>「触る場所」</strong>。ドアハンドル、家具、リネン、器、風呂、階段の手すり。人は手で触れたもので質を判断します。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">07</span>減築（引き算）を、設計の中心に置く</h3>
+        <p>病院は、限られた敷地に容積を詰め込む建築です。そのままホテルにすると、暗く、窮屈で、廊下だけが長い。<strong>だから、抜く。</strong>床を抜いて吹き抜けをつくる。中庭を穿つ。廊下の片側を落とす。棟をひとつ落とす。</p>
+        <div class="cols">
+          <div><span class="lab mono">SOLVES 01</span><h4>暗さ</h4><p>光と風が入る</p></div>
+          <div><span class="lab mono">SOLVES 02</span><h4>病院らしさ</h4><p>直線廊下と反復するドアが消える</p></div>
+          <div><span class="lab mono">SOLVES 03</span><h4>貧乏くささ</h4><p>面積あたりの予算が上がる</p></div>
+          <div><span class="lab mono">SOLVES 04</span><h4>客室過多</h4><p>数が絞れて、単価が守れる</p></div>
+        </div>
+        <p style="margin-top:16px"><em>引き算が、四つの問題を同時に解決します。</em>そして減築なしには、後述の24時間運用も成立しません。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">08</span>建築家の選定基準</h3>
+        <p>「リフォームに強い建築家」を探す前に、基準を先に決めます。改修は作家性より実務力で決まります。</p>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>#</th><th>基準</th><th>なぜ</th></tr></thead>
+            <tbody>
+              <tr><td class="k">1</td><td>既存の読解力</td><td>何を残すかを"設計"できるか。図面より先に、建物を何度も歩ける人</td></tr>
+              <tr><td class="k">2</td><td>引ける人</td><td>足すことより、抜くことができるか。減築の実績</td></tr>
+              <tr><td class="k">3</td><td>法規実務</td><td>病院→ホテルの用途変更（確認申請）、耐震診断・補強、消防、既存不適格。<strong>ここができないと企画ごと止まる。実は最重要</strong></td></tr>
+              <tr><td class="k">4</td><td>素材と職人</td><td>離島で施工できる範囲を理解し、限られた職人で質を出せるか。本土の施工前提で描く人は現場で破綻する</td></tr>
+              <tr><td class="k">5</td><td>ブランドの下で働けるか</td><td>作家性を主張しすぎない。思想は我々が持ち、建築家はそれを空間にする</td></tr>
+              <tr><td class="k">6</td><td>島に通えるか</td><td>離島の改修は現場判断の連続になる</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:16px"><strong>選び方は、設計コンペにしない。一緒に旧病院を歩いて選ぶ。</strong>ロングリスト5〜7組 → 現地に立ってもらい、その場で何を言うかを見る → 3組に絞る。改修の力量は図面提案では見抜けず、建物の前で何を発見するかに全部出ます。</p>
+      </section>
+    </div>
+  </article>
+
+  <!-- ===== 3 ===== -->
+  <article class="sheet" id="d3">
+    <dl class="chart">
+      <div><dt class="mono">NOTE</dt><dd>03 ／ TOKUDA DOCTRINE</dd></div>
+      <div><dt class="mono">論点</dt><dd>旅の常識をどう壊すか</dd></div>
+      <div><dt class="mono">結論</dt><dd>価格と時間の二つに絞る</dd></div>
+      <div><dt class="mono">STATUS</dt><dd>理事長に確認のうえ検証</dd></div>
+    </dl>
+    <div class="body">
+      <h2>徳田さんなら、業界の常識のほぼ全部を壊したと思う。
+        <span class="sub">理念を掲げるだけなら額縁で終わる。翻訳するとは、事業のルールを実際に書き換えること。</span></h2>
+
+      <section class="blk">
+        <h3><span class="n">01</span>徳田虎雄の方法の型</h3>
+        <ul class="plain">
+          <li><strong>「生命だけは平等だ」</strong> ── 無差別平等。誰も断らない</li>
+          <li><strong>年中無休・24時間</strong> ── 提供側の都合ではなく、必要なときに開いている</li>
+          <li><strong>差額ベッド代を取らない／心づけを受け取らない</strong> ── 金額で扱いを変えない</li>
+          <li><strong>業界の秩序と正面から闘った</strong> ── 反対されるほど押し通した</li>
+          <li><strong>最も条件の悪い場所から始めた</strong> ── 都市ではなく、離島・へき地</li>
+        </ul>
+        <p style="margin-top:14px"><span class="flag">［各項、理事長ご本人の言葉として確認したい］</span></p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">02</span>価格 ── ダイナミックプライシングの打破</h3>
+        <div class="callout">
+          <span class="lab">TRANSLATION</span>
+          <p class="big">「生命だけは平等だ」 → 「滞在だけは平等だ」<br>差額ベッド代を取らない → 部屋で値段を変えない。需給で値段を変えない。</p>
+        </div>
+        <ul class="plain" style="margin-top:16px">
+          <li><strong>全室同一料金。</strong>眺望や広さで価格差をつけない</li>
+          <li><strong>繁忙期も同一料金。</strong>GWも真冬も同じ</li>
+          <li><strong>OTAを主戦場にしない。</strong>ダイナミックプライシングという装置の外に出る</li>
+        </ul>
+        <p style="margin-top:14px">損に見えて、実は強い。<em>価格が動かないこと自体が希少価値になり、報道価値になります。</em>「世界で最も価格が動かないホテル」は、それだけで記事になる。しかも理念から導かれているので、説明が一行で済む。</p>
+        <p>そして、<strong>逆向きの価格を入れる ── 長く泊まるほど、安くなる。</strong>業界は長期滞在を嫌います（清掃効率が落ち、単価が下がるから）。徳田流はその逆を行く。1〜3泊は定価、4〜7泊で逓減、8泊以上でさらに、30泊以上は別建て。<strong>世界中どこのホテルも、長く泊まる人を優遇していません。ここが最大の差別化になります。</strong></p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">03</span>時間 ── チェックイン／チェックアウトの廃止</h3>
+        <p>15時イン／11時アウト。<strong>ホテルの都合で、客の一日が切られています。</strong>病院に、チェックイン時間はありませんでした。24時間、必要なときに受け入れた。</p>
+        <div class="callout">
+          <span class="lab">TRANSLATION</span>
+          <p class="big">24時間チェックイン／24時間チェックアウト。<br>「泊数」ではなく「滞在時間」で数える。</p>
+        </div>
+        <ul class="plain" style="margin-top:16px">
+          <li>島の交通事情（船・飛行機の時刻）と決定的に相性が良い。到着が朝6時でも、出発が夜でも、部屋がある</li>
+          <li><strong>旅の初日と最終日が、移動で潰れなくなる。</strong>これだけで時間の使い方の常識が変わる</li>
+          <li>「11時に追い出される」がない滞在は、長逗留の心理的ハードルを大きく下げる</li>
+        </ul>
+        <p style="margin-top:14px"><span class="flag">［代償］</span> 清掃と人員の設計が難しくなり、稼働率の計算も変わります。<strong>だから客室数を絞る必要がある ── 減築と、ここで一本につながります。</strong></p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">04</span>立場 ── hospes に戻る</h3>
+        <p>ラテン語 <strong>hospes</strong> は、「客」と「主人」の<strong>両方</strong>を指す一つの語でした。もてなす側ともてなされる側が、同じ言葉で呼ばれていた。さらに hospes は <strong>hostis（よそ者）</strong> と同根です。</p>
+        <div class="callout">
+          <span class="lab">ETYMOLOGY</span>
+          <p class="big">hospitality の原義は、<br>見知らぬ者を、対等な者として迎え入れること。</p>
+        </div>
+        <p style="margin-top:16px">「サービスの提供」ではなく<strong>立場の互換性</strong>です。つまり<em>「オープンでフラットな空間」は、思いつきではなく語源的に正統である。</em>この根拠を持つと、提案の強度がまるで変わります。</p>
+        <p>翻訳の候補 ── フロントを置かない／制服を置かない／島民が入れる（宿泊者専用にしない）／働きながら滞在できる（ワークステイ）／「お客様」と呼ばない。</p>
+        <p><span class="flag">［注意］</span> ラグジュアリーの文脈では、フラットさは「サービスの手抜き」と受け取られる危険があります。<strong>フラットであることと質が高いことを両立させる設計が必要。</strong>ここは ENOWA の経験が最も効く領域だと考えています。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">05</span>「日本人は長逗留しない」は、文化の問題ではない</h3>
+        <p>設計の問題です。理由ははっきりしています。</p>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>泊まらない理由</th><th>実装で解決する</th></tr></thead>
+            <tbody>
+              <tr><td class="k">連泊しても割安にならない</td><td>逓減プライシング</td></tr>
+              <tr><td class="k">キッチンがない</td><td>自炊できる</td></tr>
+              <tr><td class="k">洗濯できない</td><td>洗濯設備／ランドリー</td></tr>
+              <tr><td class="k">毎日同じ食事</td><td>献立を変える。自炊と外食を選べる</td></tr>
+              <tr><td class="k">毎日掃除が入って落ち着かない</td><td>清掃頻度を選べる（環境負荷も下がる）</td></tr>
+              <tr><td class="k">働けない</td><td>働ける場所、デスク、通信</td></tr>
+              <tr><td class="k">することがない</td><td>島の仕事・再生活動に関われる（GATHER層）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout" style="margin-top:18px">
+          <p class="big">「日本人は長期滞在しない」は、<br>長期滞在できる宿がないことの、言い換えでしかない。</p>
+        </div>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">06</span>破壊するリストと、その代償</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>業界の常識</th><th>この宿</th><th>徳田流の根拠</th><th>代償</th></tr></thead>
+            <tbody>
+              <tr><td class="k">需給で価格が動く</td><td>一年中、同じ価格</td><td>差額ベッド代を取らない</td><td class="cost">繁忙期の収益機会を捨てる</td></tr>
+              <tr><td class="k">部屋タイプで価格が違う</td><td>全室同一料金</td><td>生命だけは平等だ</td><td class="cost">客室仕様の均質化が必要</td></tr>
+              <tr><td class="k">連泊しても単価は同じ</td><td>長いほど安い</td><td>離島に人を送り続けた思想</td><td class="cost">平均単価が下がる</td></tr>
+              <tr><td class="k">15時IN／11時OUT</td><td>24時間IN／OUT</td><td>年中無休・24時間</td><td class="cost">清掃・人員コスト増。客室数の絞り込みが前提</td></tr>
+              <tr><td class="k">宿泊者専用</td><td>島に開く</td><td>誰も断らない</td><td class="cost">宿泊者のプライバシー設計が必要</td></tr>
+              <tr><td class="k">客とスタッフ</td><td>hospes（同じ語）</td><td>語源</td><td class="cost">サービス品質の担保が難しい</td></tr>
+              <tr><td class="k">OTA中心</td><td>直接予約中心</td><td>業界秩序と闘う</td><td class="cost">開業初期の集客が重くなる</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:16px"><strong>すべてに代償があります。全部は採らない。</strong>価格と時間の二つは、この宿を他と決定的に違うものにする力があり、かつ理念から一直線に導ける。<em>まずこの二つに絞って検証する</em>のが良いと考えます。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">07</span>面談で追加したい質問</h3>
+        <p>理念の話としてではなく、<strong>事業設計の一次情報として</strong>うかがう。</p>
+        <ul class="plain">
+          <li>差額ベッド代を取らない、心づけを受け取らない ── この方針はいまも生きているか。その根はどこにあるか</li>
+          <li>徳田虎雄氏が「これだけは譲らなかった」ことは何か</li>
+          <li>24時間・年中無休を貫くために、現場では何を犠牲にしてきたか</li>
+          <li><strong>この病院で、これまで何人が生まれたか</strong></li>
+          <li><strong>この30億円に、何を期待しておられるのか</strong></li>
+        </ul>
+      </section>
+    </div>
+  </article>
+
+  <footer>
+    <span class="mono">DIRECTION NOTES ／ 社内検討・仮説段階</span>
+    <span>ヒアリングの前に結論を固定しない。ここに書かれたことは、すべて検証待ちの仮説です。</span>
+  </footer>
+</main>
