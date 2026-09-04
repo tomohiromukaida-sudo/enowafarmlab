@@ -399,7 +399,15 @@ function fmtTime(iso){
 async function fetchDoc(silent){
   try{
     const res = await fetch("/api/calendar", {cache:"no-store"});
-    if(!res.ok) throw new Error(res.status);
+    if(!res.ok){
+      const body = await res.json().catch(()=>({}));
+      if(body && body.error){
+        const err = new Error(body.error);
+        err.isServerMsg = true;
+        throw err;
+      }
+      throw new Error(res.status);
+    }
     const d = await res.json();
     if(d.start){
       const [y, mo] = d.start.split("-").map(Number);
@@ -415,8 +423,9 @@ async function fetchDoc(silent){
       toast("更新を取り込みました" + (last ? `（${last.editor}）` : ""));
     }
   }catch(e){
-    if(!doc) $("cal").innerHTML = '<div class="loading">読み込みに失敗しました。再読み込みしてください。</div>';
-    if(!silent) toast("最新データの取得に失敗しました");
+    const msg = e && e.isServerMsg ? "⚠ " + e.message : "読み込みに失敗しました。再読み込みしてください。";
+    if(!doc) $("cal").innerHTML = `<div class="loading">${msg.replace(/</g,"&lt;")}</div>`;
+    if(!silent) toast(e && e.isServerMsg ? e.message : "最新データの取得に失敗しました");
   }
 }
 

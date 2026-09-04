@@ -23,12 +23,23 @@ function baseUrl() {
   return `https://${m[1].toLowerCase()}.public.blob.vercel-storage.com`;
 }
 
+// ストア停止（利用上限ロック等）を表すセンチネル。
+// 403のときはlist()やput()を一切呼ばない — ロック中の呼び出しもAdvanced Operationsとして課金され、
+// さらに消費を積み上げてしまうため。
+class StoreSuspendedError extends Error {
+  constructor() { super("blob store suspended"); this.suspended = true; }
+}
+
 async function fetchJsonSafe(url) {
   try {
     const res = await fetch(url, { cache: "no-store" });
+    if (res.status === 403) throw new StoreSuspendedError();
     if (!res.ok) return null;
     return await res.json();
-  } catch (e) { return null; }
+  } catch (e) {
+    if (e && e.suspended) throw e;
+    return null;
+  }
 }
 
 async function exists(url) {
@@ -159,8 +170,17 @@ function applyAction(doc, body, action) {
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
 
+  const SUSPENDED_MSG =
+    "データ保存先（Vercel Blob）が無料枠の利用上限に達し、一時停止中です。2026/10/04に自動復旧します。それまでの間、閲覧・編集はできません（保存済みデータは無事です）。";
+
   if (req.method === "GET") {
-    let doc = await readLatestDoc(false);
+    let doc;
+    try {
+      doc = await readLatestDoc(false);
+    } catch (e) {
+      if (e && e.suspended) { res.status(503).json({ error: SUSPENDED_MSG, suspended: true }); return; }
+      throw e;
+    }
     if (!doc) {
       doc = DEFAULT_DOC;
       try { await writeDoc(doc); } catch (e) { /* 初回シードの失敗は無視（次回リトライ） */ }
@@ -190,7 +210,13 @@ export default async function handler(req, res) {
   // 楽観的並行制御：同じrevへの同時書き込みは片方が失敗→最新を読み直して再適用
   let lastErr = null;
   for (let attempt = 0; attempt < 4; attempt++) {
-    let doc = (await readLatestDoc(true)) || JSON.parse(JSON.stringify(DEFAULT_DOC));
+    let doc;
+    try {
+      doc = (await readLatestDoc(true)) || JSON.parse(JSON.stringify(DEFAULT_DOC));
+    } catch (e) {
+      if (e && e.suspended) { res.status(503).json({ error: SUSPENDED_MSG, suspended: true }); return; }
+      throw e;
+    }
     if (!doc.start) doc = migrateDoc(doc);
 
     const r = applyAction(doc, body, action);
