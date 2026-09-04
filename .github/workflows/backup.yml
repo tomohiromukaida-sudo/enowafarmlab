@@ -1,0 +1,40 @@
+name: カレンダーデータ自動バックアップ
+
+# Blobストアの障害・ロックに備え、毎日カレンダーデータをリポジトリへスナップショット保存する。
+# 変更があった日だけコミットされ、git履歴がそのままバックアップ履歴になる。
+on:
+  schedule:
+    - cron: "0 18 * * *" # 毎日 3:00 JST
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: カレンダーデータを取得
+        run: |
+          mkdir -p data
+          status=$(curl -s -o data/calendar-latest.json -w '%{http_code}' https://enowafarmlab.vercel.app/api/calendar)
+          if [ "$status" != "200" ]; then
+            echo "APIが $status を返したためスキップ（ストア停止中など）"
+            rm -f data/calendar-latest.json
+            exit 0
+          fi
+          python3 -m json.tool data/calendar-latest.json > /dev/null # 壊れたJSONを保存しない
+      - name: 変更があればコミット
+        run: |
+          if [ ! -f data/calendar-latest.json ]; then exit 0; fi
+          git config user.name "calendar-backup-bot"
+          git config user.email "actions@github.com"
+          git add data/calendar-latest.json
+          if git diff --cached --quiet; then
+            echo "変更なし"
+          else
+            rev=$(python3 -c 'import json; print(json.load(open("data/calendar-latest.json"))["rev"])')
+            git commit -m "backup: カレンダーデータ rev ${rev}"
+            git push
+          fi
