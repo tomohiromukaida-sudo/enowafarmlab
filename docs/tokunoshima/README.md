@@ -28,6 +28,9 @@
 | [`20_who-is-this-for.md`](20_who-is-this-for.md) | 誰のための宿か。「時間」で切るターゲット定義とSTAY／GATHERの二層構造 | 社内 |
 | [`21_design-doctrine.md`](21_design-doctrine.md) | 設計ドクトリン。病院病院させない／オバケ／貧乏くささへの対処、減築、建築家選定基準 | 社内 |
 | [`22_tokuda-doctrine.md`](22_tokuda-doctrine.md) | 徳田流の翻訳。価格・時間・立場で旅の常識を壊す | 社内 |
+| [`23_international-device.md`](23_international-device.md) | インターナショナルな装置。「いつでも／どこでも／誰でも」の統合と、第三の問いへの答え | 社内 |
+| [`24_tokuda-episodes.md`](24_tokuda-episodes.md) | 徳田虎雄のエピソードから実装を抽出（宿の3つのNO、迎えに行く、不釣り合いな巨大さ） | 社内 |
+| [`25_equal-access.md`](25_equal-access.md) | 「誰でも」の実装。全室アクセシブルと、島の子どもの進路 | 社内 |
 
 初回面談に持ち込むのは Pre-Meeting 01 / 02 / 03 の3点のみ。
 
@@ -62,3 +65,7 @@
 - 徳田虎雄氏のレガシーとの関係についての理事長のお考え
 - **この病院での開設以来の総分娩数**（最優先。→ `21_design-doctrine.md`）
 - **この30億円に何を期待しているのか**（収益／医療人材／理念／地域。→ `20_who-is-this-for.md`）
+- 「世界じゅうに病院を建てる」という志と、このホテルの関係（→ `23_international-device.md`）
+- 徳洲会憲法の三つは、いまも生きているか（→ `24_tokuda-episodes.md`）
+- 旧病院のバリアフリー性能・設備の残存状況（→ `25_equal-access.md`）
+- 徳洲会の看護学校・奨学金・就学支援の現行制度
