@@ -51,6 +51,14 @@ Working Transformation：**HOSPITAL → HOTEL ではなく、HOSPITAL → GLOBAL
 | 12 | [One_Page_Opportunity_Memo](12_One_Page_Opportunity_Memo.md) | 作成済 |
 | 13 | [Machida_Mukada_Role](13_Machida_Mukada_Role.md) | 作成済 |
 | 14 | [Risk_Register](14_Risk_Register.md) | 作成済 |
+| 15 | [Concept_Evaluation](15_Concept_Evaluation.md) | 作成済（10項目評価＋最終10問の現在地） |
+
+### 提示用ページ
+
+| 用途 | ファイル | URL |
+|---|---|---|
+| 理事長・事務局長へ渡すA4一枚 | [`one-page-memo.html`](one-page-memo.html) | https://claude.ai/code/artifact/f18bfa4b-552d-441a-a16f-fe490f1587c4 |
+| 30億円 感度分析ツール | [`feasibility-model.html`](feasibility-model.html) | https://claude.ai/code/artifact/20d7d2a2-03d9-49ed-9cdd-5207cf3b38cd |
 
 ---
 

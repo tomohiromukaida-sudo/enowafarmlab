@@ -1,5 +1,8 @@
 # 12 ｜ One Page Opportunity Memo
 
+**▶ 提示用ページ：** https://claude.ai/code/artifact/f18bfa4b-552d-441a-a16f-fe490f1587c4
+**▶ ローカル版：** [`one-page-memo.html`](one-page-memo.html)
+
 **理事長・事務局長へ見せられるA4一枚。**
 面談冒頭の10分で使う。**売り込みではなく、問いを共有するための紙。**
 

@@ -1,0 +1,313 @@
+<title>徳之島 Opportunity Memo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Old+Mincho:wght@400;600;900&display=swap">
+
+<style>
+:root{
+  --ground:#EEF2F0; --sheet:#FFFFFF; --ink:#151E1B; --muted:#5B6B65;
+  --rule:#C7D2CD; --hair:#DDE5E1; --accent:#0F5049; --accent-soft:#DCEAE4;
+  --flag:#7E6120; --shadow:0 1px 2px rgba(21,30,27,.06), 0 12px 32px -18px rgba(21,30,27,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0C1211; --sheet:#131C19; --ink:#E3EBE7; --muted:#95A6A0;
+    --rule:#2C3B36; --hair:#22302C; --accent:#77C7B3; --accent-soft:#1B322C;
+    --flag:#C4A263; --shadow:0 1px 2px rgba(0,0,0,.4), 0 16px 40px -20px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0C1211; --sheet:#131C19; --ink:#E3EBE7; --muted:#95A6A0;
+  --rule:#2C3B36; --hair:#22302C; --accent:#77C7B3; --accent-soft:#1B322C;
+  --flag:#C4A263; --shadow:0 1px 2px rgba(0,0,0,.4), 0 16px 40px -20px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  font-size:15px; line-height:1.85; letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.mincho{font-family:"Zen Old Mincho","Hiragino Mincho ProN",serif}
+
+/* ---------- top bar ---------- */
+.bar{
+  position:sticky; top:0; z-index:10; background:color-mix(in srgb, var(--ground) 88%, transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--hair);
+}
+.bar-in{
+  max-width:1000px; margin:0 auto; padding:10px 24px;
+  display:flex; flex-wrap:wrap; gap:8px 22px; align-items:baseline;
+}
+.bar-title{font-family:"Zen Old Mincho",serif; font-size:14px; font-weight:600; letter-spacing:.06em}
+.bar nav{display:flex; gap:16px; margin-left:auto}
+.bar a{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.09em;
+  color:var(--muted); text-decoration:none; padding:2px 0; border-bottom:1px solid transparent;
+}
+.bar a:hover,.bar a:focus-visible{color:var(--accent); border-bottom-color:var(--accent); outline:none}
+
+/* ---------- masthead ---------- */
+main{max-width:1000px; margin:0 auto; padding:0 24px 96px; display:flex; flex-direction:column; gap:40px}
+.masthead{padding:64px 0 8px; display:flex; flex-direction:column; gap:20px}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.18em;
+  color:var(--accent); text-transform:uppercase;
+}
+.masthead h1{
+  font-family:"Zen Old Mincho",serif; font-weight:600; font-size:clamp(28px,4.4vw,44px);
+  line-height:1.45; margin:0; text-wrap:balance; letter-spacing:.02em;
+}
+.masthead p{margin:0; max-width:62ch; color:var(--muted); font-size:14.5px}
+.masthead .team{
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.06em;
+  color:var(--ink); border-top:1px solid var(--rule); padding-top:14px; max-width:62ch;
+}
+
+/* ---------- sheet ---------- */
+.sheet{
+  background:var(--sheet); border:1px solid var(--rule); border-radius:2px;
+  box-shadow:var(--shadow); scroll-margin-top:64px; overflow:hidden;
+}
+.chart{
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+  border-bottom:1px solid var(--rule); background:var(--accent-soft);
+}
+.chart div{padding:10px 16px; border-right:1px solid var(--rule)}
+.chart div:last-child{border-right:none}
+.chart dt{
+  font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.14em;
+  color:var(--accent); margin:0 0 2px;
+}
+.chart dd{margin:0; font-size:12.5px; font-weight:500; line-height:1.5}
+.body{padding:38px clamp(20px,4.5vw,56px) 46px; display:flex; flex-direction:column; gap:30px}
+
+.sheet h2{
+  font-family:"Zen Old Mincho",serif; font-weight:600; font-size:clamp(21px,2.9vw,29px);
+  line-height:1.55; margin:0; text-wrap:balance;
+}
+.sheet h2 .sub{display:block; font-size:14px; color:var(--muted); font-family:"Noto Sans JP",sans-serif; font-weight:400; margin-top:10px}
+.sheet h3{
+  font-size:15px; font-weight:700; margin:0 0 10px; letter-spacing:.02em;
+  display:flex; align-items:baseline; gap:10px;
+}
+.sheet h3 .n{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--accent);
+  letter-spacing:.1em; flex:none;
+}
+.sheet p{margin:0 0 12px; max-width:66ch}
+.sheet p:last-child{margin-bottom:0}
+section.blk{border-top:1px solid var(--hair); padding-top:22px}
+section.blk:first-of-type{border-top:none; padding-top:0}
+strong{font-weight:700}
+em{font-style:normal; background:linear-gradient(transparent 62%, var(--accent-soft) 62%); font-weight:500}
+.flag{color:var(--flag); font-family:"IBM Plex Mono",monospace; font-size:11px; white-space:nowrap}
+
+blockquote{
+  margin:0; padding:16px 22px; border-left:2px solid var(--accent); background:var(--accent-soft);
+  font-family:"Zen Old Mincho",serif; font-size:clamp(16px,2.1vw,19px); line-height:1.8;
+}
+blockquote p{margin:0; max-width:none}
+blockquote p + p{margin-top:8px}
+
+ul.plain{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px}
+ul.plain li{position:relative; padding-left:20px; max-width:66ch}
+ul.plain li::before{
+  content:""; position:absolute; left:2px; top:.72em; width:7px; height:1px; background:var(--accent);
+}
+
+.tbl-wrap{overflow-x:auto; border:1px solid var(--hair); border-radius:2px}
+table{border-collapse:collapse; width:100%; min-width:600px; font-size:13.5px; line-height:1.7}
+th,td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--hair); vertical-align:top}
+thead th{
+  font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.12em; color:var(--accent);
+  background:var(--accent-soft); border-bottom:1px solid var(--rule); white-space:nowrap; font-weight:500;
+}
+tbody tr:last-child td{border-bottom:none}
+td.k{font-weight:700; white-space:nowrap}
+td.k span{display:block; font-family:"IBM Plex Mono",monospace; font-size:9.5px; color:var(--muted); font-weight:400; letter-spacing:.06em}
+
+.cols{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1px; background:var(--hair); border:1px solid var(--hair)}
+.cols > div{background:var(--sheet); padding:16px 18px}
+.cols h4{margin:0 0 6px; font-size:13.5px; font-weight:700}
+.cols .lab{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.13em; color:var(--accent); display:block; margin-bottom:8px}
+.cols p{font-size:13px; line-height:1.75; color:var(--muted); margin:0}
+
+.vs{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--hair); border:1px solid var(--hair)}
+.vs > div{background:var(--sheet); padding:16px 18px}
+.vs .no{color:var(--muted)}
+.vs .lab{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.12em; display:block; margin-bottom:10px}
+.vs .no .lab{color:var(--muted)}
+.vs .yes .lab{color:var(--accent)}
+.vs ul{margin:0; padding-left:1.1em; display:flex; flex-direction:column; gap:7px; font-size:13.5px}
+
+/* ---------- figure ---------- */
+figure{margin:0; display:flex; flex-direction:column; gap:12px}
+.fig-scroll{overflow-x:auto; padding:6px 0}
+figure svg{display:block; min-width:720px; width:100%; height:auto; color:var(--ink)}
+figcaption{font-size:12.5px; color:var(--muted); max-width:66ch}
+.d-node{fill:var(--sheet); stroke:var(--rule); stroke-width:1}
+.d-core{fill:var(--accent-soft); stroke:var(--accent); stroke-width:1.5}
+.d-hub{fill:var(--accent); stroke:none}
+.d-line{stroke:var(--rule); stroke-width:1; fill:none}
+.d-flow{stroke:var(--accent); stroke-width:1.4; fill:none}
+.d-dash{stroke:var(--accent); stroke-width:1.2; fill:none; stroke-dasharray:5 4}
+.d-t{fill:currentColor; font-family:"Noto Sans JP",sans-serif; font-size:13px}
+.d-t.jp-sm{font-size:12px}
+.d-en{fill:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.06em}
+.d-edge{fill:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.04em}
+.d-grp{fill:var(--accent); font-family:"Zen Old Mincho",serif; font-size:15px; font-weight:600}
+.d-core-t{fill:var(--ink); font-family:"Zen Old Mincho",serif; font-size:16px; font-weight:600}
+.d-hub-t{fill:var(--sheet); font-family:"Zen Old Mincho",serif; font-size:17px; font-weight:600}
+.d-arrow{fill:var(--accent)}
+
+footer{
+  border-top:1px solid var(--rule); padding-top:20px; color:var(--muted); font-size:12px;
+  display:flex; flex-wrap:wrap; gap:6px 20px;
+}
+@media (max-width:640px){
+  .chart{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .chart div:nth-child(2){border-right:none}
+  .vs{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+<style>
+main{max-width:860px}
+.sheet.a4{margin-top:32px}
+.doc-head{border-bottom:2px solid var(--accent); padding-bottom:18px; margin-bottom:6px}
+.doc-head h1{
+  font-family:"Zen Old Mincho",serif; font-weight:600; font-size:clamp(25px,4vw,36px);
+  margin:0 0 12px; line-height:1.45; letter-spacing:.02em; text-wrap:balance;
+}
+.doc-head .team{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.06em; color:var(--muted); line-height:1.8}
+.fact{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px;
+  background:var(--hair); border:1px solid var(--hair); margin:4px 0;
+}
+.fact > div{background:var(--sheet); padding:13px 15px}
+.fact dt{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.12em; color:var(--accent); margin:0 0 4px}
+.fact dd{margin:0; font-size:13px; line-height:1.6}
+.fact dd b{font-family:"IBM Plex Mono",monospace; font-size:17px; font-weight:500; display:block; margin-bottom:2px}
+.ask{border:1px solid var(--accent); border-radius:2px; padding:22px 24px; margin-top:6px}
+.ask .lab{font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.14em; color:var(--accent); display:block; margin-bottom:14px}
+.ask p{font-family:"Zen Old Mincho",serif; font-size:clamp(16px,2.2vw,20px); line-height:1.85; margin:0; max-width:none}
+.ask p + p{margin-top:14px}
+.notes{margin-top:40px; border-top:1px dashed var(--rule); padding-top:24px}
+.notes h3{font-size:13px; color:var(--muted)}
+@media print{ .bar{display:none} body{background:#fff} .sheet{box-shadow:none; border:none} }
+</style>
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">徳之島 Opportunity Memo</span>
+    <nav><a href="#memo">A4 ONE PAGE</a><a href="#notes">社内注記</a></nav>
+  </div>
+</div>
+
+<main>
+  <article class="sheet a4" id="memo">
+    <dl class="chart">
+      <div><dt class="mono">DOC</dt><dd>PMO 12 ／ Opportunity Memo</dd></div>
+      <div><dt class="mono">FOR</dt><dd>理事長・事務局長</dd></div>
+      <div><dt class="mono">USE</dt><dd>面談冒頭 10分</dd></div>
+      <div><dt class="mono">STATUS</dt><dd>提案ではなく、問いの共有</dd></div>
+    </dl>
+    <div class="body">
+      <div class="doc-head">
+        <h1>旧徳之島徳洲会病院を、どう残すか</h1>
+        <p class="team">HOSPITALITY BRAND &amp; DESTINATION DEVELOPMENT TEAM<br>
+        町田・向田（ENOWA YUFUIN ／ ブランド開発） ＋ RATA（環境再生・アート・地域連携）</p>
+      </div>
+
+      <section class="blk">
+        <h3><span class="n">01</span>この建物は、ただの病院ではありません</h3>
+        <p>旧徳之島徳洲会病院は、<strong>1986年10月、徳洲会グループ初の離島病院</strong>として開院しました。2025年10月、約1.5km先の高台へ新病院が移転するまで、<strong>約40年間</strong>、島の医療を担ってきました。</p>
+        <p>つまりこの建物は、<em>徳洲会が離島医療へ出ていった、最初の一歩そのもの</em>です。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">02</span>世界のホテルで最も希少なものは、「後から作れない過去」</h3>
+        <p>この20年、高価格帯ホテルで最も強い差別化を生んだのは、豪華さでも新しさでもなく、<strong>その建物にしかない履歴</strong>でした。修道院、刑務所、発電所、駅舎 ── 用途を終えた建築がその記憶ごと宿になったとき、旅行者はそこを「泊まる場所」ではなく「行く理由」として扱いはじめます。</p>
+        <p>新築はいつか必ず比較されます。<strong>履歴を持つ建築だけが、比較の外に出られます。</strong></p>
+        <p>そして ── <strong>hospital（病院）、hospitality（もてなし）、hotel、hospice は、すべてラテン語 hospes（客人をもてなす者）から分かれた言葉です。</strong>中世の hospitale は、旅人を迎え、病んだ者を休ませる、同じ一つの場所を指していました。</p>
+        <blockquote><p>病院を宿にすることは、用途の転用ではなく、<br>原点への回帰です。</p></blockquote>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">03</span>しかし、いま我々が考えているのは、その先です</h3>
+        <p>記念館は、すでにあります。徳田虎雄顕彰記念館は新病院のすぐ近くにあります。<strong>だから、旧病院が「記念する」役割を負う必要はありません。</strong></p>
+        <blockquote><p>建物を残すことで徳田虎雄さんを保存するのではなく、<br>徳田虎雄さんの思想を持った人間を生み出し続けることで、<br>レガシーを残せないか。</p></blockquote>
+        <p style="margin-top:16px">「生命だけは平等だ」と信じ、常識にとらわれず、それを実現するために行動できる人を、<em>徳之島から世界へ送り出し続ける場所</em>にできないか。</p>
+        <p>医師を目指す子も、まだ将来が決まっていない子も、研究者も、起業家も、医療者も、日本人も外国人も集まる。人の生命、地域の生命、自然の生命について、学び、研究し、試す。</p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">04</span>徳洲会は、これを実行できる条件をすでに持っています</h3>
+        <dl class="fact">
+          <div><dt class="mono">CLINICAL RESEARCH</dt><dd><b>40施設</b>臨床試験センターが稼働。臨床試験部会という司令塔と倫理審査体制</dd></div>
+          <div><dt class="mono">EXISTING POLICY</dt><dd><b>治験の空洞化の打開</b>離島での分散型実証は、その延長線上にあります</dd></div>
+          <div><dt class="mono">PEOPLE</dt><dd><b>全国の病院群</b>島の子が医師になり、島に帰る道が実在します</dd></div>
+          <div><dt class="mono">THE ISLAND</dt><dd><b>2.46〜2.81</b>伊仙町の合計特殊出生率は全国最高水準。長寿の島。世界自然遺産</dd></div>
+          <div><dt class="mono">THE BUILDING</dt><dd><b>1986 – 2025</b>島の医療を担った建物。どのホテルも持っていません</dd></div>
+        </dl>
+        <p style="margin-top:18px">新しく作るものは、多くありません。<strong>すでにあるものを、一つの場所で結ぶだけかもしれません。</strong></p>
+      </section>
+
+      <section class="blk">
+        <h3><span class="n">05</span>ただし、これはまだ我々の仮説です</h3>
+        <p>投資額、客室数、設計の進捗、何を期待しておられるのか ──<strong>我々はまだ、ほとんど何も存じ上げません。</strong>ですから本日は、ご提案ではなく、うかがいに参りました。</p>
+        <div class="ask">
+          <span class="lab">本日、最もうかがいたいこと</span>
+          <p>徳田虎雄さんが40年前にこの病院をつくった時、<br>周囲から無理だと言われても実現したものは、何だったのでしょうか。</p>
+          <p>そして今この建物を残すとしたら、次の40年に徳洲会が<br>&ldquo;常識を壊してでも実現したいこと&rdquo;は、何でしょうか。</p>
+        </div>
+        <p style="margin-top:18px">この答えをうかがってから、我々の考えを整理させてください。</p>
+      </section>
+
+      <p style="font-size:11.5px; color:var(--muted); border-top:1px solid var(--hair); padding-top:16px; margin-top:8px">
+        ※ 本メモの事実（開院年、移転、臨床試験センター数、出生率、世界自然遺産登録）は公開情報に基づきます。投資額約30億円ほか事業条件は未確認事項として扱っています。
+      </p>
+    </div>
+  </article>
+
+  <article class="sheet" id="notes">
+    <dl class="chart">
+      <div><dt class="mono">INTERNAL</dt><dd>社内注記</dd></div>
+      <div><dt class="mono">RULE</dt><dd>Proposal 30 ／ Listening 70</dd></div>
+      <div><dt class="mono">HANDOUT</dt><dd>この一枚だけ</dd></div>
+      <div><dt class="mono">REF</dt><dd>PMO 11 / 01 / 02</dd></div>
+    </dl>
+    <div class="body notes" style="padding-top:28px">
+      <h2>この一枚の設計意図</h2>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>節</th><th>役割</th><th>注意</th></tr></thead>
+          <tbody>
+            <tr><td class="k">01</td><td><strong>事実から入る。</strong>我々が調べたことを示し、敬意を示す</td><td>「グループ初の離島病院」は最も強い事実</td></tr>
+            <tr><td class="k">02</td><td>ホテルとしての価値を、業界の構造から説明する</td><td>語源は、説明を一行で済ませられる</td></tr>
+            <tr><td class="k">03</td><td><strong>仮説を、断定せずに置く</strong></td><td>「〜できないか」という形を崩さない</td></tr>
+            <tr><td class="k">04</td><td><strong>徳洲会が既に持っているものだけを並べる。</strong>我々が足すものを書かない</td><td>ここが最も重要。売り込みに見せない</td></tr>
+            <tr><td class="k">05</td><td><strong>問いで終える</strong></td><td>提案30／傾聴70を、紙の構造で担保する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 style="margin-top:26px">当日の禁止事項</h3>
+      <ul class="plain">
+        <li><strong>渡すのはこの一枚だけ。</strong>他の資料は求められたときだけ出す</li>
+        <li>この場でブランドコンセプトを提示しない。求められても「持ち帰って整理させてください」と答える</li>
+        <li>Living Lab・アート・リジェネラティブを、こちらから先に売り込まない</li>
+        <li><strong>徳田虎雄氏の人物評価を、我々が語らない</strong></li>
+        <li>提案が25分を超えたら、その時点で切り上げてヒアリングに移る</li>
+      </ul>
+      <h3 style="margin-top:26px">この紙で言っていないこと（意図的）</h3>
+      <p>Global Life Lab という名称、教育プログラムの中身、Alumni Network、奨学金モデル、価格思想、減築 ── <strong>すべて意図的に書いていません。</strong>理事長が AMBITION に「世界」と答えられた場合に限り、PMO 03・04・08 の内容を出します。それ以前には出しません。</p>
+    </div>
+  </article>
+
+  <footer>
+    <span class="mono">PMO 12_One_Page_Opportunity_Memo</span>
+    <span>事実は公開情報に基づく／事業条件は未確認</span>
+  </footer>
+</main>
