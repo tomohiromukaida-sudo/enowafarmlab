@@ -52,6 +52,8 @@ Working Transformation：**HOSPITAL → HOTEL ではなく、HOSPITAL → GLOBAL
 | 13 | [Machida_Mukada_Role](13_Machida_Mukada_Role.md) | 作成済 |
 | 14 | [Risk_Register](14_Risk_Register.md) | 作成済 |
 | 15 | [Concept_Evaluation](15_Concept_Evaluation.md) | 作成済（10項目評価＋最終10問の現在地） |
+| **16** | **[Meeting_Jimukyokucho](16_Meeting_Jimukyokucho.md)** | **次の実アクション。事務局長＝次期総支配人 面談ガイド** |
+| 17 | [Transcript_0911_Extract](17_Transcript_0911_Extract.md) | 2026-09-11 打合せ 徳之島パート抽出 [U] |
 
 ### 提示用ページ
 
@@ -100,9 +102,13 @@ IDEA → RESEARCH → FACT CHECK → HYPOTHESIS
 
 ## 6. いま最も欠けている情報（優先順）
 
+> **⚠ 2026-09-11 更新：最初に会うのは理事長ではなく、現・事務局長＝次期ホテル総支配人（見込み）。**
+> **→ [16](16_Meeting_Jimukyokucho.md) が次の実アクション。[17](17_Transcript_0911_Extract.md) に経緯。**
+
 | 優先 | 不明事項 | 入手先 | 影響する文書 |
 |---|---|---|---|
-| 1 | 理事長の意向（なぜ残すのか、何を期待するのか） | 初回面談 | 全て |
+| 0 | **この30億円に、回収を求めているのか** | **事務局長面談** | 09・10・全体 |
+| 1 | 理事長の意向（なぜ残すのか、何を期待するのか） | 事務局長 → 理事長面談 | 全て |
 | 2 | 徳洲会グループ内部需要の実数 | 事務局 | 07・09・10 |
 | 3 | 旧病院の物理条件（構造・耐震・設備・図面） | 旧病院PJ責任者 | 06・10・14 |
 | 4 | 投資条件（30億円の性格・回収前提・資金源） | 事務局 | 10 |
